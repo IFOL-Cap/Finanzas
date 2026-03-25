@@ -45,7 +45,7 @@ export class NavbarComponent implements OnDestroy {
   getflowTitile(ruta: string) {
     switch(ruta.toLowerCase()){
       case "gs":
-        this.flowTitle = "Finanzas";
+        this.flowTitle = "Fianzas";
       break;
     }
     }

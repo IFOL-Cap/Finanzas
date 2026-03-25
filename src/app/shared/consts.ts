@@ -31,19 +31,19 @@ export const TableLabels = {
     previousPageLabel: "Anterior "
 }
 export const ApRoutes = {
-    /**cs:{
-        value: 'cs',
+    im:{
+        value: 'im',
         path: {
             step1: {
                 value: 'step1',
-                full: ()=> '/cs/step1'
+                full: ()=> '/im/step1'
             },
             step2: {
                 value: 'step2',
-                full: ()=> '/cs/step2'
+                full: ()=> '/im/step2'
             },
         }
-    } */
+    } 
 }
 
 export const BreakPoint = {

@@ -674,6 +674,7 @@ export interface ButtonSelect {
 }
 export enum FlowFrom {
     fz,
+    im,
 }
 
 export interface LabelInputI {

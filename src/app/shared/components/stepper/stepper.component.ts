@@ -35,6 +35,7 @@ export class StepperComponent {
   isFinishCompleted: boolean = false;
 
 
+  titlesIM = ['Datos complementarios', 'Emision'];
   titlesFZ = ['Datos complementarios', 'Emision'];
   //'Cotización','Datos complementarios', 'Emisión', 'Datos de pago'
 
@@ -145,6 +146,8 @@ export class StepperComponent {
     console.log("stteper seleccionado", flowFrom);
     switch(flowFrom)
     {
+      case FlowFrom.im:
+        return this.titlesIM;
       case FlowFrom.fz:
         return this.titlesFZ;
     }

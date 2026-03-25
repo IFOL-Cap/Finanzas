@@ -1,0 +1,128 @@
+<div class="mb-4 border-b border-gray-200 dark:border-gray-700 mt-10">
+  <ul
+    class="flex justify-evenly md:justify-normal pt-5 text-base text-center"
+    id="ulj-tab"
+    data-tabs-toggle="#ulj-tab-content"
+    data-tabs-active-classes="text-black font-rbt-black hover:text-black dark:text-purple-500 border-red-mafe"
+    data-tabs-inactive-classes="dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-50 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300"
+    role="tablist"
+  >
+    <li class="me-2" role="presentation">
+      <button
+        class="inline-block p-2 border-b-2 rounded-t-lg"
+        id="quotationulj-tab"
+        data-tabs-target="#quotationulj"
+        type="button"
+        role="tab"
+        aria-controls="quotationulj"
+        aria-selected="false"
+      >
+        Nueva cotización
+      </button>
+    </li>
+
+    <li class="me-2" role="presentation">
+      <button
+        class="inline-block p-2 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+        id="myquotesulj-tab"
+        data-tabs-target="#myquotesulj"
+        type="button"
+        role="tab"
+        aria-controls="myquotesulj"
+        aria-selected="false"
+      >
+        Mis cotizaciones
+      </button>
+    </li>
+    <li role="presentation">
+      <button
+        class="inline-block p-2 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+        id="policiesulj-tab"
+        data-tabs-target="#policiesulj"
+        type="button"
+        role="tab"
+        aria-controls="policiesulj"
+        aria-selected="false"
+      >
+        Mis pólizas
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="ulj-tab-content">
+  <div
+    class="hidden p-2 rounded-lg"
+    id="quotationulj"
+    role="tabpanel"
+    aria-labelledby="quotationulj-tab"
+  >
+    <div class="md:flex gap-4">
+      <div class="block md:w-1/4 order-1 md:order-2">
+        <figure class="mt-2">
+          <app-carousel
+            class="w-full"
+            [carouselConfig]="carrousel"
+          ></app-carousel>
+        </figure>
+        <div class="mt-3">
+          @if (rs.isResumen) {
+          <app-resume>
+            <app-egv-resumen />
+          </app-resume>
+          }
+        </div>
+      </div>
+
+      <div class="w-full md:w-3/4 order-2 md:order-1 mt-5 md:mt-0">
+        <div
+          class="mb-4 grid grid-cols-6 md:flex md:flex-row md:justify-between"
+        >
+          <div class="col-span-6">
+            <h2 class="font-rbt-rglr text-xl font-bold">
+              Modulo Emisión
+            </h2>
+          </div>
+          <div class="col-span-6">
+            <app-stepper [stepperConf]="{
+							flowFrom: flowFrom.im
+						  }">
+						</app-stepper>
+          </div>
+        </div>
+        <div class="max-w-full">
+          <router-outlet />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+    id="myquotesulj"
+    role="tabpanel"
+    aria-labelledby="myquotesulj-tab"
+  >
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      This is some placeholder content the
+      <strong class="font-medium text-gray-800 dark:text-white"
+        >Settings tab's associated content</strong
+      >. Clicking another tab will toggle the visibility of this one for the
+      next. The tab JavaScript swaps classes to control the content visibility
+      and styling.
+    </p>
+  </div>
+  <div
+    class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800"
+    id="policiesulj"
+    role="tabpanel"
+    aria-labelledby="policiesulj-tab"
+  >
+    <p class="text-sm text-gray-500 dark:text-gray-400">
+      This is some placeholder content the
+      <strong class="font-medium text-gray-800 dark:text-white"
+        >Contacts tab's associated content</strong
+      >. Clicking another tab will toggle the visibility of this one for the
+      next. The tab JavaScript swaps classes to control the content visibility
+      and styling.
+    </p>
+  </div>
+</div>
