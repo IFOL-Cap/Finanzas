@@ -1,0 +1,28 @@
+<div class="grid grid-cols-3 items-center gap-y-2">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+    
+    </div>
+    
+    <div class="col-span-3 md:col-span-1 gap-4 w-full flex">
+        @if (dateConfig.isFrom) {
+            <span class="w-1/5 flex items-center text-base text-black-title font-rbt-bold">
+                Desde:
+            </span>
+        }
+        <app-date [ngClass]="dateConfig.isEdad ? 'w-3/4': 'w-full'" [dateConfig]="dateConfig"></app-date>
+        @if(dateConfig.isEdad) {
+            <app-input class="w-24" [inputConfig]="inputConfig"></app-input>
+        }
+    </div>
+    @if (dateConfig.isFrom) {
+        <div class="col-span-3 md:col-span-1 gap-2 w-full flex">
+            <span class="w-1/5 pl-4 text-base text-black-title font-rbt-bold">
+                Hasta:
+            </span>
+            <span class="w-4/5 pl-2 text-base font-rbt-rglr md:pl-4">
+                10/10/2025
+            </span>
+        </div>
+    }
+</div>

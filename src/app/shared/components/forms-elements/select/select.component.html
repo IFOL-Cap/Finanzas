@@ -1,0 +1,20 @@
+<div class="input-element w-full ">
+    <form [formGroup]="selectElementFrm">
+        <select (change)="changeSelect()" id="countries" formControlName="selectEl"
+                class="text-black-text-input text-base border bg-gray-50 border-gray-border-input rounded-lg transition duration-300 ease  focus:border-slate-400 w-full"
+                [attr.disabled]="selectConfig.isDisable ? 'true' : null"
+                [value]="actualValue">
+                <option value="" selected hidden>{{selectConfig.placeHolder}}</option>
+                <option  *ngFor="let option of selectConfig.data, index as i "                
+                     [attr.disabled]="option.attribute != '' && option.attribute == 'disabled' ? true : null"
+                     [attr.selected]="option.attribute != '' && option.attribute == 'selected' ? '' : null"
+                     [value]="option.value"                     
+                     >{{option.display}}</option>
+      
+          </select>
+          <p *ngIf="selectElementFrm.controls.selectEl.errors?.['required'] && selectElementFrm.dirty" class="mt-2 text-sm text-red-600 dark:text-red-500">Campo requerido</p>
+    </form>
+
+
+
+    

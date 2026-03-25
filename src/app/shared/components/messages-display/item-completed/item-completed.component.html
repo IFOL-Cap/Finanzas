@@ -1,0 +1,19 @@
+<div class="w-full flex justify-between "
+     [ngClass]="{'border-b-[1px] py-2 border-gray-division-section': itemCompletedConfig.from == 0,
+                  'px-3 py-2': itemCompletedConfig.type == 0 && itemCompletedConfig.from == 1,
+                  'bg-[#F8F9F9] p-2': itemCompletedConfig.type == 1 && itemCompletedConfig.from == 1
+     }">
+    <div
+         [ngClass]="{'text-gray-subtitle-acdn text-base font-rbt-rglr': itemCompletedConfig.from == 0,
+                     'text-[#616364] text-sm font-rbt-bold': itemCompletedConfig.from == 1,
+         }"
+    >
+        {{itemCompletedConfig.label}}
+    </div>
+    <div
+        [ngClass]="{'text-red-mafe text-black-title font-rbt-rglr': itemCompletedConfig.from == 0,
+                    'text-[#72797D] text-sm font-rbt-rglr': itemCompletedConfig.from == 1,
+        }">
+        {{itemCompletedConfig.value}}
+    </div>
+</div>

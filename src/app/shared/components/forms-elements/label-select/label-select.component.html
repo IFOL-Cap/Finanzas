@@ -1,0 +1,35 @@
+<div class="grid grid-cols-3 items-center  gap-y-2">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+
+    </div>
+
+    <div class="col-span-3 md:col-span-1">
+        <app-select [selectConfig]="selectConfig" (itemSelected)="changes($event)" ></app-select>
+    </div>
+    @if (check.isCheck) {
+        <div class="md:col-span-1 flex items-center col-span-3 ml-2">
+            <input id="default-checkbox" type="checkbox" [(ngModel)]="isChecked" (change)="changeCheck()"
+            class="w-4 h-4 text-red-mafe border-[#A5A7A8] rounded focus:ring-0">
+            <label for="default-checkbox" class="ms-2 text-sm font-bold text-[#13171A]">{{ check.titleCheck }} </label>
+
+            @if(check.isHelpMsg){
+                <span data-tooltip-style="light" class="ml-2">
+                    <img src="assets/icons/question.svg" alt="question">
+                </span>
+               }
+        </div>
+    }
+    @if(check.isCustom){
+        <div class="col-span-3 md:col-span-1">
+            @switch (check.from) {
+                @case (2) {
+                    <div class="text-red-mafe underline flex items-center">
+                        <a href="#">Ver tipos de carga</a>
+                    </div>
+                }
+            }
+
+        </div>
+    }
+</div>

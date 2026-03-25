@@ -1,0 +1,14 @@
+<div class="grid grid-cols-3 items-center ">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+    </div>
+    <div class="col-span-3 md:col-span-1">
+        <app-card-input [inputConfig]="inputConfig"></app-card-input>
+        @if (inputConfig.isInfo) {
+            <span class="flex gap-2 font-normal text-base text-[#818080]">
+                <img src="/assets/icons/Info-Circle.svg" alt="">
+                {{ inputConfig.labelInfo }}
+            </span>
+        }
+    </div>
+</div>

@@ -1,0 +1,242 @@
+<div class=" w-full items-center py-5">
+    <app-label-buttons-group class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: '¿Son los mismos datos del contratante?',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [buttonsConfig]="{
+            type: '',
+            pattern: '',
+            isrequied: false,
+            placeHolder: '',
+            isDisable: false,
+            isHidden: false,
+            optionSelected: 1,
+            titleLeft: 'Si', 
+            titleRight: 'No'
+        }" />
+
+
+</div>
+<div class="flex w-full items-center py-5 border-t border-gray-division-section">
+    <app-label-buttons-group class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Tipo de persona',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [buttonsConfig]="{
+            type: '',
+            pattern: '',
+            isrequied: false,
+            placeHolder: '',
+            isDisable: false,
+            isHidden: false,
+            optionSelected: 1,
+            titleLeft: 'Física', 
+            titleRight: 'Moral'
+        }" (selected)="getTypeOfPerson($event)" />
+
+</div>
+    <div *ngIf="personType">
+
+        <div class="flex w-full items-center py-5 border-t border-gray-division-section">
+            <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Nombres(s)',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Nombre',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+        </div>
+
+        <div class="flex w-full items-center pb-5">
+            <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Primer apellido',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Primer apellido',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+        </div>
+
+        <div class="flex w-full items-center pb-5">
+            <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Segundo apellido',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Segundo apellido',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+        </div>
+
+    </div>
+
+    <div *ngIf="!personType">
+        <div class="flex w-full items-center py-5 border-t border-gray-division-section">
+            <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Denominación o Razón Social',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Denominación o Razón Social',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+        </div>
+
+        <div class="flex w-full items-center pb-5">
+            <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Fecha de Constitución',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Fecha de Constitución',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+        </div>
+    </div>
+
+    <div class="flex w-full items-center py-5 border-t border-gray-division-section">
+        <div class="grid grid-cols-3 w-full items-center gap-y-2">
+            <div class="col-span-3 md:col-span-1">
+                <app-label-help [labelHelp]="{
+                    isRquired: true,
+                    isWithHelp: true,
+                    isWithSubtitle: false,
+                    title: 'RFC',
+                    subtitle: '',
+                    position: 'right',
+                    helpMsg: 'ayuda'
+                }"></app-label-help>
+            </div>
+            <div class="flex gap-3 col-span-3 md:col-span-1">
+                <app-input [inputConfig]="{
+                    type: 'text',
+                    pattern: '',
+                    isrequied: false,
+                    placeHolder: 'RFC',
+                    isDisable: false,
+                    isHidden: false,
+                    isRead: false,
+                }"></app-input>
+                <app-input [inputConfig]="{
+                    type: 'text',
+                    pattern: '',
+                    isrequied: false,
+                    placeHolder: 'Homoclave',
+                    isDisable: false,
+                    isHidden: false,
+                    isRead: false,
+                }"></app-input>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="flex w-full items-center py-5 border-t border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Código postal',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [selectConfig]="
+        {
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: '1', display: '1' },
+                { value: '2', display: '2' },
+                { value: '3', display: '3' }
+            ],
+            id: 1
+        }" />
+    </div>
+
+
+    <div class="flex w-full items-center py-5 border-t border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Régimen fiscal',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [selectConfig]="
+        {
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: '1', display: '1' },
+                { value: '2', display: '2' },
+                { value: '3', display: '3' }
+            ],
+            id: 1
+        }" />
+    </div>
+
+    <!-- <hr class="col-span-3 md:col-span-3 mt-4 mb-6 bg-gray-division-section"> -->

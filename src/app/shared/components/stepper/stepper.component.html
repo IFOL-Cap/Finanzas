@@ -1,0 +1,87 @@
+<ol class="flex justify-start mt-3 md:mt-0 w-full">
+    <li class="flex items-center md:ml-5 mr-2 text-black space-x-2">
+		<button>
+            <span class="flex items-center justify-center w-8 h-8 bg-red-mafe border text-white border-red-mafe rounded-full shrink-0 dark:border-blue-500">
+				@if (isFinishOne) 
+				{
+					<img width="20" height="20" src="/assets/icons/checkWhite.svg" alt="">
+				}@else {
+					1
+				}
+            </span>
+		</button>
+
+		@if (isStepOne) 
+		{
+			<span class="text-[#222A2F] w-48 md:w-32 font-rbt-rglr font-semibold text-base">{{titlesCurrent[0]}}</span>
+		}
+     </li>
+ 
+
+	<li class="flex items-center mr-2 text-black space-x-2.5 ">
+		<button>
+            <span class="flex items-center justify-center w-8 h-8  border rounded-full shrink-0 dark:border-blue-500"
+				[ngClass]="isStepTwo || isFinishTwo ? 'bg-red-mafe text-white' : 'bg-circle-inactive text-red-mafe'">
+                @if (isFinishTwo) 
+				{
+					<img width="20" height="20" src="/assets/icons/checkWhite.svg" alt="">
+				}@else {
+					2
+				}
+            </span>
+		</button>
+		@if (isStepTwo) 
+		{
+			<span class="text-[#222A2F] w-48 md:w-32 font-rbt-rglr font-semibold text-base">{{titlesCurrent[1]}}</span>
+		}
+    </li>
+
+
+	<li class="flex items-center mr-2 text-black dark:text-blue-500 space-x-2.5 ">
+		<button>
+            <span class="flex items-center justify-center w-8 h-8 border rounded-full shrink-0 dark:border-blue-500"
+				[ngClass]="isStepThree || isFinishThree ? 'bg-red-mafe text-white' : 'bg-circle-inactive text-red-mafe'">
+				@if (isFinishThree) 
+				{
+					<img width="20" height="20" src="/assets/icons/checkWhite.svg" alt="">
+				}@else {
+					3
+				}
+            </span>
+		</button>
+		@if (isStepThree) 
+		{
+			<span class="text-[#222A2F] w-48 font-rbt-rglr font-semibold text-base">{{titlesCurrent[2]}}</span>
+		}
+    </li>
+
+		
+	<li class="flex items-center text-black dark:text-blue-500 space-x-2.5 ">
+		<button>
+            <span
+                class="flex items-center justify-center w-8 h-8 border rounded-full shrink-0 dark:border-blue-500"
+				[ngClass]="isStepFour || isFinishFour ? 'bg-red-mafe text-white' : 'bg-circle-inactive text-red-mafe'">
+				@if (isFinishFour) 
+				{
+					<img width="20" height="20" src="/assets/icons/checkWhite.svg" alt="">
+				}@else {
+					4
+				}
+            </span>
+		</button>
+		@if (isStepFour) 
+		{
+			<span class="text-[#222A2F] font-rbt-rglr font-semibold text-base">{{titlesCurrent[3]}}</span>
+		}
+    </li>
+
+	<li class="flex items-center text-black space-x-2.5 ">
+		@if (isCompleted) 
+		{
+			<span class="text-[#222A2F] font-rbt-rglr font-semibold text-base ml-2">{{titlesCurrent[4]}}</span>
+		}
+    </li>
+
+
+</ol>
+ 

@@ -1,0 +1,14 @@
+<span  attr.data-tooltip-target="{{idHelp}}"  data-tooltip-style="light">
+    <img
+
+          #imgHelpQuestion
+           src="assets/icons/question.svg" alt="question" class="ml-2">
+
+  </span>
+  <div [id]="idHelp" role="tooltip"
+
+       class="absolute z-40 invisible inline-block px-3 py-2 text-sm font-medium text-gray-900 bg-white  rounded-lg shadow-sm opacity-0 tooltip"
+       >
+            {{helpConf.msg}}
+    <div class="tooltip-arrow" data-popper-arrow></div>
+  </div>

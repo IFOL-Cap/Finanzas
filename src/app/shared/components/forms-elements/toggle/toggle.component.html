@@ -1,0 +1,21 @@
+<!--
+<div class="w-full">
+    <label class="flex items-center justify-end mr-2  cursor-pointer">
+      <input type="checkbox" value="" class="sr-only peer" [checked]="checkConfig.isChecked" (change)="onToggleChange($event)">
+      <div class="relative w-11 h-6 bg-[#EAE9E9] rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-red-mafe"></div>
+      <span class="ms-3 text-sm font-rbt-mdm text-[#72797D]">{{ checkConfig.data}}</span>
+    </label>
+</div>
+-->
+
+<div class="w-full">
+    <label class="flex items-center  cursor-pointer"
+             [class.justify-end]="toggleConfig.itemsEnd"   
+            [ngClass]="{'mr-2': toggleConfig.data != ''}">
+      <input type="checkbox" (change)="changeCheck()" value="" class="sr-only peer" [checked]="toggleConfig.isChecked">
+      <div class="relative w-11 h-6 bg-[#EAE9E9] rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-red-mafe"></div>
+      @if (toggleConfig.data != '') {
+        <span class="ms-3 text-xs font-rbt-mdm text-[#72797D] md:text-sm">{{ toggleConfig.data}}</span>
+      }
+    </label>
+</div>

@@ -1,0 +1,19 @@
+<div class="grid grid-cols-2 items-center gap-y-2">
+    <div class="col-span-1 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+    
+    </div>
+    
+    <div class="col-span-1 md:col-span-1 pr-4">
+        <div class="relative">
+            <input type="search" [(ngModel)]="nameFile" id="search" class="block w-full p-2 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Selecciona un archivo" required />
+            @if (nameFile != '') {
+                <button (click)="deleteFile()" type="submit" class="text-white absolute end-2 bottom-0.5 bg-red-mafe focus:outline-none font-medium rounded-lg text-base px-4 py-2">Eliminar</button>
+
+            } @else {
+                <button onclick="document.getElementById('my-file').click()" type="submit" class="text-white absolute end-2 bottom-0.5 bg-red-mafe focus:outline-none font-medium rounded-lg text-base px-4 py-2">Cargar</button>
+            }
+        </div>
+        <input (change)="submitfile($event)" style="display: none;"  type="file" id="my-file">
+    </div>
+</div>

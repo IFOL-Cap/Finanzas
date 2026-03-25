@@ -1,0 +1,200 @@
+<div id="accordion-open" data-accordion="collapse">
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion border border-b border-gray-200 rounded-lg gap-3"
+            (click)="toggleAccordion('accordion-open-body-1')" 
+            id="accordion-open-heading-1"
+            [attr.aria-expanded]="isActive ? 'true' : 'false'"
+            aria-controls="accordion-open-body-1">
+            <span class="flex items-center" [ngClass]="{'text-green-correct': isCompletedData}">
+                <img class="pr-4"
+                    [src]="isCompletedData ? './assets/icons/ratioButtonGreen.svg' : './assets/icons/radiobutton.svg'"
+                    alt="" />
+                    Datos de la denuncia
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-1" [ngClass]="{'hidden': !isActive}" aria-labelledby="accordion-open-heading-1">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-2')"
+            id="accordion-open-heading-2"
+            [attr.aria-expanded]="isActive2 ? 'true' : 'false'" 
+            aria-controls="accordion-open-body-2">
+            <span class="flex items-center" [ngClass]="{'text-green-correct': isCompletedData2}">
+                <img class="pr-4"
+                    [src]="isCompletedData2 ? './assets/icons/ratioButtonGreen.svg' : isActive2 ? isCompletedData2 ? './assets/icons/radiobutton.svg' :'./assets/icons/ratioButtonDisable.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Datos del reporte
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-2" [ngClass]="{'hidden': !isActive2}" aria-labelledby="accordion-open-heading-2">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-3')"
+            id="accordion-open-heading-3"
+            [attr.aria-expanded]="isActive3 ? 'true' : 'false'" 
+            aria-controls="accordion-open-body-3">
+            <span class="flex items-center" [ngClass]="{'text-green-correct': isCompletedData3}">
+                <img class="pr-4"
+                    [src]="isCompletedData3 ? './assets/icons/ratioButtonGreen.svg' : isActive3 ? './assets/icons/radiobutton.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Datos de la operación
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-3" [ngClass]="{'hidden': !isActive3}" aria-labelledby="accordion-open-heading-3">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-4')"
+            id="accordion-open-heading-4"
+            [attr.aria-expanded]="isActive4 ? true : false" 
+            aria-controls="accordion-open-body-4">
+            <span class="flex items-center">
+                <img class="pr-4"
+                    [src]="isCompletedData4 ? './assets/icons/ratioButtonGreen.svg' : isActive4 ? './assets/icons/radiobutton.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Datos de la persona reportada
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-4" [ngClass]="{'hidden': !isActive4}" aria-labelledby="accordion-open-heading-4">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+    
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-5')" 
+            id="accordion-open-heading-5"
+            [attr.aria-expanded]="isActive5 ? true: false"
+            aria-controls="accordion-open-body-5">
+            <span class="flex items-center">
+                <img class="pr-4"
+                    [src]="isCompletedData5 ? './assets/icons/ratioButtonGreen.svg' : isActive4 ? './assets/icons/radiobutton.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Datos del agente
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-5" [ngClass]="{'hidden': !isActive5}"
+        aria-labelledby="accordion-open-heading-5">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+
+    <h2>
+        <button type="button"
+        class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-6')"
+            id="accordion-open-heading-6"
+            [attr.aria-expanded]="isActive6 ? 'true' : 'false'"
+            aria-controls="accordion-open-body-6">
+            <span class="flex items-center">
+                <img class="pr-4"
+                    [src]="isCompletedData6 ? './assets/icons/ratioButtonGreen.svg' : isActive6 ? './assets/icons/radiobutton.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Datos de la operación relacionada
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-6" [ngClass]="{'hidden': !isActive6}"
+        aria-labelledby="accordion-open-heading-6">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700">
+            <h1>
+                Hola
+            </h1>     
+        </div>
+    </div>
+
+    <h2>
+        <button type="button"
+            class="flex items-center justify-between w-full p-5 bg-gray-accordion text-gray-500 border border-b border-gray-200 rounded-lg mt-2 md:mt-6 gap-3"
+            (click)="toggleAccordion('accordion-open-body-7')"
+            id="accordion-open-heading-7"
+            [attr.aria-expanded]="isActive7 ? true : false"
+            aria-controls="accordion-open-body-7">
+            <span class="flex items-center">
+                <img class="pr-4"
+                    [src]="isActive7 ? './assets/icons/radiobutton.svg' : './assets/icons/ratioButtonDisable.svg'"
+                    alt="" />
+                Dictamen
+            </span>
+            <svg data-accordion-icon class="w-3 h-3 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 5 5 1 1 5" />
+            </svg>
+        </button>
+    </h2>
+    <div id="accordion-open-body-7" [ngClass]="{'hidden': !isActive7}"
+        aria-labelledby="accordion-open-heading-7">
+        <div class="p-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700" >
+            <h1>
+                Hola
+            </h1>
+        </div>
+    </div>
+</div>

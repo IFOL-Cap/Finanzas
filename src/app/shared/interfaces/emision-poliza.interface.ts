@@ -1,0 +1,392 @@
+export interface EmisionPoliza {
+    // Datos del vehiculo
+    NumSerie:   string;
+    Placas:     string;
+    NumMotor:   null;
+    Salvamento: string;
+    //INTERFAZ CONTRATANTE
+    Contratante: Contratante;
+    //INTERFAZ CONDUCTOR
+    ContratanteConductor: null;
+    Conductor: Conductor;
+    //INTERFAZ ACCIDENTE
+    CoverturaAccidente:      string;
+    Accidente: Accidente;
+    //INTERFAZ MUERTE
+    CoverturaMuerte:         string;
+    Muerte: Muerte;
+    //INTERFAZ CONTRATANTE ADICIONAL
+    UsoContratanteAdicional: string;
+    ContratanteAdicional: ContratanteAdicional;
+    //INTERFAZ BENEFICIARIO PREFERENTE
+    UsoBeneficiarioPreferente: string;
+    BeneficiarioPreferente:    BeneficiarioPreferente;
+    //INTERFAZ PAGO
+    Pago: Pago;
+
+    Ramo:                    string;
+    Clasificacion:           string;
+    TipVehiculo:             string;
+    PolizaGrupo:             string;
+    Contrato:                string;
+    Total:                   string;
+    TipoPago:                string;
+    CodPago:                 string;
+    NumCotizacion:           string;
+    NomCotizacion:           null;
+    NumFactura:              null;
+    Factura:                 null;
+    Paquete:                 string;
+    ClvMafre:                null;
+    FecEfecto:               string;
+    AnioVehiculo:            string;
+    MensajeRetorno:          null;
+    PagoDomiciliado:         boolean;
+    Descuento:               number;
+    DescAutorizado:          number;
+    EnviarPago:              number;
+    Edad:                    number;
+    McaFisico:               string;
+    AuxMedioPago:            string;
+    idDocumentoSubida:       null;
+    descDocumentoSubida:     null;
+    McaDescuento:            boolean;
+    McaDeducible:            boolean;
+    MontoDeducible:          null;
+    MontoDescuento:          null;
+    McaFpAnualMsi:           string;
+    existeSuscripcion:       boolean;
+    observacionesDocExtra:   null;
+    EsTarifaMultivariada:    boolean;
+    NumSerieBloqueado:       boolean;
+    ContratanteConductorTMV: string;
+    Tipo_Envio_CCM:          string;
+    Ruta_Envio_CCM:          string;
+    UbicacionHogar:          string;
+    EsVentaCruzada:          boolean;
+    //INTERFAZ VENTA CRUZADA
+    VentaCruzada:            VentaCruzada;
+   
+    MontoVentaCruzada: number;
+    UsoFactura:        string;
+    datosFactura:      DatosFactura;
+    Agente:            string;
+    Oficina:           number;
+    TipoUsuario:       number;
+    Perfil:            null;
+    Agentes:           null;
+    VisibleAgentes:    boolean;
+    isTMKT:            boolean;
+}
+
+export interface Contratante {
+    TipoPersona: string;
+    RazonSocial: null;
+    Nombre: null;
+    ApellidoPaterno: null;
+    ApellidoMaterno: null;
+    FecNacimiento: null;
+    FecNacNoRecident: null;
+    RFC: null;
+    Homoclave: null;
+    Pasaporte: null;
+    Sexo: string;
+    SexoNR: null;
+    GiroActividadM: string;
+    GiroActividadF: string;
+    Nacionalidad: string;
+    FolioMercantil: null;
+    RepresentanteLegal: null;
+    PaisNaciemiento: string;
+    Identificacion: string;
+    NumIdentificacion: null;
+    CURP: null;
+    FEA: null;
+    FEADoc: null;
+    CorreoElectronico: null;
+    TelCelular: null;
+    TelFijo: null;
+    Calle: null;
+    NumExterior: null;
+    NumInterior: null;
+    Colonia: null;
+    Delegacion: null;
+    Estado: string;
+    Poblacion: string;
+    CodigoPostal: string;
+    RNombre: null;
+    RApellidoPaterno: null;
+    RApellidoMaterno: null;
+    TipDocum: string;
+    CodDocum: string;
+    NumExp: null;
+    txtRFCCLM: null;
+    Edad: number;
+    EdadNr: null;
+    Conductor_Universal_4000: boolean;
+    Conductor_Universal_4012: boolean;
+    secuencia_direccion: null;
+    MarcaDescuentoIntegral: null;
+    ContratanteDescuentoIntegral: null;
+
+} 
+
+export interface Conductor {
+    TipoPersona:                  string;
+    RazonSocial:                  null;
+    Nombre:                       string;
+    ApellidoPaterno:              string;
+    ApellidoMaterno:              string;
+    FecNacimiento:                string;
+    FecNacNoRecident:             null;
+    RFC:                          string;
+    Homoclave:                    string;
+    Pasaporte:                    null;
+    Sexo:                         string;
+    SexoNR:                       null;
+    GiroActividadM:               string;
+    GiroActividadF:               string;
+    Nacionalidad:                 string;
+    FolioMercantil:               null;
+    RepresentanteLegal:           null;
+    PaisNaciemiento:              string;
+    Identificacion:               string;
+    NumIdentificacion:            null;
+    CURP:                         null;
+    FEA:                          null;
+    FEADoc:                       null;
+    CorreoElectronico:            string;
+    TelCelular:                   string;
+    TelFijo:                      null;
+    Calle:                        string;
+    NumExterior:                  string;
+    NumInterior:                  string;
+    Colonia:                      string;
+    Delegacion:                   null;
+    Estado:                       string;
+    Poblacion:                    string;
+    CodigoPostal:                 string;
+    RNombre:                      null;
+    RApellidoPaterno:             null;
+    RApellidoMaterno:             null;
+    TipDocum:                     null;
+    CodDocum:                     null;
+    NumExp:                       null;
+    txtRFCCLM:                    null;
+    Edad:                         null;
+    EdadNr:                       null;
+    Conductor_Universal_4000:     boolean;
+    Conductor_Universal_4012:     boolean;
+    secuencia_direccion:          null;
+    MarcaDescuentoIntegral:       null;
+    ContratanteDescuentoIntegral: null;
+}
+
+export interface Accidente {
+    NomCompleto:   null;
+    Domicilio:     null;
+    FecNacimiento: null;
+}
+
+export interface Muerte {
+    NomCompleto:   null;
+    Domicilio:     null;
+    FecNacimiento: null;
+}
+
+export interface ContratanteAdicional {
+    TipoPersona:                  string;
+    RazonSocial:                  null;
+    Nombre:                       null;
+    ApellidoPaterno:              null;
+    ApellidoMaterno:              null;
+    FecNacimiento:                null;
+    FecNacNoRecident:             null;
+    RFC:                          null;
+    Homoclave:                    null;
+    Pasaporte:                    null;
+    Sexo:                         string;
+    SexoNR:                       null;
+    GiroActividadM:               string;
+    GiroActividadF:               string;
+    Nacionalidad:                 string;
+    FolioMercantil:               null;
+    RepresentanteLegal:           null;
+    PaisNaciemiento:              string;
+    Identificacion:               string;
+    NumIdentificacion:            null;
+    CURP:                         null;
+    FEA:                          null;
+    FEADoc:                       null;
+    CorreoElectronico:            null;
+    TelCelular:                   null;
+    TelFijo:                      null;
+    Calle:                        null;
+    NumExterior:                  null;
+    NumInterior:                  null;
+    Colonia:                      null;
+    Delegacion:                   null;
+    Estado:                       string;
+    Poblacion:                    string;
+    CodigoPostal:                 string;
+    RNombre:                      null;
+    RApellidoPaterno:             null;
+    RApellidoMaterno:             null;
+    TipDocum:                     null;
+    CodDocum:                     null;
+    NumExp:                       null;
+    txtRFCCLM:                    null;
+    Edad:                         null;
+    EdadNr:                       null;
+    Conductor_Universal_4000:     boolean;
+    Conductor_Universal_4012:     boolean;
+    secuencia_direccion:          null;
+    MarcaDescuentoIntegral:       null;
+    ContratanteDescuentoIntegral: null;
+}
+
+export interface BeneficiarioPreferente {
+    TipoPersona:                  string;
+    RazonSocial:                  null;
+    Nombre:                       null;
+    ApellidoPaterno:              null;
+    ApellidoMaterno:              null;
+    FecNacimiento:                null;
+    FecNacNoRecident:             null;
+    RFC:                          null;
+    Homoclave:                    null;
+    Pasaporte:                    null;
+    Sexo:                         string;
+    SexoNR:                       null;
+    GiroActividadM:               string;
+    GiroActividadF:               string;
+    Nacionalidad:                 string;
+    FolioMercantil:               null;
+    RepresentanteLegal:           null;
+    PaisNaciemiento:              string;
+    Identificacion:               string;
+    NumIdentificacion:            null;
+    CURP:                         null;
+    FEA:                          null;
+    FEADoc:                       null;
+    CorreoElectronico:            null;
+    TelCelular:                   null;
+    TelFijo:                      null;
+    Calle:                        null;
+    NumExterior:                  null;
+    NumInterior:                  null;
+    Colonia:                      null;
+    Delegacion:                   null;
+    Estado:                       string;
+    Poblacion:                    string;
+    CodigoPostal:                 string;
+    RNombre:                      null;
+    RApellidoPaterno:             null;
+    RApellidoMaterno:             null;
+    TipDocum:                     null;
+    CodDocum:                     null;
+    NumExp:                       null;
+    txtRFCCLM:                    null;
+    Edad:                         null;
+    EdadNr:                       null;
+    Conductor_Universal_4000:     boolean;
+    Conductor_Universal_4012:     boolean;
+    secuencia_direccion:          null;
+    MarcaDescuentoIntegral:       null;
+    ContratanteDescuentoIntegral: null;
+}
+
+export interface Pago {
+    TipoPago:           string;
+    TipoPagoText:       string;
+    MedioPago:          string;
+    Tarjeta:            string;
+    Banco:              string;
+    MesesSinIntereses:  null;
+    TitularTarjeta:     null;
+    NoTarjeta:          null;
+    MesVencimiento:     number;
+    AnioVencimiento:    number;
+    FechaSugeridaPago:  string;
+    CodigoSeguridad:    null;
+    IntentosRealizados: number;
+}
+
+export interface VentaCruzada {
+    Cont_Nombre:            null;
+    Cont_ApPaterno:         null;
+    Cont_ApMaterno:         null;
+    Cont_FecNacimiento:     null;
+    Cont_Sexo:              null;
+    Cont_Tel:               null;
+    Cont_CorreoElectronico: null;
+    Cont_TipoPersona:       null;
+    Cont_RFC:               null;
+    Cont_Calle:             null;
+    Cont_Colonia:           null;
+    Cont_Estado:            null;
+    Cont_Poblacion:         null;
+    Cont_Cp:                null;
+    MismaDir:               null;
+    Calle:                  null;
+    NumExterior:            null;
+    NumInterior:            null;
+    Colonia:                null;
+    Estado:                 string;
+    CiudadPoblacion:        string;
+    CodigoPostal:           string;
+}
+export interface DatosFactura {
+    TipoPersona:            string;
+    RazonSocial:            null;
+    Nombre:                 null;
+    ApellidoPaterno:        null;
+    ApellidoMaterno:        null;
+    RFC:                    null;
+    RegFiscal:              string;
+    RegSocietario:          string;
+    CP_Fiscal:              null;
+    CP_Fiscal_M:            null;
+    mca_dom_fiscal:         null;
+    sec_adr:                null;
+    CP_Original:            null;
+    RegFiscal_Original:     null;
+    RegSocietario_Original: null;
+}
+
+export interface JSONRespuestaEmision {
+    NombreContratante:             string;
+    NumPoliza:                     string;
+    ClaveMapfre:                   string;
+    ClasificacionVehiculo:         string;
+    Anio:                          string;
+    Marca:                         string;
+    Descripcion:                   string;
+    Uso:                           string;
+    Estado:                        string;
+    Poblacion:                     string;
+    Paquete:                       string;
+    Cobertura:                     string;
+    ModalidadPago:                 string;
+    Total:                         null;
+    PagoFraccionado:               string;
+    MedioPago:                     string;
+    PrimerPago:                    string;
+    NumPolizaDanios:               null;
+    PagoDanios:                    null;
+    DomicilioDanios:               null;
+    TipoVivienda:                  null;
+    MonedaDanios:                  null;
+    InspeccionPosteriorSolicitada: boolean;
+    TipoInspeccion:                number;
+    ControlTecnico:                string;
+    DiferenciaPrimas:              string;
+    MensajeError:                  null;
+    Agente:                        null;
+    Oficina:                       number;
+    TipoUsuario:                   number;
+    Perfil:                        null;
+    Agentes:                       null;
+    VisibleAgentes:                boolean;
+    isTMKT:                        boolean;
+}

@@ -1,0 +1,34 @@
+@if (isCompleted) 
+{
+  <div class="border-x-2">
+    <app-encabezado [encaberzadoConfig]=" {
+        title: titleEncabezado,
+        colorRed: false,
+        isIcon: false,
+        isGuion: false,
+        isCheck: false,
+      }"></app-encabezado>
+      <div class="p-2 bg-gray-50">
+          <p class="text-sm text-red-mafe font-rbt-bold ">{{title}}</p>
+      </div>
+      <ul class="px-2 border-b-2 bg-white">
+        @for (item of coberturas; track $index) {
+            <li  class="text-sm border-b-2 py-2">{{item}}</li>
+        }
+      </ul>
+  </div>
+}@else {
+  <mat-accordion style="background-color: white;">
+    <mat-expansion-panel [expanded]="isMobile" [disabled]="isMobile" style="background-color: white;">
+      <mat-expansion-panel-header class="bg-white">
+        <mat-panel-title>
+          <span  class="font-bold text-base text-[#23262F] leading-7">Resumen</span>   
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      
+      <div style="background-color: white;">
+        <ng-content></ng-content>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+}

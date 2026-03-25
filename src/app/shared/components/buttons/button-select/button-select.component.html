@@ -1,0 +1,35 @@
+<div class="flex flex-col">
+    <button (click)="select()" class="border-2 w-full rounded-lg mb-5" [ngClass]=" isActive ?'text-red-mafe border-border-red-button bg-[#FFFBFA]' : ' border-gray-division-section bg-[#FDFDFD]'">
+        <div class="flex justify-between items-center pt-4 px-4 ">
+            <div>
+                <p class="text-left text-base font-rbt-bold" >Si </p>
+            </div>
+            <div>
+                @if (isActive) {
+                    <img src="/assets/icons/Tick-Circle.svg" alt="">
+                }@else {
+                    <img src="/assets/icons/Line.svg" alt="">
+                }
+            </div>
+            
+        </div>
+        <p class="text-left text-sm px-3 py-2">Además del propietario o el conductor registrado, estarán cubiertos amigos y/o familiares que usen el vehículo asegurado.</p>
+    </button>
+
+    <button (click)="select()" class="border-2 w-full rounded-lg " [ngClass]=" !isActive ?'text-red-mafe border-border-red-button bg-[#FFFBFA]' : ' border-gray-division-section bg-[#FDFDFD]'">
+        <div class="flex justify-between items-center pt-4 px-4 ">
+            <div>
+                <p class="text-left text-base font-rbt-bold" >No </p>
+            </div>
+            <div>
+                @if (!isActive) {
+                    <img src="/assets/icons/Tick-Circle.svg" alt="">
+                }@else {
+                    <img src="/assets/icons/Line.svg" alt="">
+                }
+            </div>
+            
+        </div>
+        <p class="text-left text-sm px-3 py-2">Solo el conductor registrado estará asegurado, y otros conductores no tendrán protección en caso de un accidente.</p>
+    </button>
+</div>

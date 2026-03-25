@@ -1,0 +1,6 @@
+table tr:first-child th {
+    border-bottom: 1px solid #A5A7A8;
+}
+table td, tr {
+    border-bottom: 1px solid #ECEFF1;
+}

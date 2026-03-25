@@ -1,0 +1,168 @@
+<div #modalSendMail id="modalSendMail" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-sm md:text-xl font-semibold text-gray-900 dark:text-white">
+                    Enviar correo electrónico
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" 
+                  data-modal-hide="modalSendMail" (click)="closeModal()">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only" >Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="md:px-5 space-y-4">
+               <ng-content select="[bodyModal]">
+                    <div class="grid grid-cols-2 items-center m-2">
+                        <div class="m-4">
+                            <app-label-help [labelHelp]="{
+                                isRquired: true,
+                                isWithHelp: false,
+                                isWithSubtitle: false,
+                                title: 'Correo del remitente:',
+                                subtitle: '',
+                                position: 'right',
+                                helpMsg: ''}">
+                              </app-label-help>
+                        </div>
+                        <div class="m-4">
+                            <app-input [inputConfig]="{
+                                type: 'text',
+                                pattern: '',
+                                isrequied: true,
+                                placeHolder: 'Ej.: usuario@mapfre.com.mx',
+                                isDisable: false,
+                                isHidden: false, 
+                                isRead: false,
+                            }"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+                    <hr class="col-span-3 md:col-span-3 mt-4 mb-6 bg-gray-division-section">
+                    <div class="grid grid-cols-2 items-center">
+                        <div class="m-4">
+                            <app-label-help [labelHelp]="{
+                                isRquired: true,
+                                isWithHelp: false,
+                                isWithSubtitle: false,
+                                title: 'Correo del destinatario:',
+                                subtitle: '',
+                                position: 'right',
+                                helpMsg: ''}">
+                              </app-label-help>
+                        </div>
+                        <div class="m-4">
+                            <app-input [inputConfig]="{
+                                type: 'text',
+                                pattern: '',
+                                isrequied: true,
+                                placeHolder: 'Ej.: usuario@mapfre.com.mx',
+                                isDisable: false,
+                                isHidden: false, 
+                                isRead: false,
+                            }"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+                    <hr class="col-span-3 md:col-span-3 mt-4 mb-6 bg-gray-division-section">
+                    <div class="grid grid-cols-2 items-center">
+                        <div class="m-4">
+                            <app-label-help [labelHelp]="{
+                                isRquired: true,
+                                isWithHelp: false,
+                                isWithSubtitle: false,
+                                title: 'Tema del correo:',
+                                subtitle: '',
+                                position: 'right',
+                                helpMsg: ''}">
+                              </app-label-help>
+                        </div>
+                        <div class="m-4">
+                            <app-input [inputConfig]="{
+                                type: 'text',
+                                pattern: '',
+                                isrequied: true,
+                                placeHolder: 'Tema del correo...',
+                                isDisable: false,
+                                isHidden: false, 
+                                isRead: false,
+                            }"
+                            >
+                            </app-input>
+                        </div>
+                    </div>
+                    <hr class="col-span-3 md:col-span-3 mt-4 mb-6 bg-gray-division-section">
+                    <div class="grid grid-cols-2 items-center">
+                        <div class="m-4">
+                            <app-label-help [labelHelp]="{
+                                isRquired: true,
+                                isWithHelp: false,
+                                isWithSubtitle: false,
+                                title: 'Mensaje:',
+                                subtitle: '',
+                                position: 'right',
+                                helpMsg: ''}">
+                              </app-label-help>
+                        </div>
+                        <div class="m-4">
+                            <app-textarea [textAreaConfig]="{
+                                 type: 'text',
+                                 pattern: '',
+                                 isrequied: true,
+                                 placeHolder: '',
+                                 isDisable: false,
+                                 isHidden: false
+                            }">
+
+                            </app-textarea>
+                        </div>
+                    </div>
+                    <hr  *ngIf="showReceiptSection" class="col-span-3 md:col-span-3 mt-4 mb-6 bg-gray-division-section">
+                    <div *ngIf="showReceiptSection" class="grid grid-cols-2 items-center">
+                        <div class="m-4">
+                            <app-label-help [labelHelp]="{
+                                isRquired: true,
+                                isWithHelp: false,
+                                isWithSubtitle: false,
+                                title: '¿Incluir recibos?:',
+                                subtitle: '',
+                                position: 'right',
+                                helpMsg: ''}">
+                              </app-label-help>
+                        </div>
+                        <div class="flex flex-row items-center justify-center m-4">
+                            <app-buttons-group [optionDefault]="2" (buttonSelected)="onAcomodadorResponse($event)" class="w-3/4 mb-4">
+                                <span left>Si</span>
+                                <span right>No</span>
+                            </app-buttons-group>
+                        </div>
+                    </div>
+               </ng-content>
+            </div>
+            <!-- Modal footer -->
+            <div class=" p-4 md:px-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+              <ng-content #footerModal>
+                <div class="flex flex-row justify-center">
+                    <div class="mx-4">
+                        <app-button>Enviar Correo</app-button>
+                    </div>
+                    <div class="mx-4">
+                        <app-button (click)="closeModal()">Cancelar</app-button>
+                    </div>
+                </div>
+              </ng-content>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  

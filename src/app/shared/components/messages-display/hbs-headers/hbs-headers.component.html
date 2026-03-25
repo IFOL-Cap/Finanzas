@@ -1,0 +1,17 @@
+<div class="grid bg-gray-encabezado p-3 rounded-lg px-4"
+      [ngClass]="{'grid-cols-2': headersConf.count == 2,
+                  'grid-cols-3': headersConf.count == 3,
+                  'grid-cols-4': headersConf.count == 4,
+                  'grid-cols-5': headersConf.count == 5,
+                  'grid-cols-6': headersConf.count == 6,
+                  'grid-cols-7': headersConf.count == 7,
+                  'grid-cols-8': headersConf.count == 8,
+      }">
+    @for (title of headersConf.titles; track $index; let last = $last) 
+    {
+      <div class="text-[black-title] font-rbt-bold text-base text-center"
+          [ngClass]="{'text-end': last && $index != 0}">                          
+        {{title}}
+      </div>
+    }
+  </div>

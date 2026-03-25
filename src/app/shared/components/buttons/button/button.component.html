@@ -1,0 +1,39 @@
+<!--
+<button type="button" 
+        (mouseover)="onHover()"
+        (mouseout)="onOut()"
+        class="w-full rounded-lg text-base font-rbt-bold  px-6 py-3 flex justify-center"
+        [ngClass]="{'bg-red-mafe text-white-buttons cursor-pointer focus:outline-none  ': buttonConfig.type == 0,
+                    'bg-gray-btn-disable text-white': buttonConfig.type == 1,
+                    'bg-white text-[#20272B] border border-[#F1F0F0] hover:bg-red-mafe hover:border-red-mafe hover:text-white': buttonConfig.type == 2,
+                    'px-5 py-5 ': buttonConfig.from == 1,
+        }"
+        
+        >
+        @if ((buttonConfig.icon! * 0) == 0 ) {
+            <img [src]="icon" class="mt-[1px] mr-2" alt="icon-button">
+            
+        }
+        
+        <ng-content></ng-content>        
+</button>
+-->
+
+<button type="button"
+        (mouseover)="onHover()"
+        (mouseout)="onOut()"
+        (click)="onButtonClick()"
+        [disabled]="buttonConfig.isDisable"
+        class="w-full rounded-lg text-base font-rbt-bold  md:px-6 px-3 py-3 flex justify-center
+        cursor-pointer focus:outline-none  active:opacity-60 transition-all active:scale-90 "
+        [ngClass]="{'px-4 py-4 ': buttonConfig.from == 1}"
+        [ngClass]="btnClass()"
+        >
+        @if ((buttonConfig.icon! * 0) == 0 ) {
+            <img [src]="icon" class="mt-[1px] mr-2" alt="icon-button">
+
+        }
+
+        <ng-content></ng-content>
+</button>
+

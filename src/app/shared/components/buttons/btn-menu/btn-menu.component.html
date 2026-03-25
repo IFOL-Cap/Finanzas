@@ -1,0 +1,108 @@
+<div class="w-full">
+    @if (!btnMuConfig.isONlyIcon) {
+        <app-button   [matMenuTriggerFor]="menu" [buttonConfig]="{
+            type: 0,
+            label: '',
+            icon: btnMuConfig.icon,
+            from: 1
+          }">
+            {{placeholder}}
+         </app-button>
+    }@else {
+        <div class="py-4 px-1 border border-[#F1F0F0] rounded-lg bg-white cursor-pointer"
+             [ngClass]="{'border-transparent': btnMuConfig.from == 2,
+                          'bg-[#D81E05] border-0 py-2 px-4':btnMuConfig.from == 5,
+                          'border-none py-[0px] px-0':btnMuConfig.from == 6,
+             }"  
+        >
+            <app-icon [matMenuTriggerFor]="menu" [iconUrl]="btnMuConfig.iconUrl!"></app-icon>
+        </div>
+    }
+    <mat-menu #menu="matMenu" class="menu-btn">
+
+        @switch (btnMuConfig.from) {
+            @case(1){
+                <div class="flex flex-col space-around">
+                    <button
+                        (mouseover)="onHover(4)"
+                        (mouseout)="onOut(4)"
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex text-[#697483] font-poppins-rglr text-base"
+                        [ngClass]="{'bg-red-mafe text-white': inOnHoverCar}"
+                        >
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverCar? 'assets/icons/car-hWhite.svg' : 'assets/icons/car-h.svg'"></app-icon>
+                        <span>Automóviles</span>
+                    </button>
+                    <button
+                        (mouseover)="onHover(5)"
+                        (mouseout)="onOut(5)"
+                        [ngClass]="{'bg-red-mafe text-white': inOnHoverDemage}"
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex text-[#697483] font-poppins-rglr text-base">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverDemage? 'assets/icons/demageWhite.svg' : 'assets/icons/demage.svg'"></app-icon>
+                        <span>Daños</span>
+                    </button>
+                    <button
+                        (mouseover)="onHover(6)"
+                        (mouseout)="onOut(6)"
+                        [ngClass]="{'bg-red-mafe text-white': inOnHoverLife}"
+                        class="w-full mb-2 pl-4 py-2 pr-8 text-[#697483] flex font-poppins-rglr text-base">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverLife? 'assets/icons/lifeWhite.svg' : 'assets/icons/life.svg'"></app-icon>
+                        <span>Vida</span>
+                    </button>
+                 
+                </div>
+              
+            }
+
+            @case(2){
+                <div class="flex flex-col space-around">
+                    <!-- createVariable to change iconsColor and hover style -->
+                    <button
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverCar? 'assets/icons/car-hWhite.svg' : 'assets/icons/home/seeProfile.svg'"></app-icon>
+                        <span>Ver perfil</span>
+                    </button>
+                    <button
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverDemage? 'assets/icons/demageWhite.svg' : 'assets/icons/home/editProfile.svg'"></app-icon>
+                        <span>Editar perfil</span>
+                    </button>
+
+                    <button
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverLife? 'assets/icons/lifeWhite.svg' : 'assets/icons/home/trash.svg'"></app-icon>
+                        <span>Borrar usuario</span>
+                    </button>
+                 
+                </div>
+            }
+            @case (5) {
+                <div class="w-full">
+                    <div class="w-full py-2 pl-4 text-[#20272B] text-base font-rbt-mdm border-b-[1px] border-gray-division-section ">
+                        Buscar por...
+                    </div>
+                    <div class="flex flex-col space-around">
+                     <div class="w-full text-[#333333] mb-2 pl-4 py-2 pr-8 font-rbt-rglr text-base hover:bg-red-mafe hover:text-white cursor-pointer">
+                        Usuario de agente
+                     </div>
+                     <div class="w-full text-[#333333] mb-2 pl-4 py-2 pr-8 font-rbt-rglr text-base hover:bg-red-mafe hover:text-white cursor-pointer">
+                        Nombre del agente
+                     </div>
+                     <div class="w-full text-[#333333] mb-2 pl-4 py-2 pr-8 font-rbt-rglr text-base hover:bg-red-mafe hover:text-white cursor-pointer">
+                        Limpiar filtro 
+                     </div>
+                    </div>
+                </div>
+            }
+            @case (6) {
+                <div class="flex flex-col space-around  ">
+                    <button
+                        class="w-full mb-2 pl-4 py-2 pr-8  flex items-center">
+                        <app-icon class="mr-2" [iconUrl]="inOnHoverLife? 'assets/icons/lifeWhite.svg' : 'assets/icons/home/trash.svg'"></app-icon>
+                        <span>Remover QuickLink</span>
+                    </button>
+                 
+                </div>
+            }
+        }
+    </mat-menu>
+</div>

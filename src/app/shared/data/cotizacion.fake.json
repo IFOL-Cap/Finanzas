@@ -1,0 +1,2226 @@
+{
+	"xml": {
+			"num_solicitud": "2441000026923",
+			"paquete_base": "2",
+			"forma_pago_base": "1",
+			"xmlCoberturas": {
+					"cod_paquete_base": "2",
+					"paquetes": {
+							"paquete": [
+									{
+											"cod_paquete": "1",
+											"cod_modalidad": "40004",
+											"cod_producto": "1",
+											"nom_paquete": "PREMIUM"
+									},
+									{
+											"cod_paquete": "2",
+											"cod_modalidad": "40001",
+											"cod_producto": "1",
+											"nom_paquete": "AMPLIO"
+									},
+									{
+											"cod_paquete": "3",
+											"cod_modalidad": "40001",
+											"cod_producto": "2",
+											"nom_paquete": "TÚ ELIGES"
+									}
+							]
+					},
+					"coberturas": {
+							"cobertura": [
+									{
+											"cod_cob": "4000",
+											"cod_cob_nwtron": "4101",
+											"nom_cob": "Daños Materiales",
+											"tool_tip": "",
+											"sa_def": "VALOR COMERCIAL",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": [
+															{
+																	"cod_ded": "3",
+																	"desc_ded": "3"
+															},
+															{
+																	"cod_ded": "4",
+																	"desc_ded": "4"
+															},
+															{
+																	"cod_ded": "5",
+																	"desc_ded": "5"
+															},
+															{
+																	"cod_ded": "6",
+																	"desc_ded": "6"
+															},
+															{
+																	"cod_ded": "7",
+																	"desc_ded": "7"
+															},
+															{
+																	"cod_ded": "8",
+																	"desc_ded": "8"
+															},
+															{
+																	"cod_ded": "9",
+																	"desc_ded": "9"
+															},
+															{
+																	"cod_ded": "10",
+																	"desc_ded": "10"
+															},
+															{
+																	"cod_ded": "15",
+																	"desc_ded": "15"
+															},
+															{
+																	"cod_ded": "20",
+																	"desc_ded": "20"
+															},
+															{
+																	"cod_ded": "25",
+																	"desc_ded": "25"
+															}
+													]
+											},
+											"ded_def": "5",
+											"ded_des": "%",
+											"sa_des": "VALOR COMERCIAL",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": "4003",
+																	"cod_cob_exclu": "4012"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": "4003",
+																	"cod_cob_exclu": "4012"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4001",
+											"cod_cob_nwtron": "4102",
+											"nom_cob": "Robo Total",
+											"tool_tip": "",
+											"sa_def": "VALOR COMERCIAL",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": [
+															{
+																	"cod_ded": "5",
+																	"desc_ded": "5"
+															},
+															{
+																	"cod_ded": "6",
+																	"desc_ded": "6"
+															},
+															{
+																	"cod_ded": "8",
+																	"desc_ded": "8"
+															},
+															{
+																	"cod_ded": "10",
+																	"desc_ded": "10"
+															},
+															{
+																	"cod_ded": "12",
+																	"desc_ded": "12"
+															},
+															{
+																	"cod_ded": "14",
+																	"desc_ded": "14"
+															},
+															{
+																	"cod_ded": "16",
+																	"desc_ded": "16"
+															},
+															{
+																	"cod_ded": "18",
+																	"desc_ded": "18"
+															},
+															{
+																	"cod_ded": "20",
+																	"desc_ded": "20"
+															},
+															{
+																	"cod_ded": "22",
+																	"desc_ded": "22"
+															},
+															{
+																	"cod_ded": "25",
+																	"desc_ded": "25"
+															},
+															{
+																	"cod_ded": "30",
+																	"desc_ded": "30"
+															}
+													]
+											},
+											"ded_def": "10",
+											"ded_des": "%",
+											"sa_des": "VALOR COMERCIAL",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": "4003"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": "4003"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4022",
+											"cod_cob_nwtron": "4102",
+											"nom_cob": "Robo Parcial",
+											"tool_tip": "",
+											"sa_def": "10000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "2000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "10000",
+																	"mca_def": "S"
+															},
+															{
+																	"imp_lim": "100000",
+																	"mca_def": "N"
+															}
+													]
+											},
+											"intervalo": "1",
+											"tip_lim": "3",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": [
+															{
+																	"cod_ded": "2",
+																	"desc_ded": "2"
+															},
+															{
+																	"cod_ded": "3",
+																	"desc_ded": "3"
+															},
+															{
+																	"cod_ded": "4",
+																	"desc_ded": "4"
+															},
+															{
+																	"cod_ded": "5",
+																	"desc_ded": "5"
+															},
+															{
+																	"cod_ded": "6",
+																	"desc_ded": "6"
+															},
+															{
+																	"cod_ded": "7",
+																	"desc_ded": "7"
+															},
+															{
+																	"cod_ded": "8",
+																	"desc_ded": "8"
+															},
+															{
+																	"cod_ded": "10",
+																	"desc_ded": "10"
+															},
+															{
+																	"cod_ded": "11",
+																	"desc_ded": "11"
+															},
+															{
+																	"cod_ded": "12",
+																	"desc_ded": "12"
+															},
+															{
+																	"cod_ded": "13",
+																	"desc_ded": "13"
+															},
+															{
+																	"cod_ded": "14",
+																	"desc_ded": "14"
+															},
+															{
+																	"cod_ded": "16",
+																	"desc_ded": "16"
+															},
+															{
+																	"cod_ded": "17",
+																	"desc_ded": "17"
+															},
+															{
+																	"cod_ded": "18",
+																	"desc_ded": "18"
+															},
+															{
+																	"cod_ded": "19",
+																	"desc_ded": "19"
+															},
+															{
+																	"cod_ded": "20",
+																	"desc_ded": "20"
+															},
+															{
+																	"cod_ded": "22",
+																	"desc_ded": "22"
+															},
+															{
+																	"cod_ded": "25",
+																	"desc_ded": "25"
+															},
+															{
+																	"cod_ded": "30",
+																	"desc_ded": "30"
+															},
+															{
+																	"cod_ded": "50",
+																	"desc_ded": "50"
+															},
+															{
+																	"cod_ded": "100",
+																	"desc_ded": "100"
+															}
+													]
+											},
+											"ded_def": "10",
+											"ded_des": "%",
+											"sa_des": "10000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4010",
+											"cod_cob_nwtron": "4103",
+											"nom_cob": "Responsabilidad Civil Bienes",
+											"tool_tip": "",
+											"sa_def": "1500000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "325000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1000000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1050000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1100000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1150000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1200000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1350000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1650000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2000000",
+																	"mca_def": "N"
+															}
+													]
+											},
+											"intervalo": "0",
+											"tip_lim": "1",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "1500000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4011",
+											"cod_cob_nwtron": "4103",
+											"nom_cob": "Responsabilidad Civil Personas",
+											"tool_tip": "",
+											"sa_def": "1500000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "325000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1000000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1050000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1100000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1150000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1200000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1350000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1650000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2000000",
+																	"mca_def": "N"
+															}
+													]
+											},
+											"intervalo": "0",
+											"tip_lim": "1",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "1500000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4068",
+											"cod_cob_nwtron": "4103",
+											"nom_cob": "RC Catastrófica por Muerte Accidental",
+											"tool_tip": "",
+											"sa_def": "2000000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "2000000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2050000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2100000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2150000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2200000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2350000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2650000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "2950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "3000000",
+																	"mca_def": "S"
+															}
+													]
+											},
+											"intervalo": "0",
+											"tip_lim": "1",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "2000000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4006",
+											"cod_cob_nwtron": "4104",
+											"nom_cob": "Gastos Médicos",
+											"tool_tip": "",
+											"sa_def": "200000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "100000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "105000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "110000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "115000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "120000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "125000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "130000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "135000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "140000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "145000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "150000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "155000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "160000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "165000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "170000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "175000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "180000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "185000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "190000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "195000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "200000",
+																	"mca_def": "S"
+															},
+															{
+																	"imp_lim": "205000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "210000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "215000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "220000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "225000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "230000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "235000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "240000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "245000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "250000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "255000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "260000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "265000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "270000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "275000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "280000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "285000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "290000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "295000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "300000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "305000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "310000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "315000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "320000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "325000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "330000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "340000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "345000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "350000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "355000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "360000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "365000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "370000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "375000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "380000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "390000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "395000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "400000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "405000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "410000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "415000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "420000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "425000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "430000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "440000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "445000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "450000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "455000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "460000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "470000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "475000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "480000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "485000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "490000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "495000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "500000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "505000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "510000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "515000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "520000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "525000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "530000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "540000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "550000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "555000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "560000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "565000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "570000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "575000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "580000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "595000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "600000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "605000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "610000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "615000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "630000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "635000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "640000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "650000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "655000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "660000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "670000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "680000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "700000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "705000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "710000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "720000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "725000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "735000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "740000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "750000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "755000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "760000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "770000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "785000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "790000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "800000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "810000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "825000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "850000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "870000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "885000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "890000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "900000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "910000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "925000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "940000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "950000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "980000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "985000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "990000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "995000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "1000000",
+																	"mca_def": "N"
+															}
+													]
+											},
+											"intervalo": "0",
+											"tip_lim": "1",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "200000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_exclu": "4028"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4003",
+											"cod_cob_nwtron": "4106",
+											"nom_cob": "Asistencia Completa",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": [
+																			"4000",
+																			"4001"
+																	]
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "1",
+																	"cod_cob_inclu": [
+																			"4000",
+																			"4001"
+																	]
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4004",
+											"cod_cob_nwtron": "4107",
+											"nom_cob": "Defensa Jurídica",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4013",
+											"cod_cob_nwtron": "4105",
+											"nom_cob": "Accidentes al Conductor",
+											"tool_tip": "",
+											"sa_def": "100000",
+											"intervalo": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "100000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "1"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4014",
+											"cod_cob_nwtron": "4101",
+											"nom_cob": "Devolución de Prima y Deducible",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": null,
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4024",
+											"cod_cob_nwtron": "4112",
+											"nom_cob": "Auto Sustituto",
+											"tool_tip": "",
+											"sa_def": "10000",
+											"limites": {
+													"limite": [
+															{
+																	"imp_lim": "8000",
+																	"mca_def": "N"
+															},
+															{
+																	"imp_lim": "10000",
+																	"mca_def": "S"
+															},
+															{
+																	"imp_lim": "12000",
+																	"mca_def": "N"
+															}
+													]
+											},
+											"intervalo": "0",
+											"tip_lim": "1",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "10000",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": null,
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4053",
+											"cod_cob_nwtron": "4111",
+											"nom_cob": "Garantía Sobre Ruedas",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"limites": {
+													"limite": {
+															"imp_lim": "4000",
+															"mca_def": "S"
+													}
+											},
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": null,
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4065",
+											"cod_cob_nwtron": "4101",
+											"nom_cob": "Reparación en Agencia",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "N",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									}
+							]
+					},
+					"coberturasadicionales": {
+							"cobertura": [
+									{
+											"cod_cob": "4012",
+											"cod_cob_nwtron": "4101",
+											"nom_cob": "Pérdida Total por Daños Materiales ",
+											"tool_tip": "",
+											"sa_def": "VALOR COMERCIAL",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": [
+															{
+																	"cod_ded": "3",
+																	"desc_ded": "3"
+															},
+															{
+																	"cod_ded": "4",
+																	"desc_ded": "4"
+															},
+															{
+																	"cod_ded": "5",
+																	"desc_ded": "5"
+															},
+															{
+																	"cod_ded": "6",
+																	"desc_ded": "6"
+															},
+															{
+																	"cod_ded": "7",
+																	"desc_ded": "7"
+															},
+															{
+																	"cod_ded": "8",
+																	"desc_ded": "8"
+															},
+															{
+																	"cod_ded": "9",
+																	"desc_ded": "9"
+															},
+															{
+																	"cod_ded": "10",
+																	"desc_ded": "10"
+															},
+															{
+																	"cod_ded": "15",
+																	"desc_ded": "15"
+															},
+															{
+																	"cod_ded": "20",
+																	"desc_ded": "20"
+															},
+															{
+																	"cod_ded": "25",
+																	"desc_ded": "25"
+															}
+													]
+											},
+											"ded_def": "5",
+											"ded_des": "%",
+											"sa_des": "VALOR COMERCIAL",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": null,
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0",
+																	"cod_cob_exclu": "4000"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0",
+																	"cod_cob_exclu": "4000"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4048",
+											"cod_cob_nwtron": "4108",
+											"nom_cob": "Cobertura Integral en el Extranjero",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4069",
+											"cod_cob_nwtron": "4110",
+											"nom_cob": "Auto GAP GTI",
+											"tool_tip": "",
+											"sa_def": "AMPARADA",
+											"intervalo": "0",
+											"tip_lim": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_def": "0",
+											"ded_des": "",
+											"sa_des": "AMPARADA",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															}
+													]
+											}
+									},
+									{
+											"cod_cob": "4007",
+											"cod_cob_nwtron": "0",
+											"nom_cob": "Equipo Especial",
+											"tool_tip": "",
+											"sa_def": "0",
+											"intervalo": "0",
+											"mca_recal": "S",
+											"deducibles": {
+													"deducible": {
+															"cod_ded": "",
+															"desc_ded": ""
+													}
+											},
+											"ded_des": "",
+											"sa_des": "",
+											"paquetes": {
+													"paquete": [
+															{
+																	"cod_paquete": "1",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "2",
+																	"mca_opc": "S",
+																	"mod_chk": "0"
+															},
+															{
+																	"cod_paquete": "3",
+																	"mca_opc": null,
+																	"mod_chk": "0"
+															}
+													]
+											}
+									}
+							]
+					}
+			},
+			"ofertaComercial": {
+					"cod_paquete_base": "2",
+					"paquetes": {
+							"paquete": [
+									{
+											"cod_paquete": "1",
+											"cod_modalidad": "40004",
+											"cod_producto": "1",
+											"nom_paquete": "PREMIUM"
+									},
+									{
+											"cod_paquete": "2",
+											"cod_modalidad": "40001",
+											"cod_producto": "1",
+											"nom_paquete": "AMPLIO"
+									},
+									{
+											"cod_paquete": "3",
+											"cod_modalidad": "40001",
+											"cod_producto": "2",
+											"nom_paquete": "TÚ ELIGES"
+									}
+							]
+					},
+					"formasPago": {
+							"formaPago": [
+									{
+											"pagoID": "1",
+											"pagoDesc": "CONTADO",
+											"pagos": {
+													"pago": {
+															"numPagos": "1",
+															"montospaquetes": {
+																	"montos": [
+																			{
+																					"cotizacion": "2441000026923",
+																					"cod_paquete": "1",
+																					"monto": "19485.13",
+																					"primaneta": "19485.13",
+																					"recargos": "0",
+																					"derechos": "590",
+																					"impuestos": "3212.02",
+																					"primatotal": "23287.15"
+																			},
+																			{
+																					"cotizacion": "2441000026929",
+																					"cod_paquete": "2",
+																					"monto": "13231.69",
+																					"primaneta": "13231.69",
+																					"recargos": "0",
+																					"derechos": "590",
+																					"impuestos": "2211.47",
+																					"primatotal": "16033.16"
+																			},
+																			{
+																					"cotizacion": "2441000026933",
+																					"cod_paquete": "3",
+																					"monto": "12684.49",
+																					"primaneta": "12684.49",
+																					"recargos": "0",
+																					"derechos": "590",
+																					"impuestos": "2123.92",
+																					"primatotal": "15398.41"
+																			}
+																	]
+															}
+													}
+											}
+									},
+									{
+											"pagoID": "2",
+											"pagoDesc": "SEMESTRAL",
+											"pagos": {
+													"pago": [
+															{
+																	"numPagos": "1",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026924",
+																							"cod_paquete": "1",
+																							"monto": "9742.57",
+																							"primaneta": "9742.57",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "1653.21",
+																							"primatotal": "12550.85"
+																					},
+																					{
+																							"cotizacion": "2441000026927",
+																							"cod_paquete": "2",
+																							"monto": "6615.85",
+																							"primaneta": "6615.85",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "1152.94",
+																							"primatotal": "8742.51"
+																					},
+																					{
+																							"cotizacion": "2441000026930",
+																							"cod_paquete": "3",
+																							"monto": "6342.25",
+																							"primaneta": "6342.25",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "1109.16",
+																							"primatotal": "8409.26"
+																					}
+																			]
+																	}
+															},
+															{
+																	"numPagos": "1",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026924",
+																							"cod_paquete": "1",
+																							"monto": "9742.56",
+																							"primaneta": "9742.56",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "1558.81",
+																							"primatotal": "11866.44"
+																					},
+																					{
+																							"cotizacion": "2441000026927",
+																							"cod_paquete": "2",
+																							"monto": "6615.84",
+																							"primaneta": "6615.84",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "1058.53",
+																							"primatotal": "8058.08"
+																					},
+																					{
+																							"cotizacion": "2441000026930",
+																							"cod_paquete": "3",
+																							"monto": "6342.24",
+																							"primaneta": "6342.24",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "1014.76",
+																							"primatotal": "7724.85"
+																					}
+																			]
+																	}
+															}
+													]
+											}
+									},
+									{
+											"pagoID": "3",
+											"pagoDesc": "TRIMESTRAL",
+											"pagos": {
+													"pago": [
+															{
+																	"numPagos": "1",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026922",
+																							"cod_paquete": "1",
+																							"monto": "4871.28",
+																							"primaneta": "4871.28",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "873.81",
+																							"primatotal": "6758.9"
+																					},
+																					{
+																							"cotizacion": "2441000026928",
+																							"cod_paquete": "2",
+																							"monto": "3307.92",
+																							"primaneta": "3307.92",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "623.67",
+																							"primatotal": "4809.39"
+																					},
+																					{
+																							"cotizacion": "2441000026932",
+																							"cod_paquete": "3",
+																							"monto": "3171.12",
+																							"primaneta": "3171.12",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "601.78",
+																							"primatotal": "4638.79"
+																					}
+																			]
+																	}
+															},
+															{
+																	"numPagos": "3",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026922",
+																							"cod_paquete": "1",
+																							"monto": "4871.28",
+																							"primaneta": "4871.28",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "779.41",
+																							"primatotal": "6074.5"
+																					},
+																					{
+																							"cotizacion": "2441000026928",
+																							"cod_paquete": "2",
+																							"monto": "3307.92",
+																							"primaneta": "3307.92",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "529.27",
+																							"primatotal": "4124.99"
+																					},
+																					{
+																							"cotizacion": "2441000026932",
+																							"cod_paquete": "3",
+																							"monto": "3171.12",
+																							"primaneta": "3171.12",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "507.38",
+																							"primatotal": "3954.39"
+																					}
+																			]
+																	}
+															}
+													]
+											}
+									},
+									{
+											"pagoID": "4",
+											"pagoDesc": "MENSUAL",
+											"pagos": {
+													"pago": [
+															{
+																	"numPagos": "1",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026925",
+																							"cod_paquete": "1",
+																							"monto": "1623.76",
+																							"primaneta": "1623.76",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "354.2",
+																							"primatotal": "2756.32"
+																					},
+																					{
+																							"cotizacion": "2441000026926",
+																							"cod_paquete": "2",
+																							"monto": "1102.64",
+																							"primaneta": "1102.64",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "270.82",
+																							"primatotal": "2091.36"
+																					},
+																					{
+																							"cotizacion": "2441000026931",
+																							"cod_paquete": "3",
+																							"monto": "1057.04",
+																							"primaneta": "1057.04",
+																							"recargos": "0",
+																							"derechos": "590",
+																							"impuestos": "263.53",
+																							"primatotal": "2033.18"
+																					}
+																			]
+																	}
+															},
+															{
+																	"numPagos": "11",
+																	"montospaquetes": {
+																			"montos": [
+																					{
+																							"cotizacion": "2441000026925",
+																							"cod_paquete": "1",
+																							"monto": "1623.76",
+																							"primaneta": "1623.76",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "259.8",
+																							"primatotal": "2071.92"
+																					},
+																					{
+																							"cotizacion": "2441000026926",
+																							"cod_paquete": "2",
+																							"monto": "1102.64",
+																							"primaneta": "1102.64",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "176.42",
+																							"primatotal": "1406.96"
+																					},
+																					{
+																							"cotizacion": "2441000026931",
+																							"cod_paquete": "3",
+																							"monto": "1057.04",
+																							"primaneta": "1057.04",
+																							"recargos": "0",
+																							"derechos": "0",
+																							"impuestos": "169.13",
+																							"primatotal": "1348.78"
+																					}
+																			]
+																	}
+															}
+													]
+											}
+									}
+							]
+					}
+			}
+	}
+}

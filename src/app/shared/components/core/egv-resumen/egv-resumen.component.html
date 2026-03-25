@@ -1,0 +1,45 @@
+<div *ngIf="resumen" class="bg-white">
+    <div class="border-b border-gray-division-section pb-2">
+        <p class="font-bold text-lg mb-2">{{resumen()?.titulo}}</p>
+        <div class="flex justify-between">
+            <label class="text-base">Ramo</label>
+            <p class="font-bold text-lg">{{resumen()?.ramo}}</p>
+        </div>
+    </div>
+
+
+        <div class="flex justify-between pt-5">
+            <label class="text-base">Agentes a invertir</label>
+            <p class="font-bold text-lg">2</p>
+        </div>
+        @for(agente of resumen()?.agentes; track agente.id)
+        {
+            <div class="flex justify-between mt-2">
+                <label class="font-bold text-lg">{{agente.primerApellido}} {{agente.segundoApellido}}, {{agente.nombre}}</label>
+                <p class="font-bold">{{agente.porcentaje}}%</p>
+            </div>
+            <label class="text-base">{{agente.codigoAgente}}</label>
+        }
+
+        <div class="py-4 border-b border-gray-division-section">
+            <button class="text-red-mafe text-base font-rbt-bold">Cambiar</button>
+        </div>
+
+        <div class="flex justify-between mt-3">
+            <label class="text-lg font-bold leading-7" for="">{{resumen()?.aplicacion}}</label>
+            <button class="text-red-mafe text-base font-rbt-bold">Cambiar</button>
+        </div>
+
+        <div class="mt-3">
+            <label class="text-sm text-[#737373]">Forma de pago</label>
+            <div class="flex justify-between">
+                <label class="font-bold text-lg">{{resumen()?.formaPago}}</label>
+                <p>1 pago de <span class="font-bold">${{resumen()?.primerRecibo}}</span></p>
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-3">
+            <label class="text-base text-[#737373]">Tipo de pago</label>
+            <p class="font-bold text-lg">{{resumen()?.tipoPago}}</p>
+        </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="w-full pb-2">
+
+    <label class="flex items-center cursor-pointer"
+            [ngClass]="{'mr-2': radioConf.title != ''}">
+      <input id="list-radio-license" type="radio" (click)="changeRadio($event)" [checked]="radioConf.isChecked"
+             name="list-radio" class="w-4 h-4 text-red-mafe bg-gray-100 border-gray-300 focus:ring-0">
+      @if (radioConf.title != '' && !radioConf.isCustom) {
+        <span class="ms-3 text-base font-rbt-rglr "
+        [ngClass]="{'text-[#20272B]': radioConf.isChecked,
+                    'text-[#959793]': !radioConf.isChecked,
+        }"
+        >{{ radioConf.title}}</span>
+      }
+
+      @switch (radioConf.type) {
+        @case(4){
+            <app-label-help class="ms-3" [labelHelp]="labelHelp"></app-label-help>   
+        }
+      }
+    </label>
+</div>

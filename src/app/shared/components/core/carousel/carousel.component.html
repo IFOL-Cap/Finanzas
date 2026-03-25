@@ -1,0 +1,49 @@
+
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative  overflow-hidden rounded-xl "
+         [ngClass]="{'h-44 md:h-40': carouselConfig.view == 0,
+                     'h-40 md:h-80': carouselConfig.view == 1
+         }">
+         <!-- Item -->
+          @if (carouselConfig.data.length > 0) {
+              @for (item of carouselConfig.data; track $index) {
+    
+                  <div class="hidden duration-700 ease-in-out bg-pink-500" data-carousel-item>
+                      <a [href]="!item.redirectUrl ? '': item.redirectUrl" [ngClass]="{'pointer-events-none': !item.redirectUrl}" class="pointer-events-none" target="_blank" rel="">
+                          @if(!carouselConfig.isResponsiveImg){
+                              <img [src]="item.imgUrl" class="absolute  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="item">
+                          }@else {
+                              <img class=" hidden md:inline-block absolute  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"  
+                                   [src]="item.imgUrl" alt="item">
+                              <img class="inline-block md:hidden absolute  w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" 
+                                   [src]="item.imgUrlMobile"  alt="item">
+                          }
+                      </a>
+                      
+                  </div>
+              }
+          }@else {
+            <p>NO HAY IMAGENES</p>
+          }
+
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#2D383E]/[.2] group-hover:bg-black/40">
+            <svg class="w-4 h-4 text-white/[.8] rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Anterior</span>
+        </span>
+    </button>
+    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#2D383E]/[.2] group-hover:bg-black/40">
+            <svg class="w-4 h-4 text-white/[.8] rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Siguiente</span>
+        </span>
+    </button>
+</div>

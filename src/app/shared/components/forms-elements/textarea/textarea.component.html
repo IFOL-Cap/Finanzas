@@ -1,0 +1,34 @@
+<div class="input-element w-full">
+    <form [formGroup]="textAreaElementFrm" autocomplete="off">
+      <div class="relative">
+        <textarea (blur)="onKey($event)" #inputView formControlName="textAreaElement" rows="3"
+          class="w-full placeholder:text-slate-400 text-black-text-input text-base border border-gray-border-input rounded-lg px-3 py-2 transition duration-300 ease focus:border-slate-400"
+          [ngClass]="[textAreaElementFrm.controls['textAreaElement'].errors?.['required'] && textAreaElementFrm.dirty ? 
+                                  'text-red-700 border-red-200 focus:outline-none focus:border-red-500 hover:border-red-500' : ''
+                                  , textAreaConfig.isDisable ? 'border border-transparent focus:border-transparent focus:ring-0 text-[#75848D] bg-[#F4F6F7]' : '']"
+          [placeholder]="textAreaConfig.placeHolder" [disabled]="textAreaConfig.isDisable" id="disabled-input"
+          aria-label="disabled input" [readonly]="textAreaConfig.isRead">{{actualValue}}</textarea>
+        <span *ngIf="textAreaElementFrm.valid && textAreaConfig.isrequied">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            class="absolute w-5 h-5 top-3.5 right-2.5">
+            <path d="M3.3335 8.66602L6.00016 11.3327L12.6668 4.66602" stroke="#008C47" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </div>
+      <!-- Mostrar mensaje de error solo si el campo es requerido y está tocado -->
+      <p *ngIf="textAreaElementFrm.controls['textAreaElement'].errors?.['required'] && textAreaElementFrm.controls['textAreaElement'].touched"
+        class="mt-2 text-sm text-red-600 dark:text-red-500">
+        <!-- Mostrar mensaje específico si el tipo es 'email' -->
+        <ng-container *ngIf="textAreaConfig.type === 'mail';">
+          Correo requerido
+        </ng-container>
+      </p>
+  
+      <!-- Mostrar error de patrón (solo para correos electrónicos) -->
+      <p *ngIf="textAreaElementFrm.controls['textAreaElement'].errors?.['pattern']" class="mt-2 text-sm text-red-600 dark:text-red-500">
+        El correo electrónico no es válido.
+      </p>
+    </form>
+  </div>
+  

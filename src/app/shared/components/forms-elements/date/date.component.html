@@ -1,0 +1,14 @@
+  <div class="date-element w-full relative">
+    <form [formGroup]="dateElementFrm" autocomplete="off">
+        <input (change)="changeDate($event)"  [type]="dateConfig.type" 
+                formControlName="datetEl"
+                #calendarElement
+                [placeholder]="dateConfig.placeHolder"
+                [value]="actualDate"
+                class="w-full text-black-text-input text-base border border-gray-border-input rounded-lg transition duration-300 ease  focus:border-slate-400 block ">
+        <svg class="absolute w-5 h-5 top-3.5 right-2.5 " for="defaultdatepicker" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.33333 4.66667V2M10.6667 4.66667V2M4.66667 7.33333H11.3333M3.33333 14H12.6667C13.0203 14 13.3594 13.8595 13.6095 13.6095C13.8595 13.3594 14 13.0203 14 12.6667V4.66667C14 4.31304 13.8595 3.97391 13.6095 3.72386C13.3594 3.47381 13.0203 3.33333 12.6667 3.33333H3.33333C2.97971 3.33333 2.64057 3.47381 2.39052 3.72386C2.14048 3.97391 2 4.31304 2 4.66667V12.6667C2 13.0203 2.14048 13.3594 2.39052 13.6095C2.64057 13.8595 2.97971 14 3.33333 14Z" stroke="#D81E05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+    </form>
+
+  </div>

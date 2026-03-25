@@ -1,0 +1,35 @@
+<div class="w-full flex justify-end pl-0 md:pl-5  ">
+        <div class="w-4/6 md:w-4/6 flex items-center justify-end"
+              [ngClass]="{'w-full': !protectedToglleConfig.isWithToggle}">
+            @if ( protectedToglleConfig.isChecked ) {
+                @if (protectedToglleConfig.isWithIcon) {
+                    <app-icon class="mx-2" iconUrl="assets/icons/hbs/check.svg"></app-icon>
+                }
+                <span class="text-[#D81E05] text-xs font-rbt-bold md:text-sm"
+                > {{ protectedToglleConfig.title2}}</span>
+            }
+            @if ( !protectedToglleConfig.isChecked) {
+                @if (protectedToglleConfig.isWithIcon) {
+                    <app-icon class="mx-2" iconUrl="assets/icons/hbs/close.svg"></app-icon>
+                }
+                <span class="text-[#959793] text-xs font-rbt-bold md:text-sm"
+                > {{ protectedToglleConfig.title}}</span>
+            }
+           
+        </div>
+            @if (protectedToglleConfig.isWithToggle) {
+                <div class="w-2/6 md:w-2/6">
+                    <app-toggle (isCheckedToggle)="onCheckedToggle($event)" [toggleConfig]="{
+                        type: '',
+                        isrequied: false,
+                        placeHolder: '',
+                        isDisable: false,
+                        isHidden: false,
+                        isChecked: protectedToglleConfig.isChecked,
+                        data: protectedToglleConfig.display
+                    }"></app-toggle>
+                </div>
+            }
+        
+
+</div>

@@ -1,0 +1,550 @@
+<app-navbar [sideNav]="sideNav" (isOpenSideBar)="barra($event)" ></app-navbar>
+
+<aside
+	id="logo-sidebar"
+	class="fixed mini-barra-lateral top-0 left-0 z-40  h-screen pt-20 transition-transform -translate-x-full bg-black border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+
+	>
+	<div class="flex px-4 mb-3"
+    [ngClass]="isOpenSideBar ? 'md:w-64 justify-between items-center py-5 ': 'md:w-20 h-16 items-center justify-center'"
+    >   
+        <div>
+            <img class="min-w-8" src="/assets/imgs/user.png" alt="user photo" />
+        </div>
+        <div [ngClass]="isOpenSideBar ? '': 'hidden'">
+            <label for="" class="text-title-menu text-base font-poppins-semibold">Ivette García</label>
+            <p class="text-item-menu text-base font-poppins-semibold">Asesor #1209</p>
+        </div>
+        <div  [ngClass]="isOpenSideBar ? '': 'hidden'">
+            <img class="min-w-6 max-h-6" src="assets/icons/menu/arrows.svg" alt="">
+        </div>
+
+	</div>
+	<div class="h-screen pb-4 menu overflow-y-auto bg-black dark:bg-gray-800">
+        <div 
+        class="w-64 text-item-menu"
+        [ngClass]="isOpenSideBar ? 'pb-4': 'pb-0'"
+        >
+           
+            <span 
+            class=" ml-2 pl-5 text-xs font-poppins-semibold text-title-menu"
+            [ngClass]="isOpenSideBar ? 'opacity-100 ': 'opacity-0 hidden'"
+            > MENU PRINCIPAL</span>
+        </div>
+		<ul class="flex flex-col space-y-2 font-medium">
+			<li data-tooltip-target="tooltip-dash"
+            data-tooltip-placement="right" class="flex w-full h-9 py-2 pl-2">
+				<a (click)="navigationRes()" href="/home"
+                data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+					class="flex items-center md:hidden w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+					<img
+						src="/assets/icons/Dashboard-1.svg"
+						alt=""
+						width="22"
+						height="22"
+					/>
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="isOpenSideBar ? 'opacity-100': 'opacity-0'"
+                    >Dashboard</span>
+				</a>
+                <a href="/home"
+					class="hidden md:flex items-center w-full px-4 py-2  text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+					<img
+						src="/assets/icons/Dashboard-1.svg"
+						alt=""
+						width="22"
+						height="22"
+					/>
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="isOpenSideBar ? 'opacity-100': 'opacity-0'"
+                    >Dashboard</span>
+				</a>
+			</li>
+			<li class="flex w-full h-9 py-2 pl-2" data-tooltip-target="tooltip-search"
+            data-tooltip-placement="right">
+				<a 
+					class="flex items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+					<img
+						src="/assets/icons/Search-Normal.svg"
+						alt=""
+						width="22"
+						height="22"
+					/>
+
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="isOpenSideBar ? 'opacity-100': 'opacity-0'"
+                    >Buscar</span>
+				</a>
+			</li>
+			<li class="flex w-full h-9 py-2 pl-2 " data-tooltip-target="tooltip-messages"
+            data-tooltip-placement="right">
+				<a
+					class="flex items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+					<img
+						src="/assets/icons/Notification-Circle-Mapfre.svg"
+						alt=""
+						width="22"
+						height="22"
+					/>
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="isOpenSideBar ? 'opacity-100': 'opacity-0'"
+                    >Mensajes MAPFRE</span>
+				</a>
+			</li>
+            <hr class="opacity-25">
+			<li
+				data-tooltip-target="tooltip-work"
+				data-tooltip-placement="right"
+				class=" pl-2 md:flex w-full md:h-10 "
+				[ngClass]="{ 'bg-back-menu border-l-2 border-red-mafe': isOpen }"
+			>   
+                <a (click)="openSubmenu()"
+					class="flex md:hidden justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/menu/PortafolioRed.svg' : '/assets/icons/Portafolio.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >Zona de trabajo</span>
+                </div>
+                    <img src="{{ isOpenRes ? '/assets/icons/remove.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</a>
+				<button
+					class="md:flex justify-between hidden items-center w-full px-4 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+					(click)="isOpen = !isOpen"
+					cdkOverlayOrigin
+					#menuDash="cdkOverlayOrigin"
+				>   
+                    <div class="flex items-center">
+                        <img class="min-w-6"
+                            src="{{isOpen ? '/assets/icons/menu/PortafolioRed.svg' : '/assets/icons/Portafolio.svg'}}"
+                            alt=""
+                            width="22"
+                            height="22"
+                        />
+                        <span 
+                        class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                        [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0', isOpen ? 'text-red-mafe' : '']"
+                        >Zona de Trabajo</span>
+                    </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/Plus.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</button>
+                
+                <ul id="sub" class="submenu  text-gray-btn-subtitle">
+                    <li class="w-full py-2 items-center"  [ngClass]="{'bg-back-menu border-l py-0 h-16 text-red-mafe border-red-mafe': isOpenSub}">
+                        <a (click)="openSubSubMenu()" class="flex px-3 items-center justify-between">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-4"><img src="{{isOpenSub ? '/assets/icons/menu/car.svg' : '/assets/icons/menu/car.svg'}}" alt=""></span>
+                                <span class="text-base text-item-menu"  [ngClass]="{'text-red-mafe': isOpenSub}" >Automóviles</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="{{isOpenSubsub ? '/assets/icons/menu/VectorOpen.svg' : '/assets/icons/menu/Vector.svg'}}" alt=""></span>
+                            </div>
+                        </a>
+                        <button class="md:flex hidden px-3 items-center justify-between w-full" (click)="isOpenSub = !isOpenSub"  cdkOverlayOrigin #menuSub="cdkOverlayOrigin">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-4"><img src="{{isOpenSub ? '/assets/icons/menu/carRed.svg' : '/assets/icons/menu/car.svg'}}" alt=""></span>
+                                <span class="text-base text-item-menu"  [ngClass]="{'text-red-mafe': isOpenSub}" >Automóviles</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="{{isOpenSub ? '/assets/icons/menu/VectorRed.svg' : '/assets/icons/menu/Vector.svg'}}" alt=""></span>
+                            </div>
+                        </button>
+                        <ul id="subSubMenu" class="subSubmenu text-gray-btn-subtitle">
+                            <li class="w-full py-2">
+                                <a (click)="navigationRes()" href="/auto/step1" data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" class="flex items-center justify-between w-full">
+                                    <div class="flex items-center w-3/4">
+                                        <span class="pr-3"><img src="/assets/icons/menu/Tablas.svg" alt=""></span>
+                                        <span class="text-base text-item-menu">Cotiza y Emite</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="w-full py-2">
+                                <button class="flex items-center justify-between w-full">
+                                    <div class="flex items-center w-3/4">
+                                        <span class="pr-3"><img src="/assets/icons/menu/Endoso.svg" alt=""></span>
+                                        <span class="text-base text-item-menu">Endoso Web</span>
+                                    </div>
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-4"><img src="/assets/icons/menu/Shape.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Daños</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-4"><img src="/assets/icons/menu/life.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Vida</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/medicine.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Accidentes y Enfermedades</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/Cliente.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Cliente MAPFRE</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/Factura.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Cobranza</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/BuscarPoliza.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Consulta y Gestión</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/gama.svg" alt=""></span>
+                                <span class="text-base text-item-menu">GAMA</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/download.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Descargas</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-4"><img src="/assets/icons/menu/route.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Localizador de Oficinas</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-2"><img src="/assets/icons/menu/Root.svg" alt=""></span>
+                                <span class="text-base text-item-menu">Soluciones MAPFRE</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                    <li class="w-full py-2 h-10 flex items-center">
+                        <button class="flex px-3 items-center justify-between w-full">
+                            <div class="flex items-center w-3/4">
+                                <span class="pr-3"><img src="/assets/icons/menu/asist.svg" alt=""></span>
+                                <span class="text-base text-item-menu"> MIA T-Asiste</span>
+                            </div>
+                            <div class="">
+                                <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                            </div>
+                        </button>
+                    </li>
+                </ul>
+
+			</li>
+            <hr class="opacity-25">
+			<li class="w-full pl-2 flex h-10 " data-tooltip-target="tooltip-products"
+            data-tooltip-placement="right">
+				<a
+					class="flex justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/Productos.svg' : '/assets/icons/Productos.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >Productos Mapfre</span>
+                </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/PlusWhite.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</a>
+			</li>
+            <hr class="opacity-25">
+            <li class="w-full pl-2 flex h-10 " data-tooltip-target="tooltip-indicatos"
+            data-tooltip-placement="right">
+				<a
+					class="flex justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/Indicadores.svg' : '/assets/icons/Indicadores.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >Indicadores de Gestión</span>
+                </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/PlusWhite.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</a>
+			</li>
+            <hr class="opacity-25">
+            <li class="w-full pl-2 flex h-10" data-tooltip-target="tooltip-pai"
+            data-tooltip-placement="right">
+				<button
+					class="flex justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/menu/pai.svg' : '/assets/icons/menu/pai.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >PAI Campañas</span>
+                </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/PlusWhite.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</button>
+			</li>
+            <hr class="opacity-25">
+            <li class="w-full pl-2 flex h-10 " data-tooltip-target="tooltip-communication"
+            data-tooltip-placement="right">
+				<button
+					class="flex justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/menu/comunicacion.svg' : '/assets/icons/menu/comunicacion.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >Comunicación</span>
+                </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/PlusWhite.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</button>
+			</li>
+            <hr class="opacity-25">
+            <li class="w-full pl-2 flex h-10" data-tooltip-target="tooltip-benefits"
+            data-tooltip-placement="right">
+				<button
+					class="flex justify-between items-center w-full px-4 py-2 text-gray-900 dark:text-white dark:hover:bg-gray-700 group"
+				>
+                <div class="flex items-center">
+                    <img class="min-w-6"
+                        src="{{isOpen ? '/assets/icons/Beneficios.svg' : '/assets/icons/Beneficios.svg'}}"
+                        alt=""
+                        width="22"
+                        height="22"
+                    />
+                    
+                    <span 
+                    class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                    [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                    >Beneficios</span>
+                </div>
+                    <img src="{{ isOpen ? '/assets/icons/menu/PlusWhite.svg' : '/assets/icons/menu/PlusWhite.svg' }}" alt="">
+				</button>
+			</li>
+            <hr class="opacity-25">
+
+            <div class="flex  flex-col  min-h-48 pl-3  w-64">
+                <div class="mt-auto ml-4 py-5 " >
+                    <div class="flex py-4">
+                        <img src="/assets/icons/menu/settings.svg" alt="">
+    
+                      <span 
+                        class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                        [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                        >Configuración</span>
+                    </div>
+                    <div class="flex">
+                        <img src="/assets/icons/menu/Union.svg" alt="">
+                        <span 
+                        class=" ml-2 text-base font-poppins-semibold text-item-menu"
+                        [ngClass]="[isOpenSideBar ? 'opacity-100': 'opacity-0']"
+                        >Ayuda y Soporte</span>
+                    </div>
+
+                </div>
+            </div>
+
+		</ul>
+
+		<div
+			id="tooltip-work"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Zona de Trabajo
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+
+		<div
+			id="tooltip-dash"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Dashboard
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-search"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Buscar
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-messages"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Mensajes MAPFRE
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-products"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Productos Mapfre
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-indicatos"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Indicadores de Gestión
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-pai"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			PAI Campañas
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-communication"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Comunicacion
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+        <div
+			id="tooltip-benefits"
+			role="tooltip"
+			class="absolute z-10 invisible inline-block px-3 py-2 text-base w-32 text-white transition-opacity duration-200 bg-red-mafe rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
+		>
+			Beneficios
+			<div class="tooltip-arrow" data-popper-arrow></div>
+		</div>
+
+		<!-- This template displays the overlay content and is connected to the button -->
+		
+	</div>
+</aside>
+
+<div class="grid md:grid-cols-7 grid-flow-row col-span-2 mt-12 p-2 sm:ml-24" 
+    [ngClass]="isOpenSideBar ? 'sm:ml-72': 'sm:ml-24'"
+    >
+	<div class="order-2 col-span-5 md:col-span-7 md:pr-5">
+		<router-outlet />
+	</div>
+</div>
+
+<ng-template
+            (overlayOutsideClick)="isOpen = false"
+			cdkScrollable="scrollStrategy"
+			cdkConnectedOverlay
+			cdkConnectedOverlayHeight="50%"
+			[cdkConnectedOverlayOrigin]="menuDash"
+			[cdkConnectedOverlayOpen]="isOpen"
+			[cdkConnectedOverlayPositions]="[
+				{
+					originX: 'center',
+					originY: 'top',
+					overlayX: 'start',
+					overlayY: 'top',
+				}
+			]"
+		>
+			<app-menu></app-menu>
+		</ng-template>

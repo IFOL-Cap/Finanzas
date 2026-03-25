@@ -1,0 +1,43 @@
+<div  [class.mb-5]="isDefaultMargin()">
+  <div  [id]="getId()" class="flex items-center justify-between w-full p-5 bg-gray-accordion border border-b border-gray-200 rounded-lg gap-3 text-gray-500
+        cursor-pointer h-auto" (click)="toogleOpened()" [class.text-gray-500] = "!isOpened()" >
+    <span class="flex items-center">
+
+      @if (isCompleted()) {
+        <img class="pr-4" src="/assets/icons/ratioButtonGreen.svg" alt="">
+      }
+      @else if (isActivaded()) {
+            <img class="pr-4"
+                        src="/assets/icons/radiobutton.svg"
+                        alt="" />
+      } @else if (!isActivaded()) {
+                        <img class="pr-4"
+                        src="./assets/icons/ratioButtonDisable.svg"
+                        alt="" />
+      }
+          @if (isCompleted()) {
+          <div class="flex flex-col justify-start items-start">
+            <span class="font-bold">{{headerCompleteTitle() || title()}}</span>
+            <span class="text-base font-normal">{{headerCompleteSubtitle() || ''}}</span>
+          </div>
+        }@else {
+            {{title()}}
+        }
+    </span>
+
+    <svg data-accordion-icon class="w-3 h-3 shrink-0 transition duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 10 6" [class.rotate-180] = "isOpened()">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5 5 1 1 5" />
+    </svg>
+  </div>
+
+  <div class="px-3 border border-t-0 bg-white border-gray-200 dark:border-gray-700 overflow-y-hidden
+    transition-all  duration-400 ease-in-out"
+    [class.hidden]="!isOpened()"
+    [class.max-h-full]="isOpened()"
+    [class.border-0]="!isOpened()">
+    <ng-content></ng-content>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+<div class="grid grid-cols-3 items-center gap-y-2">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help
+            [labelHelp]="labelHelp"
+        />
+    </div>
+    <div class="col-span-3 md:col-span-1">
+        @if (isButtons) {
+            <app-buttons-group class="w-full" [buttonsConig]="buttonsConfig" (optionSelect)="optionSelected($event)"><span left>{{buttonsConfig.titleLeft}}</span><span right>{{buttonsConfig.titleRight}}</span></app-buttons-group>
+
+        }@else {
+            <app-input class="w-full" [inputConfig]="{
+                type: 'text',
+                pattern: '',
+                isrequied: true,
+                placeHolder: 'No residentes',
+                isDisable: true,
+                isHidden: false,
+                isRead: true
+        }"></app-input>
+        }
+    </div>
+    @if(isSecondInputShow) {
+    <div class="col-span-3 md:col-span-1 md:ml-1">
+      <app-input class="w-[30%]" [inputConfig]="inputConfig" />
+    </div>
+    }
+      
+
+</div>

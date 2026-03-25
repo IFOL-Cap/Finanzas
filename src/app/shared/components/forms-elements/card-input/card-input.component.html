@@ -1,0 +1,60 @@
+<div class="input-element w-full flex flex-row justify-around py-4">
+	<form
+		[formGroup]="inputElementFrm"
+		class="flex w-full justify-around"
+		autocomplete="off"
+	>
+		<div class="flex flex-col items-center">
+			<input
+				#input1
+				formControlName="input1"
+				maxlength="4"
+				(input)="onInput($event, 'input1')"
+				[type]="inputConfig.type"
+				[placeholder]="inputConfig.placeHolder"
+				[disabled]="inputConfig.isDisable"
+				[readonly]="inputConfig.isRead"
+				class="w-16 text-center placeholder:text-slate-400 text-black-text-input text-base border border-gray-border-input rounded-lg px-3 py-2 transition duration-300 ease focus:border-slate-400"
+			/>
+		</div>
+		<div class="flex flex-col items-center">
+			<input
+				#input2
+				formControlName="input2"
+				maxlength="4"
+				(input)="onInput($event, 'input2')"
+				[type]="inputConfig.type"
+				[placeholder]="inputConfig.placeHolder"
+				[disabled]="inputConfig.isDisable"
+				[readonly]="inputConfig.isRead"
+				class="w-16 text-center placeholder:text-slate-400 text-black-text-input text-base border border-gray-border-input rounded-lg px-3 py-2 transition duration-300 ease focus:border-slate-400"
+			/>
+		</div>
+		<div class="flex flex-col items-center">
+			<input
+				#input3
+				formControlName="input3"
+				maxlength="4"
+				(input)="onInput($event, 'input3')"
+				[type]="inputConfig.type"
+				[placeholder]="inputConfig.placeHolder"
+				[disabled]="inputConfig.isDisable"
+				[readonly]="inputConfig.isRead"
+				class="w-16 text-center placeholder:text-slate-400 text-black-text-input text-base border border-gray-border-input rounded-lg px-3 py-2 transition duration-300 ease focus:border-slate-400"
+			/>
+		</div>
+		<div class="flex flex-col items-center">
+			<input
+				#input4
+				formControlName="input4"
+				maxlength="4"
+				(input)="onInput($event, 'input4')"
+				[type]="inputConfig.type"
+				[placeholder]="inputConfig.placeHolder"
+				[disabled]="inputConfig.isDisable"
+				[readonly]="inputConfig.isRead"
+				class="w-16 text-center placeholder:text-slate-400 text-black-text-input text-base border border-gray-border-input rounded-lg px-3 py-2 transition duration-300 ease focus:border-slate-400"
+			/>
+		</div>
+	</form>
+</div>

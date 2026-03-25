@@ -1,0 +1,163 @@
+<div class="bg-black rounded-xl h-full w-80 overflow-auto ">
+    <div class=" p-4">
+        <label for="" class="text-title-menu text-sm">Zona de trabajo</label>
+    </div>
+    <hr class="bg-gray-division-section opacity-25">
+    <ul class="example-list text-gray-btn-subtitle">
+        <li class="w-full py-2 flex items-center"  [ngClass]="{'bg-back-menu border-l py-0 h-16 text-red-mafe border-red-mafe': isOpenSub}">
+            <button class="flex px-3 items-center justify-between w-full" (click)="isOpenSub = !isOpenSub"  cdkOverlayOrigin #menuSub="cdkOverlayOrigin">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-4"><img src="{{isOpenSub ? '/assets/icons/menu/carRed.svg' : '/assets/icons/menu/car.svg'}}" alt=""></span>
+                    <span class="text-sm text-item-menu"  [ngClass]="{'text-red-mafe': isOpenSub}" >Automóviles</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="{{isOpenSub ? '/assets/icons/menu/VectorRed.svg' : '/assets/icons/menu/Vector.svg'}}" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-4"><img src="/assets/icons/menu/Shape.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Daños</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-4"><img src="/assets/icons/menu/life.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Vida</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/medicine.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Accidentes y Enfermedades</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/Cliente.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Cliente MAPFRE</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/Factura.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Cobranza</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/BuscarPoliza.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Consulta y Gestión</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/gama.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">GAMA</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/download.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Descargas</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-4"><img src="/assets/icons/menu/route.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Localizador de Oficinas</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-2"><img src="/assets/icons/menu/Root.svg" alt=""></span>
+                    <span class="text-sm text-item-menu">Soluciones MAPFRE</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+        <li class="w-full py-2 h-10 flex items-center">
+            <button class="flex px-3 items-center justify-between w-full">
+                <div class="flex items-center w-3/4">
+                    <span class="pr-3"><img src="/assets/icons/menu/asist.svg" alt=""></span>
+                    <span class="text-sm text-item-menu"> MIA T-Asiste</span>
+                </div>
+                <div class="">
+                    <span class=" float-end"><img src="/assets/icons/menu/Vector.svg" alt=""></span>
+                </div>
+            </button>
+        </li>
+    </ul>
+</div>
+
+
+<ng-template
+(overlayOutsideClick)="isOpenSub = false"
+cdkConnectedOverlay
+[cdkConnectedOverlayOrigin]="menuSub"
+[cdkConnectedOverlayOpen]="isOpenSub"
+[cdkConnectedOverlayPositions]="[
+    {
+        originX: 'center',
+        originY: 'top',
+        overlayX: 'start',
+        overlayY: 'top',
+        offsetX: 170
+    }
+]"
+>
+
+  
+    <app-automobiles></app-automobiles>
+    
+
+</ng-template>
