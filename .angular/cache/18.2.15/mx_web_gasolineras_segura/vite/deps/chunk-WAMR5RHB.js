@@ -1,6 +1,6 @@
 import {
   isPlatformBrowser
-} from "./chunk-QOBP7IFJ.js";
+} from "./chunk-KAYUTNLV.js";
 import {
   ElementRef,
   Inject,
@@ -12,7 +12,7 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-6C5XKRSM.js";
+} from "./chunk-DMNKWXVU.js";
 
 // node_modules/@angular/cdk/fesm2022/coercion.mjs
 function coerceNumberProperty(value, fallbackValue = 0) {
@@ -233,4 +233,4 @@ export {
   _getEventTarget,
   _isTestEnvironment
 };
-//# sourceMappingURL=chunk-RX7PHVPG.js.map
+//# sourceMappingURL=chunk-WAMR5RHB.js.map

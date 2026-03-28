@@ -5,16 +5,22 @@ import { ButtonComponent } from '../../../shared/components/buttons/button/butto
 import { Router } from '@angular/router';
 import { EncryptedStorageService } from '../../../shared/services/encrypted-storage.service';
 import { LabelSelectComponent } from '../../../shared/components/forms-elements/label-select/label-select.component';
+import { LabelHelpComponent } from "../../../shared/components/messages-display/label-help/label-help.component";
+import { DateComponent } from "../../../shared/components/forms-elements/date/date.component";
+import { LabelCheckboxComponent } from "../../../shared/components/forms-elements/label-checkbox/label-checkbox.component";
 
 @Component({
   selector: 'app-im-quotation-issuance-data',
   standalone: true,
   imports: [
-    LabelInputComponent, 
-    LabelUploadComponent, 
+    LabelInputComponent,
+    LabelUploadComponent,
     ButtonComponent,
-    LabelSelectComponent
-  ],
+    LabelSelectComponent,
+    LabelHelpComponent,
+    DateComponent,
+    LabelCheckboxComponent
+],
   templateUrl: './im-quotation-issuance-data.component.html',
   styleUrl: './im-quotation-issuance-data.component.css'
 })
@@ -24,6 +30,10 @@ constructor(private router: Router, private localStorage: EncryptedStorageServic
 continue():void
   {
      this.router.navigate(['/im/step2']);
+  }
+
+  changeCheck(event: any){
+    
   }
 
 }
