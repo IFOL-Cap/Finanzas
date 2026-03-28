@@ -8,6 +8,7 @@ import { LabelSelectComponent } from '../../../shared/components/forms-elements/
 import { LabelHelpComponent } from "../../../shared/components/messages-display/label-help/label-help.component";
 import { DateComponent } from "../../../shared/components/forms-elements/date/date.component";
 import { LabelCheckboxComponent } from "../../../shared/components/forms-elements/label-checkbox/label-checkbox.component";
+import { InputComponent } from "../../../shared/components/forms-elements/input/input.component";
 
 @Component({
   selector: 'app-im-quotation-issuance-data',
@@ -19,7 +20,8 @@ import { LabelCheckboxComponent } from "../../../shared/components/forms-element
     LabelSelectComponent,
     LabelHelpComponent,
     DateComponent,
-    LabelCheckboxComponent
+    LabelCheckboxComponent,
+    InputComponent
 ],
   templateUrl: './im-quotation-issuance-data.component.html',
   styleUrl: './im-quotation-issuance-data.component.css'
