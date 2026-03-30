@@ -67,7 +67,7 @@
         isRquired: true,
         isWithHelp: true,
         isWithSubtitle: false,
-        title: 'Palabra:',
+        title: 'Clave Causa de Ref. Neg.:',
         subtitle: '',
         position: 'right',
         helpMsg: 'ayuda',
@@ -76,7 +76,33 @@
         type: 'text',
         pattern: '',
         isrequied: false,
-        placeHolder: 'Ingrese la palabra',
+        placeHolder: '',
+        isDisable: false,
+        isHidden: false,
+        isRead: false,
+        }"
+    />
+    </div>
+
+    <div
+    class="flex w-full items-center py-5 border-t border-gray-division-section"
+    >
+    <app-label-input
+        class="w-full"
+        [labelHelp]="{
+        isRquired: true,
+        isWithHelp: true,
+        isWithSubtitle: false,
+        title: 'Causa de Ref. Neg.:',
+        subtitle: '',
+        position: 'right',
+        helpMsg: 'ayuda',
+        }"
+        [inputConfig]="{
+        type: 'text',
+        pattern: '',
+        isrequied: false,
+        placeHolder: '',
         isDisable: false,
         isHidden: false,
         isRead: false,
@@ -94,7 +120,7 @@
             label: '',
         }"
         >
-        Aceptar
+        Actualizar
         </app-button>
     </div>
     <div class=" max-w-[300px] ">

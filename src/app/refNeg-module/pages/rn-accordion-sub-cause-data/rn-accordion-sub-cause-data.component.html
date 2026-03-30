@@ -1,1 +1,15 @@
-<p>rn-accordion-sub-cause-data works!</p>
+<div class="grid grid-cols-6 md:flex md:justify-between border-t py-4 border-gray-200 dark:border-gray-700">
+	<div class="col-span-6 flex flex-col md:flex-row md:items-center md:justify-start w-full md:w-auto">
+	</div>
+</div>
+
+<app-accordion-reusable class="flex flex-col">
+    <app-accordion-reusable-item title="Solicitud">
+        <div class="py-4">
+            <app-required-info [requiredInfo]="requiredInfo" />
+            <div>
+                <app-rn-sub-cause></app-rn-sub-cause>
+            </div>
+        </div>
+    </app-accordion-reusable-item>
+</app-accordion-reusable>

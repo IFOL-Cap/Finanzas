@@ -10,7 +10,6 @@ export const routes: Routes = [
     path: ApRoutes.rn.value,
     loadChildren: () => import('./refNeg-module/rn.routes')
   },  
-
   {
     path: 'admin',
     loadComponent: () => import('./admin/admin.component').then(a => a.AdminComponent),

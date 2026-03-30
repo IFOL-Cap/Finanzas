@@ -26,7 +26,8 @@ export class RnCauseComponent {
   public columns = [
     { key: 'Borrar', label: 'Borrar' },
     { key: 'Actualizar', label: 'Actualizar' },
-    { key: 'Palabra', label: 'Palabra' },
+    { key: 'Clave', label: 'Clave' },
+    { key: 'Descripción', label: 'Descripción' },
    
   ];
   
@@ -34,9 +35,9 @@ export class RnCauseComponent {
     {
       Borrar: '',
       Actualizar: '',
-      Palabra: 'MEDINA',
+      Clave: 'I',
+      Descripción: 'Inc obligs norm del cto fza',
     },
-    
   ];
   /**
   actions = [
