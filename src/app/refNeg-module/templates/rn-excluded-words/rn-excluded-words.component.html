@@ -1,0 +1,112 @@
+<div
+  class="w-full py-3 md:flex items-center border-b border-gray-division-section"
+>
+  <div class="w-full md:w-1/3 flex items-center">
+    <app-label-help
+      [labelHelp]="{
+        isRquired: true,
+        isWithHelp: true,
+        isWithSubtitle: false,
+        title: 'Palabra:',
+        subtitle: '',
+        position: 'right',
+        helpMsg: 'ayuda',
+      }"
+    >
+    </app-label-help>
+  </div>
+
+  <div class="flex items-center gap-1 flex-1">
+    <app-input
+      class="w-2/5"
+      [inputConfig]="{
+        type: 'text',
+        pattern: '',
+        isrequied: true,
+        placeHolder: '',
+        isDisable: false,
+        isHidden: false,
+        isRead: false,
+      }"
+    ></app-input>
+    <app-button
+      [buttonConfig]="{
+        type: 0,
+        label: '',
+      }"
+    >
+      Buscar
+    </app-button>
+  </div>
+</div>
+ 
+<!--TABLA  [columns]="columns" [datasource]="datasource" [actions]="actions"-->
+<app-dynamic-table [columns]="columns" [datasource]="datasource"></app-dynamic-table>
+
+<div *ngIf="!showForm" class="flex flex-row w-full justify-center py-5 mt-3">
+  <div class="w-full max-w-[300px] mx-auto">
+    <app-button
+      (click)="onAdd()"
+      [buttonConfig]="{
+        type: 0,
+        label: '',
+      }"
+    >
+      Agregar
+    </app-button>
+  </div>
+</div>
+
+<div *ngIf="showForm">
+    <div
+    class="flex w-full items-center py-5 border-t border-gray-division-section"
+    >
+    <app-label-input
+        class="w-full"
+        [labelHelp]="{
+        isRquired: true,
+        isWithHelp: true,
+        isWithSubtitle: false,
+        title: 'Palabra:',
+        subtitle: '',
+        position: 'right',
+        helpMsg: 'ayuda',
+        }"
+        [inputConfig]="{
+        type: 'text',
+        pattern: '',
+        isrequied: false,
+        placeHolder: 'Ingrese la palabra',
+        isDisable: false,
+        isHidden: false,
+        isRead: false,
+        }"
+    />
+    </div>
+
+<div class="flex justify-center gap-4 py-5 border-t">
+    <div class="max-w-[300px] ">
+        <!--(click)="onAccept()"-->
+        <app-button
+        
+        [buttonConfig]="{
+            type: 0,
+            label: '',
+        }"
+        >
+        Aceptar
+        </app-button>
+    </div>
+    <div class=" max-w-[300px] ">
+        <app-button
+        (click)="onCancel()"
+        [buttonConfig]="{
+            type: 0,
+            label: '',
+        }"
+        >
+        Cancelar
+        </app-button>
+    </div>
+</div>
+</div>

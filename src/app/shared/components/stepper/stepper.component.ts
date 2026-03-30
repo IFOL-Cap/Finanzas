@@ -37,6 +37,7 @@ export class StepperComponent {
 
   titlesIM = ['Datos complementarios', 'Emision'];
   titlesFZ = ['Datos complementarios', 'Emision'];
+  titlesNR = ['Datos complementarios', 'Emision'];
   //'Cotización','Datos complementarios', 'Emisión', 'Datos de pago'
 
 
@@ -150,6 +151,8 @@ export class StepperComponent {
         return this.titlesIM;
       case FlowFrom.fz:
         return this.titlesFZ;
+      case FlowFrom.rn:
+        return this.titlesNR;
     }
   }
 }

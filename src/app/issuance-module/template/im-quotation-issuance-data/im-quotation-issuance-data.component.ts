@@ -34,8 +34,6 @@ continue():void
      this.router.navigate(['/im/step2']);
   }
 
-  changeCheck(event: any){
-    
-  }
+  changeCheck(event: any){}
 
 }

@@ -43,6 +43,23 @@ export const ApRoutes = {
                 full: ()=> '/im/step2'
             },
         }
+    },
+    rn:{
+        value: 'rn',
+        path: {
+            step1: {
+                value: 'step1',
+                full: ()=> '/rn/step1'
+            },
+            step2: {
+                value: 'step2',
+                full: ()=> '/rn/step2'
+            },
+            step3: {
+                value: 'step3',
+                full: ()=> '/rn/step3'
+            },
+        }
     } 
 }
 
