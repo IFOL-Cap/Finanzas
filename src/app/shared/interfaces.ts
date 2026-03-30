@@ -818,3 +818,11 @@ export interface ModalPrintPolicy
     title: string;
     message: string;
 }
+
+export interface TreeNode {
+  id: number;
+  label: string;
+  expanded?: boolean;
+  checked?: boolean;
+  children?: TreeNode[];
+}

@@ -5,5 +5,10 @@ export const routes: Routes = [
   {
     path: ApRoutes.im.value,
     loadChildren: () => import('./issuance-module/im.routes')
-  } 
+  },
+
+  {
+    path: 'admin',
+    loadComponent: () => import('./admin/admin.component').then(a => a.AdminComponent),
+  }
 ];
