@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { ButtonComponent } from "../../../shared/components/buttons/button/button.component";
 import { LabelInputComponent } from "../../../shared/components/forms-elements/label-input/label-input.component";
 import { LabelDateComponent } from "../../../shared/components/forms-elements/label-date/label-date.component";
@@ -11,11 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { DynamicTableComponent } from "../../../shared/components/dynamic-table/dynamic-table.component";
 import { InputComponent } from "../../../shared/components/forms-elements/input/input.component";
 import { LabelHelpComponent } from "../../../shared/components/messages-display/label-help/label-help.component";
+import { ModalPrintMessageComponent } from "../../../shared/components/modales/modal-print-message/modal-print-message.component";
 
 @Component({
   selector: 'app-rn-excluded-words',
   standalone: true,
-  imports: [ButtonComponent, LabelInputComponent, LabelDateComponent, LabelSelectComponent, CommonModule, FormsModule, DynamicTableComponent, InputComponent, LabelHelpComponent],
+  imports: [ButtonComponent, LabelInputComponent, LabelDateComponent, LabelSelectComponent, CommonModule, FormsModule, DynamicTableComponent, InputComponent, LabelHelpComponent, ModalPrintMessageComponent],
   templateUrl: './rn-excluded-words.component.html',
   styleUrl: './rn-excluded-words.component.css'
 })
@@ -36,26 +37,31 @@ export class RnExcludedWordsComponent {
   
   public datasource = [
     {
-      Borrar: '',
-      Actualizar: '',
+      Borrar: 'borrar',
+      Actualizar: 'actualizar',
       Palabra: 'MEDINA',
     },
     
   ];
-  /**
+  
   actions = [
     {
-      label: 'View/Print',
-      icon: '/assets/icons/printer.svg',
-      callback: (row: any) => this.pagarPoliza(row)
-    }
-  ]; */
+      label: 'Borrar',
+      callback: (row: any) => this.onDelete(row)
+    },
+    
+  ]; 
+
+  onDelete(row: any){
+    console.log('Eliminar:', row);
+    this.openModal();
+  }
   
-  pagarPoliza(row: any) 
+  /**pagarPoliza(row: any) 
   {
     console.log("row: " + JSON.stringify(row));
     //this.route.navigate(["rn/step2"]);
-  }
+  } */
 
   //
 
@@ -68,6 +74,11 @@ export class RnExcludedWordsComponent {
   }
   onAccept(){
     this.showForm = false;
+  }
+
+   @ViewChild(ModalPrintMessageComponent) modal!: ModalPrintMessageComponent
+  openModal() {
+    this.modal.openModalMessage()
   }
 
 }

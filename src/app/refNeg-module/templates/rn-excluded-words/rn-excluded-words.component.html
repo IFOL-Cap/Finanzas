@@ -1,3 +1,4 @@
+<app-modal-print-message></app-modal-print-message>
 <div
   class="w-full py-3 md:flex items-center border-b border-gray-division-section"
 >
@@ -41,10 +42,16 @@
 </div>
  
 <!--TABLA  [columns]="columns" [datasource]="datasource" [actions]="actions"-->
-<app-dynamic-table [columns]="columns" [datasource]="datasource"></app-dynamic-table>
+<app-dynamic-table 
+[actions]="actions"
+[columns]="columns" 
+[datasource]="datasource"
+
+></app-dynamic-table>
 
 <div *ngIf="!showForm" class="flex flex-row w-full justify-center py-5 mt-3">
   <div class="w-full max-w-[300px] mx-auto">
+    <!--(click)="openModal()"-->
     <app-button
       (click)="onAdd()"
       [buttonConfig]="{
