@@ -3,6 +3,8 @@ import { Component, EventEmitter, inject, Input, OnDestroy, Output } from '@angu
 import { SearchComponent } from '../../forms-elements/search/search.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { LoginService } from '../../../services/login.service';
+import { ApRoutes } from '../../../consts';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +15,11 @@ import { filter, Subscription } from 'rxjs';
 })
 export class NavbarComponent implements OnDestroy {
 
+  constructor(
+      private loginService: LoginService,
+		private router: Router,
+  )
+  {}
 
   miSuscripcion!: Subscription;
   rutaActual: string = ''
@@ -73,4 +80,10 @@ export class NavbarComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.miSuscripcion.unsubscribe();
   }
+
+  	logout() {
+		this.loginService.logout();
+		this.router.navigate([ApRoutes.login.value]);
+	}
+ 
 }

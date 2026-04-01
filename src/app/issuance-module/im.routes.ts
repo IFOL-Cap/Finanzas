@@ -12,11 +12,11 @@ export const imRoutes : Routes = [
         path: '',
         component: ImLayoutComponent,
         children: [
-        {
+      /*  {
             path: '',
             redirectTo: ApRoutes.im.path.step1.value,
             pathMatch: 'full'
-        },
+        },*/
         {
             path: ApRoutes.im.path.step1.value,
             loadComponent: () => import('./page/im-accordion-quotation-issuance-data/im-accordion-quotation-issuance-data.component').then(im => im.ImAccordionQuotationIssuanceDataComponent)

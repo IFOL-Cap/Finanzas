@@ -7,7 +7,7 @@ export const LabelsTerminos = [
     'Descuento del 15% o menor - Comisión del 15%',
     'Descuento mayor del 15% - Comisión del 10%',
     '(Solo aplica para ramos 410, para pólizas de nueva producción, no renovaciones o clientes en cartera)'
-  ]
+]
 
 export const Icons = {
     0: '/assets/icons/more',
@@ -31,16 +31,20 @@ export const TableLabels = {
     previousPageLabel: "Anterior "
 }
 export const ApRoutes = {
-    im:{
+    login: {
+        value: 'login',
+        full: () => '/login'
+    },
+    im: {
         value: 'im',
         path: {
             step1: {
                 value: 'step1',
-                full: ()=> '/im/step1'
+                full: () => '/im/step1'
             },
             step2: {
                 value: 'step2',
-                full: ()=> '/im/step2'
+                full: () => '/im/step2'
             },
         }
     },
@@ -60,7 +64,66 @@ export const ApRoutes = {
                 full: ()=> '/rn/step3'
             },
         }
-    } 
+    } ,
+    garantias: {
+        value: 'garantias',
+        path: {
+            catalogo: {
+                value: 'catalogo',
+                path: {
+                    altaTerceros: {
+                        value: 'altaTerceros',
+                        path: {
+                            fisica:
+                            {
+                                value: 'fisica',
+                                full: () => 'garantias/catalogo/altaTerceros/fisica'
+                            },
+                            moral: {
+                                value: 'moral',
+                                full: () => 'garantias/catalogo/altaTerceros/moral'
+                            }
+                        }
+                    },
+                }
+            },
+            consultas: {
+                value: 'consultas',
+                path: {
+                    garantiaPoliza: {
+                        value: 'garantiaPoliza',
+                        full: () => 'consultas/garantiaPoliza',
+                    },
+                    personas : {
+                        value: 'personas',
+                        full: () => 'consultas/personas'
+                    },
+                    envioPoliza : {
+                        value: 'envioPoliza',
+                        full: () => 'consultas/envioPoliza'
+                    },
+                    solicitudes: {
+                        value: 'solicitudes',
+                        full: () => 'consultas/solicitudes'
+                    },
+                    consultaXml: {
+                        value: 'consultaXml',
+                        full: () => 'consultas/consultaXml'
+                    },
+                }
+            },
+            refNeg: {
+                value: 'refNeg',
+                path: {
+                    personas: {
+                        value: 'personas',
+                        full: () => 'refNeg/personas'
+                    }
+                }
+
+            }
+        }
+    }
 }
 
 export const BreakPoint = {

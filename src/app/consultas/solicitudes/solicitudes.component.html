@@ -1,0 +1,43 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+	Mostrar Solicitud
+</h2>
+<hr class="bg-gray-division-section">
+
+<div class="mt-6 mb-6">
+	<h3 class="text-lg font-bold mb-4">Formulario de Solicitud</h3>
+
+	<div class="bg-white border border-gray-division-section rounded-lg p-5">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+			<div>
+				<label class="block font-semibold mb-1">Solicitud No.</label>
+				<input
+					type="text"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa numero de solicitud"
+					[(ngModel)]="solicitudForm.solicitudNo"
+				/>
+			</div>
+
+			<div>
+				<label class="block font-semibold mb-1">Endoso</label>
+				<input
+					type="text"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa endoso"
+					[(ngModel)]="solicitudForm.endoso"
+				/>
+			</div>
+		</div>
+
+		<div class="flex justify-end mt-6">
+			<button
+				type="button"
+				class="px-4 py-2 rounded-md bg-red-mafe text-white text-sm font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+				(click)="verSolicitud()"
+				[disabled]="!solicitudForm.solicitudNo || !solicitudForm.endoso"
+			>
+				Ver
+			</button>
+		</div>
+	</div>
+</div>

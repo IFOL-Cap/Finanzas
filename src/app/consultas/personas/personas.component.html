@@ -1,0 +1,944 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+    Personas
+</h2>
+<hr class="bg-gray-division-section">
+
+<!-- Selección de Asesor -->
+<div class="mt-6 mb-6">
+    <h3 class="text-lg font-bold mb-4">Selección de Asesor</h3>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Asesor:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona un asesor',
+            isDisable: false,
+            isHidden: false,
+            data: asesores
+        }" />
+    </div>
+</div>
+
+<!-- Accesos -->
+<div class="mt-6 mb-8">
+    <h3 class="text-lg font-bold mb-4">Accesos</h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        @for (acceso of accesos; track acceso.key) {
+            <button
+                type="button"
+                class="flex flex-col items-center justify-center gap-3 p-6 rounded-xl border border-gray-division-section bg-white shadow-sm hover:shadow-md hover:border-red-mafe hover:bg-[#fef2f2] transition-all group"
+                (click)="abrirModal(acceso.key)"
+            >
+                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-[#F9FAFB] border border-gray-division-section group-hover:bg-[#fee2e2] transition-all">
+                    <img [src]="acceso.icon" [alt]="acceso.label" class="w-6 h-6" />
+                </div>
+                <span class="text-sm font-semibold text-center leading-snug group-hover:text-red-mafe transition-colors">
+                    {{ acceso.label }}
+                </span>
+            </button>
+        }
+    </div>
+</div>
+
+<!-- Modales -->
+@for (acceso of accesos; track acceso.key) {
+    @if (modalAbierto[acceso.key]) {
+        @if (acceso.key === 'fianzas') {
+            <div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+                <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+
+                    <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                        <h4 class="font-bold text-lg">Detalle Pólizas</h4>
+                        <button
+                            type="button"
+                            class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                            (click)="cerrarModal(acceso.key)"
+                            aria-label="Cerrar"
+                        >
+                            <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    <div class="px-5 py-4 border-b border-gray-division-section">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <span class="font-semibold">RFC:</span>
+                                <span class="ml-2 text-gray-700">{{ fianzasInfo.rfc }}</span>
+                            </div>
+                            <div>
+                                <span class="font-semibold">Nombre de la persona:</span>
+                                <span class="ml-2 text-gray-700">{{ fianzasInfo.nombrePersona }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-5">
+                        <h5 class="text-base font-bold mb-4">Pólizas</h5>
+
+                        <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                            <table class="min-w-[980px] w-full text-sm">
+                                <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                    <tr>
+                                        <th class="text-left font-semibold px-3 py-2">Póliza</th>
+                                        <th class="text-left font-semibold px-3 py-2">Inicio de Vigencia</th>
+                                        <th class="text-left font-semibold px-3 py-2">Fin de Vigencia</th>
+                                        <th class="text-left font-semibold px-3 py-2">Prima Neta</th>
+                                        <th class="text-left font-semibold px-3 py-2">Monto Afianzado</th>
+                                        <th class="text-left font-semibold px-3 py-2">Moneda</th>
+                                        <th class="text-left font-semibold px-3 py-2">Estatus</th>
+                                        <th class="text-left font-semibold px-3 py-2">Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (poliza of polizasFianzas; track poliza.poliza) {
+                                        <tr class="border-b border-gray-division-section last:border-b-0">
+                                            <td class="px-3 py-2">{{ poliza.poliza }}</td>
+                                            <td class="px-3 py-2">{{ poliza.inicioVigencia }}</td>
+                                            <td class="px-3 py-2">{{ poliza.finVigencia }}</td>
+                                            <td class="px-3 py-2">{{ poliza.primaNeta }}</td>
+                                            <td class="px-3 py-2">{{ poliza.montoAfianzado }}</td>
+                                            <td class="px-3 py-2">{{ poliza.moneda }}</td>
+                                            <td class="px-3 py-2">{{ poliza.estatus }}</td>
+                                            <td class="px-3 py-2">
+                                                <button
+                                                    type="button"
+                                                    class="inline-flex items-center justify-center rounded-md border border-gray-division-section px-2 py-1 hover:bg-gray-100"
+                                                    (click)="abrirDetallePoliza(poliza)"
+                                                    aria-label="Ver detalle"
+                                                >
+                                                    <img src="/assets/icons/eye.svg" alt="Detalle" class="w-4 h-4" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        } @else if (acceso.key === 'garantias') {
+            <div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+                <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+
+                    <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                        <h4 class="font-bold text-lg">Garantías</h4>
+                        <button
+                            type="button"
+                            class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                            (click)="cerrarModal(acceso.key)"
+                            aria-label="Cerrar"
+                        >
+                            <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    <div class="px-5 py-4 border-b border-gray-division-section">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div><span class="font-semibold">Persona:</span> <span class="ml-2 text-gray-700">{{ garantiasInfo.persona }}</span></div>
+                            <div><span class="font-semibold">Tipo:</span> <span class="ml-2 text-gray-700">{{ garantiasInfo.tipo }}</span></div>
+                            <div><span class="font-semibold">RFC:</span> <span class="ml-2 text-gray-700">{{ garantiasInfo.rfc }}</span></div>
+                            <div><span class="font-semibold">Riesgo:</span> <span class="ml-2 text-gray-700">{{ garantiasInfo.riesgo }}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-5">
+                        <h5 class="text-base font-bold mb-4">Garantías Capturadas</h5>
+
+                        <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                            <table class="min-w-[1040px] w-full text-sm">
+                                <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                    <tr>
+                                        <th class="text-left font-semibold px-3 py-2">Subtipo</th>
+                                        <th class="text-left font-semibold px-3 py-2">Fecha de Registro</th>
+                                        <th class="text-left font-semibold px-3 py-2">Fecha de Actualización</th>
+                                        <th class="text-left font-semibold px-3 py-2">Garantía Ponderada</th>
+                                        <th class="text-left font-semibold px-3 py-2">Moneda</th>
+                                        <th class="text-left font-semibold px-3 py-2">Tipo</th>
+                                        <th class="text-left font-semibold px-3 py-2">Rol</th>
+                                        <th class="text-left font-semibold px-3 py-2">Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (g of garantias; track g.subtipo) {
+                                        <tr class="border-b border-gray-division-section last:border-b-0">
+                                            <td class="px-3 py-2">{{ g.subtipo }}</td>
+                                            <td class="px-3 py-2">{{ g.fechaRegistro }}</td>
+                                            <td class="px-3 py-2">{{ g.fechaActualizacion }}</td>
+                                            <td class="px-3 py-2">{{ g.garantiaPonderada }}</td>
+                                            <td class="px-3 py-2">{{ g.moneda }}</td>
+                                            <td class="px-3 py-2">{{ g.tipo }}</td>
+                                            <td class="px-3 py-2">{{ g.rol }}</td>
+                                            <td class="px-3 py-2">
+                                                <button
+                                                    type="button"
+                                                    class="inline-flex items-center justify-center rounded-md border border-gray-division-section px-2 py-1 hover:bg-gray-100"
+                                                    (click)="abrirDetalleGarantia(g)"
+                                                    aria-label="Ver detalle"
+                                                >
+                                                    <img src="/assets/icons/eye.svg" alt="Detalle" class="w-4 h-4" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        } @else if (acceso.key === 'obligadoSolidario') {
+            <div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+                <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+
+                    <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                        <h4 class="font-bold text-lg">Garantías Obligado Solidario</h4>
+                        <button
+                            type="button"
+                            class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                            (click)="cerrarModal(acceso.key)"
+                            aria-label="Cerrar"
+                        >
+                            <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    <div class="px-5 py-4 border-b border-gray-division-section">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div><span class="font-semibold">Persona:</span> <span class="ml-2 text-gray-700">{{ garantiasObligadoSolidarioInfo.persona }}</span></div>
+                            <div><span class="font-semibold">Tipo:</span> <span class="ml-2 text-gray-700">{{ garantiasObligadoSolidarioInfo.tipo }}</span></div>
+                            <div><span class="font-semibold">RFC:</span> <span class="ml-2 text-gray-700">{{ garantiasObligadoSolidarioInfo.rfc }}</span></div>
+                            <div><span class="font-semibold">Riesgo:</span> <span class="ml-2 text-gray-700">{{ garantiasObligadoSolidarioInfo.riesgo }}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-5">
+                        <h5 class="text-base font-bold mb-4">Garantías Obligado Solidario</h5>
+
+                        <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                            <table class="min-w-[1220px] w-full text-sm">
+                                <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                    <tr>
+                                        <th class="text-left font-semibold px-3 py-2">Obligado Solidario</th>
+                                        <th class="text-left font-semibold px-3 py-2">Subtipo</th>
+                                        <th class="text-left font-semibold px-3 py-2">Fecha de Registro</th>
+                                        <th class="text-left font-semibold px-3 py-2">Fecha de Actualización</th>
+                                        <th class="text-left font-semibold px-3 py-2">Garantía Ponderada</th>
+                                        <th class="text-left font-semibold px-3 py-2">Moneda</th>
+                                        <th class="text-left font-semibold px-3 py-2">Tipo</th>
+                                        <th class="text-left font-semibold px-3 py-2">Rol</th>
+                                        <th class="text-left font-semibold px-3 py-2">Detalle</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (item of garantiasObligadoSolidario; track item.garantiaPonderada) {
+                                        <tr class="border-b border-gray-division-section last:border-b-0">
+                                            <td class="px-3 py-2">{{ item.obligadoSolidario }}</td>
+                                            <td class="px-3 py-2">{{ item.subtipo }}</td>
+                                            <td class="px-3 py-2">{{ item.fechaRegistro }}</td>
+                                            <td class="px-3 py-2">{{ item.fechaActualizacion }}</td>
+                                            <td class="px-3 py-2">{{ item.garantiaPonderada }}</td>
+                                            <td class="px-3 py-2">{{ item.moneda }}</td>
+                                            <td class="px-3 py-2">{{ item.tipo }}</td>
+                                            <td class="px-3 py-2">{{ item.rol }}</td>
+                                            <td class="px-3 py-2">
+                                                <button
+                                                    type="button"
+                                                    class="inline-flex items-center justify-center rounded-md border border-gray-division-section px-2 py-1 hover:bg-gray-100"
+                                                    (click)="abrirDetalleObligadoSolidario(item)"
+                                                    aria-label="Ver detalle"
+                                                >
+                                                    <img src="/assets/icons/eye.svg" alt="Detalle" class="w-4 h-4" />
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        } @else if (acceso.key === 'relacionObligado') {
+            <div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+                <div class="bg-white w-full max-w-5xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+
+                    <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                        <h4 class="font-bold text-lg">Detalle Relación como Obligado Solidario</h4>
+                        <button
+                            type="button"
+                            class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                            (click)="cerrarModal(acceso.key)"
+                            aria-label="Cerrar"
+                        >
+                            <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    <div class="px-5 py-4 border-b border-gray-division-section">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div><span class="font-semibold">Persona:</span> <span class="ml-2 text-gray-700">{{ relacionObligadoInfo.persona }}</span></div>
+                            <div><span class="font-semibold">RFC:</span> <span class="ml-2 text-gray-700">{{ relacionObligadoInfo.rfc }}</span></div>
+                            <div><span class="font-semibold">Tipo:</span> <span class="ml-2 text-gray-700">{{ relacionObligadoInfo.tipo }}</span></div>
+                            <div><span class="font-semibold">Riesgo:</span> <span class="ml-2 text-gray-700">{{ relacionObligadoInfo.riesgo }}</span></div>
+                        </div>
+                    </div>
+
+                    <div class="px-5 py-5">
+                        <h5 class="text-base font-bold mb-4">Personas Relacionadas</h5>
+
+                        <div class="border border-gray-division-section rounded-lg overflow-hidden">
+                            <table class="w-full text-sm">
+                                <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                    <tr>
+                                        <th class="text-left font-semibold px-3 py-2">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (persona of personasRelacionadas; track persona.rfc) {
+                                        <tr class="border-b border-gray-division-section last:border-b-0">
+                                            <td class="px-3 py-2">{{ persona.nombre }}</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        } @else {
+            <div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+                <div class="bg-white w-full max-w-xl rounded-lg shadow-lg border border-gray-division-section">
+
+                    <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 flex items-center justify-center rounded-full bg-[#fee2e2]">
+                                <img [src]="acceso.icon" [alt]="acceso.label" class="w-5 h-5" />
+                            </div>
+                            <h4 class="font-bold text-lg">{{ acceso.label }}</h4>
+                        </div>
+                        <button
+                            type="button"
+                            class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                            (click)="cerrarModal(acceso.key)"
+                            aria-label="Cerrar"
+                        >
+                            <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                        </button>
+                    </div>
+
+                    <div class="px-5 py-6">
+                        <p class="text-gray-700 text-sm">{{ acceso.descripcion }}</p>
+                        <p class="mt-4 text-xs text-gray-400">Aquí se mostrará el contenido correspondiente a <strong>{{ acceso.label }}</strong> para el asesor seleccionado.</p>
+                    </div>
+
+                </div>
+            </div>
+        }
+    }
+}
+
+@if (detallePolizaModalAbierto && polizaSeleccionada) {
+    <div class="fixed inset-0 z-[10000] bg-black/50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[92vh] overflow-auto">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Detalle de Póliza</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cerrarDetallePoliza()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 space-y-6 text-sm">
+                <div>
+                    <h5 class="text-base font-bold mb-3">Datos generales</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">RFC:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.rfc }}</span></div>
+                        <div><span class="font-semibold">Nombre:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.nombre }}</span></div>
+                        <div><span class="font-semibold">No. Póliza:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.noPoliza }}</span></div>
+                        <div><span class="font-semibold">Ramo:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.ramo }}</span></div>
+                        <div><span class="font-semibold">Subramo:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.subramo }}</span></div>
+                        <div><span class="font-semibold">Tipo:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tipo }}</span></div>
+                        <div><span class="font-semibold">TIPO Emisión:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tipoEmision }}</span></div>
+                        <div><span class="font-semibold">TIPO Fianza:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tipoFianza }}</span></div>
+                        <div><span class="font-semibold">Tarifa:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tarifa }}</span></div>
+                        <div><span class="font-semibold">Monto Fianza:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.montoFianza }}</span></div>
+                        <div><span class="font-semibold">No. Empleados:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.noEmpleados }}</span></div>
+                        <div><span class="font-semibold">Plazo:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.plazo }}</span></div>
+                        <div><span class="font-semibold">Tarifa Periodo:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tarifaPeriodo }}</span></div>
+                        <div><span class="font-semibold">Deducible Monto:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.deducibleMonto }}</span></div>
+                        <div><span class="font-semibold">Inicio de Vigencia:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.inicioVigencia }}</span></div>
+                        <div><span class="font-semibold">Moneda:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.moneda }}</span></div>
+                        <div><span class="font-semibold">Deducible Pérdida:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.deduciblePerdida }}</span></div>
+                        <div><span class="font-semibold">Fin de Vigencia:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.finVigencia }}</span></div>
+                        <div><span class="font-semibold">Fecha Fianza:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.fechaFianza }}</span></div>
+                        <div><span class="font-semibold">Fecha Registro:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.fechaRegistro }}</span></div>
+                        <div><span class="font-semibold">Fiado:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.fiado }}</span></div>
+                        <div><span class="font-semibold">Beneficiario:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.beneficiario }}</span></div>
+                        <div><span class="font-semibold">Agente:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.agente }}</span></div>
+                        <div><span class="font-semibold">Comisión:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.comision }}</span></div>
+                        <div><span class="font-semibold">Técnico:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.tecnico }}</span></div>
+                        <div><span class="font-semibold">Territorial:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.territorial }}</span></div>
+                        <div class="lg:col-span-3"><span class="font-semibold">Concepto Garantizado:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.conceptoGarantizado }}</span></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3">Oficinas</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div><span class="font-semibold">Producción:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.oficinas.produccion }}</span></div>
+                        <div><span class="font-semibold">Papelería:</span> <span class="ml-2 text-gray-700">{{ polizaSeleccionada.oficinas.papeleria }}</span></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3">Movimientos Asociados</h5>
+                    <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                        <table class="min-w-[760px] w-full text-sm">
+                            <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                <tr>
+                                    <th class="text-left font-semibold px-3 py-2">Póliza</th>
+                                    <th class="text-left font-semibold px-3 py-2">Descripción</th>
+                                    <th class="text-left font-semibold px-3 py-2">Monto</th>
+                                    <th class="text-left font-semibold px-3 py-2">Detalle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (movimiento of polizaSeleccionada.movimientosAsociados; track movimiento.noMovimiento) {
+                                    <tr class="border-b border-gray-division-section last:border-b-0">
+                                        <td class="px-3 py-2">{{ movimiento.poliza }}</td>
+                                        <td class="px-3 py-2">{{ movimiento.descripcion }}</td>
+                                        <td class="px-3 py-2">{{ movimiento.monto }}</td>
+                                        <td class="px-3 py-2">
+                                            <button
+                                                type="button"
+                                                class="inline-flex items-center justify-center rounded-md border border-gray-division-section px-2 py-1 hover:bg-gray-100"
+                                                (click)="abrirDetalleMovimiento(movimiento)"
+                                                aria-label="Ver detalle del movimiento"
+                                            >
+                                                <img src="/assets/icons/eye.svg" alt="Detalle" class="w-4 h-4" />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (detalleMovimientoModalAbierto && movimientoSeleccionado) {
+    <div class="fixed inset-0 z-[10001] bg-black/60 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-3xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Detalle de Movimiento</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cerrarDetalleMovimiento()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 space-y-6 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div><span class="font-semibold">Nombre:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.nombre }}</span></div>
+                    <div><span class="font-semibold">No. Póliza:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.poliza }}</span></div>
+                    <div><span class="font-semibold">NO. Movimiento:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.noMovimiento }}</span></div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3">Calculo Prima</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div><span class="font-semibold">Prima:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.prima }}</span></div>
+                        <div><span class="font-semibold">Derechos:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.derechos }}</span></div>
+                        <div><span class="font-semibold">Gastos de Expedición:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.gastosExpedicion }}</span></div>
+                        <div><span class="font-semibold">Gastos de Investigación:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.gastosInvestigacion }}</span></div>
+                        <div><span class="font-semibold">Gastos de Afectación:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.gastosAfectacion }}</span></div>
+                        <div><span class="font-semibold">Subtotal:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.subtotal }}</span></div>
+                        <div><span class="font-semibold">I.V.A:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.iva }}</span></div>
+                        <div><span class="font-semibold">Total:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.calculoPrima.total }}</span></div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3">Porcentajes</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">Gastos de Administración:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.porcentajes.gastosAdministracion }}</span></div>
+                        <div><span class="font-semibold">Gastos de Adquisición:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.porcentajes.gastosAdquisicion }}</span></div>
+                        <div><span class="font-semibold">Utilidad:</span> <span class="ml-2 text-gray-700">{{ movimientoSeleccionado.porcentajes.utilidad }}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (altaGarantiaModalAbierto) {
+    <div class="fixed inset-0 z-[10002] bg-black/50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-2xl rounded-lg shadow-lg border border-gray-division-section">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Alta de Detalle de Garantía</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cancelarAltaGarantia()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 text-sm space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-semibold block mb-1">Garantía</label>
+                        <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="altaGarantiaForm.garantia" />
+                    </div>
+                    <div>
+                        <label class="font-semibold block mb-1">Persona</label>
+                        <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="altaGarantiaForm.persona" />
+                    </div>
+                    <div>
+                        <label class="font-semibold block mb-1">NO. Contrato</label>
+                        <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="altaGarantiaForm.noContrato" />
+                    </div>
+                    <div>
+                        <label class="font-semibold block mb-1">Deudor Prendario</label>
+                        <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="altaGarantiaForm.deudorPrendario" />
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="font-semibold block mb-1">Entidad</label>
+                        <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="altaGarantiaForm.entidad" />
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 pt-2">
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+                        (click)="cancelarAltaGarantia()"
+                    >
+                        Cancelar
+                    </button>
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md bg-red-mafe text-white text-sm font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                        (click)="confirmarAltaGarantia()"
+                        [disabled]="!altaGarantiaForm.garantia || !altaGarantiaForm.persona || !altaGarantiaForm.noContrato || !altaGarantiaForm.deudorPrendario || !altaGarantiaForm.entidad"
+                    >
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (detalleGarantiaModalAbierto && garantiaSeleccionada) {
+    <div class="fixed inset-0 z-[10002] bg-black/50 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[92vh] overflow-auto">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Detalle de Garantía</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cerrarDetalleGarantia()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 space-y-6 text-sm">
+
+                <!-- Datos generales -->
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Datos generales</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">Garantía:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.garantia }}</span></div>
+                        <div><span class="font-semibold">Persona:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.persona }}</span></div>
+                        <div><span class="font-semibold">Rol:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.rol }}</span></div>
+                        <div><span class="font-semibold">Fecha Estado:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.fechaEstado }}</span></div>
+                        <div><span class="font-semibold">Auditado:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.auditado }}</span></div>
+                        <div><span class="font-semibold">Moneda:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.moneda }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Principales Cuentas del Estado Financiero -->
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Principales Cuentas del Estado Financiero</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">Activo Circ:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.activoCirc }}</span></div>
+                        <div><span class="font-semibold">Inventario:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.inventario }}</span></div>
+                        <div><span class="font-semibold">Activo Fijo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.activoFijo }}</span></div>
+                        <div><span class="font-semibold">Otros Activos:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.otrosActivos }}</span></div>
+                        <div><span class="font-semibold">Total Activo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.totalActivo }}</span></div>
+                        <div><span class="font-semibold">Pasivo Circ:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.pasivoCirc }}</span></div>
+                        <div><span class="font-semibold">Pasivo Largo pzo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.pasivoLargoPlazo }}</span></div>
+                        <div><span class="font-semibold">Pasivo Diferido:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.pasivoDiferido }}</span></div>
+                        <div><span class="font-semibold">Total Pasivo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.totalPasivo }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Razones Financieras -->
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Razones Financieras</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">Liquidez:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.liquidez }}</span></div>
+                        <div><span class="font-semibold">Pba. Acido:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.pbaAcido }}</span></div>
+                        <div><span class="font-semibold">Apalancamiento:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.apalancamiento }}</span></div>
+                        <div><span class="font-semibold">Rentabilidad:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.rentabilidad }}</span></div>
+                        <div><span class="font-semibold">Razón de Deuda:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.razonDeuda }}</span></div>
+                        <div><span class="font-semibold">Capital de Trabajo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capitalTrabajo }}</span></div>
+                        <div><span class="font-semibold">Suma %:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.sumaPorcentaje }}</span></div>
+                        <div><span class="font-semibold">% a Considerar:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.porcentajeConsiderar }}</span></div>
+                        <div><span class="font-semibold">Cap. Cont a Cons.:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capContConsiderar }}</span></div>
+                        <div><span class="font-semibold">Capacidad de Trabajo:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capacidadTrabajo }}</span></div>
+                        <div><span class="font-semibold">Suma:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.suma }}</span></div>
+                        <div><span class="font-semibold">Capacidad Técnica:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capacidadTecnica }}</span></div>
+                        <div><span class="font-semibold">Margen Utilidad:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.margenUtilidad }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Principales Cuentas del Estado de Resultados -->
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Principales Cuentas del Estado de Resultados</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div><span class="font-semibold">Ventas Netas:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.ventasNetas }}</span></div>
+                        <div><span class="font-semibold">Costo Ventas:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.costoVentas }}</span></div>
+                        <div><span class="font-semibold">Utilidad Neta:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.utilidadNeta }}</span></div>
+                        <div><span class="font-semibold">Capital Social:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capitalSocial }}</span></div>
+                        <div><span class="font-semibold">Capital Contable:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.capitalContable }}</span></div>
+                        <div><span class="font-semibold">Aplica 10:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.aplica10 }}</span></div>
+                        <div><span class="font-semibold">Fut. Aumento Cap.:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.futAumentoCap }}</span></div>
+                        <div><span class="font-semibold">Exceso Insufic.:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.excesoInsufic }}</span></div>
+                        <div><span class="font-semibold">Total Garantía:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.totalGarantia }}</span></div>
+                    </div>
+                </div>
+
+                <!-- Comentarios -->
+                <div>
+                    <label class="block font-semibold mb-1" for="comentariosGarantia">Comentarios</label>
+                    <textarea
+                        id="comentariosGarantia"
+                        rows="3"
+                        class="w-full border border-gray-division-section rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-mafe resize-none"
+                        placeholder="Ingresa comentarios sobre la garantía..."
+                        [(ngModel)]="comentariosGarantia"
+                    ></textarea>
+                </div>
+
+                <!-- Botones -->
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+                        (click)="abrirHistoricoEdoFin()"
+                    >
+                        Histórico Edo. Fin.
+                    </button>
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+                    >
+                        Calcular
+                    </button>
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md bg-red-mafe text-white text-sm font-semibold hover:opacity-90"
+                    >
+                        Actualizar
+                    </button>
+                    <button
+                        type="button"
+                        class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+                        (click)="cerrarDetalleGarantia()"
+                    >
+                        Regresar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@if (historicoEdoFinModalAbierto && garantiaSeleccionada) {
+    <div class="fixed inset-0 z-[10003] bg-black/60 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-4xl rounded-lg shadow-lg border border-gray-division-section max-h-[90vh] overflow-auto">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Histórico Edo. Fin.</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cerrarHistoricoEdoFin()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 space-y-5 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div><span class="font-semibold">Garantía:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.garantia }}</span></div>
+                    <div><span class="font-semibold">Persona:</span> <span class="ml-2 text-gray-700">{{ garantiaSeleccionada.persona }}</span></div>
+                </div>
+
+                <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                    <table class="min-w-[640px] w-full text-sm">
+                        <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                            <tr>
+                                <th class="text-left font-semibold px-3 py-2">Tipo mov.</th>
+                                <th class="text-left font-semibold px-3 py-2">Fecha del Edo. Fin.</th>
+                                <th class="text-left font-semibold px-3 py-2">Fecha de movimiento</th>
+                                <th class="text-left font-semibold px-3 py-2">Detalle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (h of garantiaSeleccionada.historico; track h.fechaMovimiento) {
+                                <tr class="border-b border-gray-division-section last:border-b-0">
+                                    <td class="px-3 py-2">{{ h.tipoMov }}</td>
+                                    <td class="px-3 py-2">{{ h.fechaEdoFin }}</td>
+                                    <td class="px-3 py-2">{{ h.fechaMovimiento }}</td>
+                                    <td class="px-3 py-2">{{ h.detalle }}</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (detalleObligadoSolidarioModalAbierto && obligadoSolidarioSeleccionado) {
+    <div class="fixed inset-0 z-[10004] bg-black/55 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-6xl rounded-lg shadow-lg border border-gray-division-section max-h-[92vh] overflow-auto">
+            <div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+                <h4 class="font-bold text-lg">Detalle Garantía Obligado Solidario</h4>
+                <button
+                    type="button"
+                    class="rounded-md border border-gray-division-section p-1 hover:bg-gray-100"
+                    (click)="cerrarDetalleObligadoSolidario()"
+                    aria-label="Cerrar"
+                >
+                    <img src="/assets/icons/close.svg" alt="Cerrar" class="w-4 h-4" />
+                </button>
+            </div>
+
+            <div class="px-5 py-5 space-y-6 text-sm">
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Datos Generales</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div>
+                            <label class="font-semibold block mb-1">Garantía</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.garantia" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Persona</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.persona" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Tipo Inmueble</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.tipoInmueble" />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Domicilio</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div>
+                            <label class="font-semibold block mb-1">Calle</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.calle" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Número Exterior</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.numeroExterior" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Número Interior</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.numeroInterior" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Colonia</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.colonia" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Código Postal</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.codigoPostal" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">País</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.pais" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Estado</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.estado" />
+                        </div>
+                        <div class="lg:col-span-2">
+                            <label class="font-semibold block mb-1">Delegación o Municipio</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.delegacionMunicipio" />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Documentación</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                        <div>
+                            <label class="font-semibold block mb-1">Número Escritura</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.numeroEscritura" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">No. de RPP</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.noRpp" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">¿Folio Real?</label>
+                            <select class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.folioRealFlag">
+                                <option value="">Selecciona</option>
+                                <option value="Sí">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Folio Real</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.folioReal" />
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Investigaciones</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div>
+                            <label class="font-semibold block mb-1">¿Investigación de RPP?</label>
+                            <select class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.investigacionRpp">
+                                <option value="">Selecciona</option>
+                                <option value="Sí">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">¿Vista Ocular?</label>
+                            <select class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.vistaOcular">
+                                <option value="">Selecciona</option>
+                                <option value="Sí">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Fecha de Avalúo</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.fechaAvaluo" placeholder="dd/mm/aaaa" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Valor Inmueble</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.valorInmueble" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Posición MAPFRE gravar</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.posicionMapfreGravar" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">¿Afectación Marginal?</label>
+                            <select class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="obligadoSolidarioSeleccionado.afectacionMarginal">
+                                <option value="">Selecciona</option>
+                                <option value="Sí">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="lg:col-span-3">
+                            <label class="font-semibold block mb-1">Observaciones y/o comentarios</label>
+                            <textarea rows="3" class="w-full border border-gray-division-section rounded-md px-3 py-2 resize-none" [(ngModel)]="obligadoSolidarioSeleccionado.observacionesComentarios"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-base font-bold mb-3 border-b border-gray-division-section pb-1">Investigaciones de Gravamen</h5>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                        <div>
+                            <label class="font-semibold block mb-1">Fecha investigación</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="nuevaInvestigacionGravamen.fechaInvestigacion" placeholder="dd/mm/aaaa" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Inmueble Gravado</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="nuevaInvestigacionGravamen.inmuebleGravado" />
+                        </div>
+                        <div>
+                            <label class="font-semibold block mb-1">Usuario</label>
+                            <input type="text" class="w-full border border-gray-division-section rounded-md px-3 py-2" [(ngModel)]="nuevaInvestigacionGravamen.usuario" />
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mb-3">
+                        <button
+                            type="button"
+                            class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+                            (click)="agregarInvestigacionGravamen()"
+                        >
+                            Agregar investigación
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto border border-gray-division-section rounded-lg">
+                        <table class="min-w-[760px] w-full text-sm">
+                            <thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+                                <tr>
+                                    <th class="text-left font-semibold px-3 py-2">Fecha investigación</th>
+                                    <th class="text-left font-semibold px-3 py-2">Inmueble Gravado</th>
+                                    <th class="text-left font-semibold px-3 py-2">Usuario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (inv of obligadoSolidarioSeleccionado.investigacionesGravamen; track inv.fechaInvestigacion + inv.usuario) {
+                                    <tr class="border-b border-gray-division-section last:border-b-0">
+                                        <td class="px-3 py-2">{{ inv.fechaInvestigacion }}</td>
+                                        <td class="px-3 py-2">{{ inv.inmuebleGravado }}</td>
+                                        <td class="px-3 py-2">{{ inv.usuario }}</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="flex justify-end">
+                    <button
+                        type="button"
+                        class="px-5 py-2 rounded-md bg-red-mafe text-white text-sm font-semibold hover:opacity-90"
+                        (click)="confirmarObligadoSolidario()"
+                    >
+                        Confirmar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

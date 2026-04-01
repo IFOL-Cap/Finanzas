@@ -1,0 +1,55 @@
+
+<div class="flex bg-white h-screen overflow-hidden">
+    <div class="w-1/2 h-full hidden md:flex login">       
+    </div>
+    <div class="p-4 md:w-1/2 w-full h-full bg-white flex md:items-center md:justify-center">
+        <div class=" flex-col w-full md:w-2/3">
+            <div class="grid grid-cols-8">
+                <div class="col-span-8 flex justify-center">
+                    <img class="h-20 w-50" src="/assets/newMapfre/MAPFRE-03.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <h2 class="text-4xl font-extrabold bg-gradient-to-r from-red-mafe to-red-mafe text-transparent bg-clip-text mb-4">
+                    Fianzas
+                </h2>
+
+                <h2 class="font-rbt-bold text-xll mb-1">Bienvenido al sistema de Fianzas</h2>
+                <p class="font-rbt-rglr text-[#6F7D85] text-lg">Ingresa tus datos a continuación</p>
+            </div>
+            <div class="mt-4 ">
+                <div class="mb-2">
+                    <label for="">Usuario</label>
+                </div>
+                <app-input [inputConfig]="{
+                    type: 'mail', 
+                    isrequied: true, 
+                    placeHolder: 'Ingresa tu usuario', 
+                    isDisable: false, 
+                    isHidden: false
+                }"></app-input>
+            </div>
+            <div class="mt-4">
+                <div class="mb-2">
+                    <label for="">Contraseña</label>
+                </div>
+                <app-input [inputConfig]="{
+                    type: 'password', 
+                    isrequied: true, 
+                    placeHolder: '••••••••', 
+                    isDisable: false, 
+                    isHidden: false
+                }"></app-input>
+            </div>
+            <div class="mt-4">
+                <app-button (click)="onLogin()"
+                    [buttonConfig]="{
+                        type: 0,
+                        label: '',
+                    }">
+                    Iniciar Sesión
+                </app-button>
+            </div>
+        </div>
+    </div>
+</div>

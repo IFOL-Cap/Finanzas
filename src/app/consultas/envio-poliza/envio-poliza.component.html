@@ -1,0 +1,91 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+	Envio de Fianzas por Correo Electronico
+</h2>
+<hr class="bg-gray-division-section">
+
+<div class="mt-6 mb-6">
+	<h3 class="text-lg font-bold mb-4">Formulario de Envio</h3>
+
+	<div class="bg-white border border-gray-division-section rounded-lg p-5">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+			<div>
+				<label class="block font-semibold mb-1">Fianza No.</label>
+				<input
+					type="text"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa numero de fianza"
+					[(ngModel)]="envioForm.fianzaNo"
+				/>
+			</div>
+
+			<div>
+				<label class="block font-semibold mb-1">Endoso</label>
+				<input
+					type="text"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa endoso"
+					[(ngModel)]="envioForm.endoso"
+				/>
+			</div>
+
+			<div class="md:col-span-2">
+				<label class="block font-semibold mb-1">Asunto</label>
+				<input
+					type="text"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa asunto del correo"
+					[(ngModel)]="envioForm.asunto"
+				/>
+			</div>
+
+			<div class="md:col-span-2">
+				<label class="block font-semibold mb-1">Destinatario(s)</label>
+				<textarea
+					rows="3"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Ingresa uno o varios correos separados por coma"
+					[(ngModel)]="envioForm.destinatarios"
+				></textarea>
+			</div>
+
+			<div class="md:col-span-2">
+				<label class="inline-flex items-center gap-2 font-semibold cursor-pointer">
+					<input
+						type="checkbox"
+						class="h-4 w-4 accent-red-mafe"
+						[(ngModel)]="envioForm.omitirVigencia"
+					/>
+					<span>Omitir Vigencia</span>
+				</label>
+			</div>
+
+			<div class="md:col-span-2">
+				<label class="block font-semibold mb-1">Comentario</label>
+				<textarea
+					rows="4"
+					class="w-full border border-gray-division-section rounded-md px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-red-mafe"
+					placeholder="Escribe un comentario para el envio"
+					[(ngModel)]="envioForm.comentario"
+				></textarea>
+			</div>
+		</div>
+
+		<div class="flex flex-wrap justify-end gap-3 mt-6">
+			<button
+				type="button"
+				class="px-4 py-2 rounded-md border border-gray-division-section text-sm font-semibold hover:bg-gray-100"
+				(click)="limpiarFormulario()"
+			>
+				Limpiar
+			</button>
+			<button
+				type="button"
+				class="px-4 py-2 rounded-md bg-red-mafe text-white text-sm font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+				(click)="enviarCorreo()"
+				[disabled]="!envioForm.fianzaNo || !envioForm.endoso || !envioForm.asunto || !envioForm.destinatarios"
+			>
+				Enviar Correo
+			</button>
+		</div>
+	</div>
+</div>

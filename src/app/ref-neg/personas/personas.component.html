@@ -1,0 +1,406 @@
+<section class="w-full">
+	<header class="mb-5">
+		<h2 class="font-rbt-rglr text-xl font-bold mb-2">Personas</h2>
+		<p class="text-sm text-gray-600">
+			Consulta y administración de información de personas en referencia de negocio.
+		</p>
+		<hr class="mt-4 bg-gray-division-section" />
+	</header>
+
+	<section class="rounded-lg border border-gray-division-section bg-white p-4 mb-6 shadow-sm">
+		<h3 class="text-base font-bold mb-4">Filtros de búsqueda</h3>
+
+		<div class="grid grid-cols-1 gap-4">
+			<div>
+				<label for="criterioBusqueda" class="block text-sm font-semibold mb-1">Busqueda</label>
+				<input
+					id="criterioBusqueda"
+					type="text"
+					placeholder="Ingresa nombre o RFC"
+					class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-200"
+				/>
+			</div>
+
+			<label class="inline-flex items-center gap-2 text-sm text-gray-700">
+				<input
+					type="checkbox"
+					class="h-4 w-4 rounded border-gray-300 text-red-mafe focus:ring-red-200"
+				/>
+				<span>Buscar por RFC (desmarcado: buscar por Nombre)</span>
+			</label>
+		</div>
+
+		<div class="mt-4 flex flex-wrap gap-3">
+			<button
+				type="button"
+				class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+			>
+				Buscar
+			</button>
+			<button
+				type="button"
+				class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+			>
+				Limpiar
+			</button>
+		</div>
+	</section>
+
+	<section class="rounded-lg border border-gray-division-section bg-white shadow-sm overflow-hidden">
+		<div class="px-4 py-3 border-b border-gray-division-section flex items-center justify-between gap-3">
+			<h3 class="text-base font-bold">Resultado de personas</h3>
+			<button
+				type="button"
+				(click)="abrirModalAgregar()"
+				class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+			>
+				Agregar
+			</button>
+		</div>
+
+		<div class="overflow-x-auto">
+			<table class="min-w-[1100px] w-full text-sm">
+				<thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+					<tr>
+						<th class="text-left font-semibold px-4 py-3">Nombre del fiado</th>
+						<th class="text-left font-semibold px-4 py-3">RFC</th>
+						<th class="text-left font-semibold px-4 py-3">Numero circular</th>
+						<th class="text-left font-semibold px-4 py-3">Afianzadora que reporta</th>
+						<th class="text-left font-semibold px-4 py-3">Causas</th>
+						<th class="text-center font-semibold px-4 py-3">Causa</th>
+						<th class="text-center font-semibold px-4 py-3">Actualizar</th>
+						<th class="text-center font-semibold px-4 py-3">Borrar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="border-b border-gray-division-section">
+						<td class="px-4 py-3">Juan Perez Jimenez</td>
+						<td class="px-4 py-3">PEJJ800101ABC</td>
+						<td class="px-4 py-3">
+							2026-014
+						</td>
+						<td class="px-4 py-3">MAPFRE Fianzas</td>
+						<td class="px-4 py-3">Incumplimiento de pago</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalCausas('Juan Perez Jimenez', 'MAPFRE Fianzas')" aria-label="Ver detalle" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/eye.svg" alt="Detalle" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalAgregar()" aria-label="Actualizar" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/edit.svg" alt="Actualizar" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalBorrado()" aria-label="Borrar" class="inline-flex items-center justify-center rounded border border-red-200 p-2 hover:bg-red-50">
+								<img src="/assets/icons/trash.svg" alt="Borrar" class="h-4 w-4" />
+							</button>
+						</td>
+					</tr>
+					<tr class="border-b border-gray-division-section">
+						<td class="px-4 py-3">Servicios Integrales del Centro SA de CV</td>
+						<td class="px-4 py-3">SIC220913KX1</td>
+						<td class="px-4 py-3">
+							2026-031
+						</td>
+						<td class="px-4 py-3">Aseguradora Atlas</td>
+						<td class="px-4 py-3">Falta de documentacion</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalCausas('Servicios Integrales del Centro SA de CV', 'Aseguradora Atlas')" aria-label="Ver detalle" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/eye.svg" alt="Detalle" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalAgregar()" aria-label="Actualizar" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/edit.svg" alt="Actualizar" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalBorrado()" aria-label="Borrar" class="inline-flex items-center justify-center rounded border border-red-200 p-2 hover:bg-red-50">
+								<img src="/assets/icons/trash.svg" alt="Borrar" class="h-4 w-4" />
+							</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="px-4 py-3">Maria Gonzalez Ortega</td>
+						<td class="px-4 py-3">GOOM890210RT8</td>
+						<td class="px-4 py-3">
+							2026-042
+						</td>
+						<td class="px-4 py-3">Afianzadora Aserta</td>
+						<td class="px-4 py-3">Estatus juridico en revision</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalCausas('Maria Gonzalez Ortega', 'Afianzadora Aserta')" aria-label="Ver detalle" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/eye.svg" alt="Detalle" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalAgregar()" aria-label="Actualizar" class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100">
+								<img src="/assets/icons/edit.svg" alt="Actualizar" class="h-4 w-4" />
+							</button>
+						</td>
+						<td class="px-4 py-3 text-center">
+							<button type="button" (click)="abrirModalBorrado()" aria-label="Borrar" class="inline-flex items-center justify-center rounded border border-red-200 p-2 hover:bg-red-50">
+								<img src="/assets/icons/trash.svg" alt="Borrar" class="h-4 w-4" />
+							</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="border-t border-gray-division-section px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+			<p class="text-sm text-gray-600">Mostrando 1 - 3 de 3 registros</p>
+
+			<nav aria-label="Paginacion de resultados" class="flex items-center gap-2">
+				<button
+					type="button"
+					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-400 cursor-not-allowed"
+					disabled
+				>
+					Anterior
+				</button>
+
+				<button
+					type="button"
+					aria-current="page"
+					class="rounded-md bg-red-mafe px-3 py-1.5 text-sm font-semibold text-white"
+				>
+					1
+				</button>
+
+				<button
+					type="button"
+					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+				>
+					2
+				</button>
+
+				<button
+					type="button"
+					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+				>
+					Siguiente
+				</button>
+			</nav>
+		</div>
+	</section>
+
+	@if (modalAgregarAbierto) {
+		<div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
+			<div class="w-full max-w-5xl rounded-lg border border-gray-division-section bg-white shadow-lg max-h-[90vh] overflow-auto">
+				<div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+					<h4 class="text-lg font-bold">Agregar</h4>
+					<button
+						type="button"
+						(click)="cerrarModalAgregar()"
+						class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100"
+						aria-label="Cerrar modal"
+					>
+						<img src="/assets/icons/close.svg" alt="Cerrar" class="h-4 w-4" />
+					</button>
+				</div>
+
+				<div class="p-5 space-y-6">
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<div>
+							<label for="ramo" class="block text-sm font-semibold mb-1">Ramo</label>
+							<input id="ramo" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="afianzadora" class="block text-sm font-semibold mb-1">Afianzadora que reporta</label>
+							<input id="afianzadora" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="tipoPersona" class="block text-sm font-semibold mb-1">Tipo de persona</label>
+							<input id="tipoPersona" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="numeroCircular" class="block text-sm font-semibold mb-1">Numero de circular</label>
+							<input id="numeroCircular" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="fechaAlta" class="block text-sm font-semibold mb-1">Fecha de alta</label>
+							<input id="fechaAlta" type="date" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="fechaVencimiento" class="block text-sm font-semibold mb-1">Fecha de vencimiento</label>
+							<input id="fechaVencimiento" type="date" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="numeroFiado" class="block text-sm font-semibold mb-1">Numero del fiado</label>
+							<input id="numeroFiado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+						<div>
+							<label for="rfcFiado" class="block text-sm font-semibold mb-1">RFC del fiado</label>
+							<input id="rfcFiado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</div>
+					</div>
+
+					<div class="rounded-lg border border-gray-division-section p-4">
+						<h5 class="text-base font-bold mb-4">Domicilio</h5>
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+							<div>
+								<label for="calle" class="block text-sm font-semibold mb-1">Calle</label>
+								<input id="calle" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="numExterior" class="block text-sm font-semibold mb-1">Num. Exterior</label>
+								<input id="numExterior" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="numInterior" class="block text-sm font-semibold mb-1">Num. Interior</label>
+								<input id="numInterior" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="colonia" class="block text-sm font-semibold mb-1">Colonia</label>
+								<input id="colonia" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="codigoPostal" class="block text-sm font-semibold mb-1">Codigo postal</label>
+								<input id="codigoPostal" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="pais" class="block text-sm font-semibold mb-1">Pais</label>
+								<input id="pais" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="estado" class="block text-sm font-semibold mb-1">Estado</label>
+								<input id="estado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+							<div>
+								<label for="municipio" class="block text-sm font-semibold mb-1">Delegacion o Municipio</label>
+								<input id="municipio" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="px-5 py-4 border-t border-gray-division-section flex items-center justify-end gap-3">
+					<button
+						type="button"
+						(click)="cerrarModalAgregar()"
+						class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+					>
+						Cancelar
+					</button>
+					<button
+						type="button"
+						class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+					>
+						Guardar
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+
+	@if (modalCausasAbierto) {
+		<div class="fixed inset-0 z-[10000] bg-black/40 flex items-center justify-center p-4">
+			<div class="w-full max-w-4xl rounded-lg border border-gray-division-section bg-white shadow-lg max-h-[90vh] overflow-auto">
+				<div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+					<h4 class="text-lg font-bold">Detalle de causas</h4>
+					<button
+						type="button"
+						(click)="cerrarModalCausas()"
+						class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100"
+						aria-label="Cerrar modal de causas"
+					>
+						<img src="/assets/icons/close.svg" alt="Cerrar" class="h-4 w-4" />
+					</button>
+				</div>
+
+				<div class="px-5 py-4 border-b border-gray-division-section grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+					<p><span class="font-semibold">Nombre del Fiado:</span> {{ nombreFiadoSeleccionado }}</p>
+					<p><span class="font-semibold">Afianzadora:</span> {{ afianzadoraSeleccionada }}</p>
+				</div>
+
+				<div class="p-5">
+					<div class="overflow-x-auto border border-gray-division-section rounded-lg">
+						<table class="min-w-[700px] w-full text-sm">
+							<thead class="bg-[#F9FAFB] border-b border-gray-division-section">
+								<tr>
+									<th class="text-left font-semibold px-4 py-3">Clave</th>
+									<th class="text-left font-semibold px-4 py-3">Descripcion</th>
+									<th class="text-center font-semibold px-4 py-3">Borrar</th>
+								</tr>
+							</thead>
+							<tbody>
+								@for (causa of causasDetalle; track causa.clave; let i = $index) {
+									<tr class="border-b border-gray-division-section last:border-b-0">
+										<td class="px-4 py-3">{{ causa.clave }}</td>
+										<td class="px-4 py-3">{{ causa.descripcion }}</td>
+										<td class="px-4 py-3 text-center">
+											<button
+												type="button"
+												(click)="borrarCausa(i)"
+												aria-label="Borrar causa"
+												class="inline-flex items-center justify-center rounded border border-red-200 p-2 hover:bg-red-50"
+											>
+												<img src="/assets/icons/trash.svg" alt="Borrar" class="h-4 w-4" />
+											</button>
+										</td>
+									</tr>
+								}
+								@if (causasDetalle.length === 0) {
+									<tr>
+										<td colspan="3" class="px-4 py-6 text-center text-sm text-gray-500">No hay causas registradas.</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="px-5 py-4 border-t border-gray-division-section flex items-center justify-end">
+					<button
+						type="button"
+						(click)="cerrarModalCausas()"
+						class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+					>
+						Cerrar
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+
+	@if (modalBorradoAbierto) {
+		<div class="fixed inset-0 z-[10000] bg-black/40 flex items-center justify-center p-4">
+			<div class="w-full max-w-md rounded-lg border border-gray-division-section bg-white shadow-lg">
+				<div class="px-5 py-4 border-b border-gray-division-section flex items-center justify-between">
+					<h4 class="text-lg font-bold">Confirmar borrado</h4>
+					<button
+						type="button"
+						(click)="cerrarModalBorrado()"
+						class="inline-flex items-center justify-center rounded border border-gray-division-section p-2 hover:bg-gray-100"
+						aria-label="Cerrar modal de borrado"
+					>
+						<img src="/assets/icons/close.svg" alt="Cerrar" class="h-4 w-4" />
+					</button>
+				</div>
+
+				<div class="px-5 py-5">
+					<p class="text-sm text-gray-700">Esta accion eliminara el registro seleccionado. Deseas continuar?</p>
+				</div>
+
+				<div class="px-5 py-4 border-t border-gray-division-section flex items-center justify-end gap-3">
+					<button
+						type="button"
+						(click)="cerrarModalBorrado()"
+						class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+					>
+						Cancelar
+					</button>
+					<button
+						type="button"
+						(click)="confirmarBorrado()"
+						class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
+					>
+						Confirmar borrado
+					</button>
+				</div>
+			</div>
+		</div>
+	}
+</section>

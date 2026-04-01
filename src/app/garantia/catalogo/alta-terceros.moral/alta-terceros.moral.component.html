@@ -1,0 +1,506 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+    Alta Terceros
+</h2>
+<hr class="bg-gray-division-section">
+
+<div class="mt-6 mb-6">
+    <h3 class="text-lg font-bold mb-4">Datos Persona Moral</h3>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Tipo de persona:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: 'fisica', display: 'Física' },
+                { value: 'moral', display: 'Moral' }
+            ]
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Razón Social:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ingrese razón social',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Fecha de constitución:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: '',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'RFC:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: '12 o 13 caracteres alfanuméricos'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ej. ABC123456XYZ',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Giro / Actividad:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese giro o actividad',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Nacionalidad:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: 'mexicana', display: 'Mexicana' },
+                { value: 'extranjera', display: 'Extranjera' }
+            ]
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Nombre del contacto:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese nombre del contacto',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Folio mercantil (Solo nacionales):',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'Solo aplica para nacionalidad mexicana'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese folio mercantil',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Representante legal:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese representante legal',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Tipo de identificación:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: 'ine', display: 'INE' },
+                { value: 'pasaporte', display: 'Pasaporte' },
+                { value: 'cedula', display: 'Cédula Profesional' }
+            ]
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'No. de identificación:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese número de identificación',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Observaciones:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese observaciones',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-upload class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Firma electrónica A:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'PDF, JPG o PNG'
+        }" />
+    </div>
+</div>
+
+<div class="mt-6 mb-6">
+    <h3 class="text-lg font-bold mb-4">Domicilio</h3>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Domicilio:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ingrese dirección',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Num. Exterior:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese número exterior',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Num. Interior:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese número interior',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Colonia:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ingrese colonia',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'País:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: 'mexico', display: 'México' },
+                { value: 'otro', display: 'Otro' }
+            ]
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Lada:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: '2-3 dígitos'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ej. 55',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Teléfono:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: '7-8 dígitos'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: false,
+            placeHolder: 'Ej. 12345678',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'CP:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: '5 dígitos'
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ej. 06500',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-select class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Estado:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [selectConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Selecciona una opción',
+            isDisable: false,
+            isHidden: false,
+            data: [
+                { value: 'cdmx', display: 'CDMX' },
+                { value: 'edomex', display: 'Estado de México' },
+                { value: 'jalisco', display: 'Jalisco' }
+            ]
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Delegación / Municipio:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ingrese delegación o municipio',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input class="w-full" [labelHelp]="{
+            isRquired: true,
+            isWithHelp: false,
+            isWithSubtitle: false,
+            title: 'Correo electrónico:',
+            subtitle: '',
+            position: 'right',
+            helpMsg: ''
+        }" [inputConfig]="{
+            type: 'text',
+            pattern: '',
+            isrequied: true,
+            placeHolder: 'Ej. ejemplo@correo.com',
+            isDisable: false,
+            isHidden: false,
+            isRead: false,
+        }" />
+    </div>
+</div>
+
+<div class="flex flex-row">
+    <app-button class="w-1/3 mr-6" container-color>Limpiar Formulario</app-button>
+    <app-button class="w-1/3">Registrar</app-button>
+</div>
