@@ -208,7 +208,7 @@ export class SidebarComponent {
           name: 'Garantías por Póliza',
           icon: '/assets/icons/menu/Tablas.svg',
           iconActive: '/assets/icons/menu/Tablas.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.consultas.path.garantiaPoliza.full(),
           isActive: false,
         },
         {
@@ -216,7 +216,7 @@ export class SidebarComponent {
           name: 'Personas',
           icon: '/assets/icons/menu/Cliente.svg',
           iconActive: '/assets/icons/menu/Cliente.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.consultas.path.personas.full(),
           isActive: false,
         },
         {
@@ -224,7 +224,7 @@ export class SidebarComponent {
           name: 'Envio de Póliza',
           icon: '/assets/icons/menu/Factura.svg',
           iconActive: '/assets/icons/menu/Factura.svg',
-          path: '/consultas/envioPoliza',
+          path: ApRoutes.garantias.path.consultas.path.envioPoliza.full(),
           isActive: false,
         },
         {
@@ -232,7 +232,7 @@ export class SidebarComponent {
           name: 'Solicitudes',
           icon: '/assets/icons/menu/BuscarPoliza.svg',
           iconActive: '/assets/icons/menu/BuscarPoliza.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.consultas.path.solicitudes.full(),
           isActive: false,
         },
         {
@@ -248,7 +248,7 @@ export class SidebarComponent {
           name: 'Consulta de XML',
           icon: '/assets/icons/menu/Tablas.svg',
           iconActive: '/assets/icons/menu/Tablas.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.consultas.path.consultaXml.full(),
           isActive: false,
         },
       ],
