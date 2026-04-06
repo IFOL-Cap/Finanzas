@@ -113,7 +113,7 @@
                           ><img [src]="menu.icon" alt=""
                         /></span>
                       }
-                      <span class="text-sm">{{ menu.name }}</span>
+                      <a class="text-sm" href={{menu.path}}>{{ menu.name }}</a>
                     </div>
                     <div class="">
                       @if (menu.subMenus && menu.subMenus.length > 0) {

@@ -1,9 +1,16 @@
-<!--<input id="default-checkbox" type="checkbox"
-             class="w-4 h-4 text-red-mafe  border-[#A5A7A8] rounded mr-2 "> -->
 
-<input
-  id="default-checkbox"
-  type="checkbox"
-  class="w-4 h-4 text-red-mafe border-[#A5A7A8] rounded mr-2"
-  (change)="onChange($event)"
->
+@if(!controlName) {
+<div class="flex items-center">
+    <input id="default-checkbox" type="checkbox" [(ngModel)]="isChecked" (change)="changeCheck($event)"
+    class="w-4 h-4 text-red-mafe  border-[#A5A7A8] rounded  focus:ring-0 " >
+    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ title }}</label>
+</div>
+} @else {
+  <div class="flex items-center"  [formGroup]="form!">
+    <input id="default-checkbox" type="checkbox" [(ngModel)]="isChecked" (change)="changeCheck($event)"
+    [formControlName]="controlName"
+    class="w-4 h-4 text-red-mafe  border-[#A5A7A8] rounded  focus:ring-0 " >
+    <label for="checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ title }}</label>
+</div>
+}
+

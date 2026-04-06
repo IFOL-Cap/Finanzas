@@ -224,7 +224,7 @@ export class SidebarComponent {
           name: 'Envio de Póliza',
           icon: '/assets/icons/menu/Factura.svg',
           iconActive: '/assets/icons/menu/Factura.svg',
-          path: '/',
+          path: '/consultas/envioPoliza',
           isActive: false,
         },
         {

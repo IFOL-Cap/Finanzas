@@ -1,0 +1,12 @@
+.login {
+    background-image: url('/assets/imgs/bigb.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+}
+
+.left img {
+    height: 100vh;
+    width: 100%;
+}

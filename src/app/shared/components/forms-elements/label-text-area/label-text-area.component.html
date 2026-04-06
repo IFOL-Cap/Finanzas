@@ -1,0 +1,20 @@
+<div class="grid grid-cols-3 items-center gap-y-2">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+    </div>
+
+    <div class="col-span-3 md:col-span-1">
+        <form [formGroup]="inputElementFrm" autocomplete="off">
+            <textarea formControlName="inputElement"
+                class="w-full h-28 rounded-md border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none resize-none"
+                [ngClass]="[inputElementFrm.get('inputElement')?.errors?.['required'] && inputElementFrm.dirty ?
+                                        'text-red-700 border-red-200 focus:outline-none focus:border-red-500 hover:border-red-500' : ''
+                                        , (inputConfig.isDisable ) ? 'border border-transparent focus:border-transparent focus:ring-0 text-[#75848D] bg-[#F4F6F7]' : '']"
+                [placeholder]="inputConfig.placeHolder"
+                [disabled]="inputConfig.isDisable"
+                [readonly]="inputConfig.isRead "
+                id="disabled-input">
+            </textarea>
+        </form>
+    </div>
+</div>
