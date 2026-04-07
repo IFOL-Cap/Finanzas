@@ -1,0 +1,63 @@
+.mini-barra-lateral {
+    width: 80px;
+    transition: width 0.5s ease;
+    /* overflow: hidden; */
+}
+.barraLateral {
+    width: 272px;
+}
+.menuResponsive {
+  width: 100%;
+}
+button {
+    min-width: 50px;
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgb(44, 43, 43);
+    border-radius: 30px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: black;
+
+    border-radius: 50px
+  }
+
+  .submenu {
+    padding: 6px 6px 14px 20px;
+    display: none;
+  }
+  .submenu.open {
+    display: block;
+  }
+
+  .subSubmenu {
+    padding: 6px 6px 14px 30px;
+    display: none;
+  }
+
+  .subSubmenu.openSub {
+    display: block;
+  }
+
+  .visible {
+    display: flex;
+  }
+
+  .visibleResp {
+    @apply !w-full flex overflow-x-hidden
+  }
+
+  .itemActived {
+    @apply  border-l-2 border-red-mafe text-red-mafe
+  }
+
+  .altura-personalizada {
+   max-height: calc(100vh - 150px);
+   height: fit-content;
+}

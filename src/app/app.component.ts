@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from "./shared/components/core/sidebar/sidebar.component";
+import { SidebarV2Component } from "./shared/components/core/sidebarv2/sidebarv2.component";
 import { filter } from 'rxjs';
 import { ApRoutes } from './shared/consts';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, SidebarComponent],
+  imports: [CommonModule, RouterOutlet, SidebarV2Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
