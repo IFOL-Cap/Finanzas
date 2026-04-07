@@ -160,7 +160,7 @@
                                 ><img [src]="subMenu.icon" alt=""
                               /></span>
                             }
-                            <span class="text-sm">{{ subMenu.name }}</span>
+                            <a class="text-sm" href="{{ subMenu.path }}">{{ subMenu.name }}</a>
                           </div>
                         </button>
                       </div>
@@ -288,7 +288,7 @@
                   } @else {
                     <span class="pr-4"><img [src]="menu.icon" alt="" /></span>
                   }
-                  <span class="text-sm">{{ menu.name }}</span>
+                  <span class="text-sm" ><a href="{{ menu.path }}">{{ menu.name }}</a></span>
                 </div>
                 <div class="">
                   @if (menu.subMenus && menu.subMenus.length > 0) {

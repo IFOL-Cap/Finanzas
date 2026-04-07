@@ -162,7 +162,7 @@ export class SidebarComponent {
               name: 'Alta Terceros',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: '/',
+              path: ApRoutes.garantias.path.catalogo.path.altaTerceros.path.fisica.full(),
               isActive: false,
             },
           ],
