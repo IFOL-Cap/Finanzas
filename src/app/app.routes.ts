@@ -44,6 +44,14 @@ export const routes: Routes = [
     loadComponent: () => import('./consultas/garantias-poliza/garantias-poliza.component').then(m => m.GarantiasPolizaComponent)
   },
   {
+    path: ApRoutes.garantias.value,
+    loadChildren: () => import('./garantias-alta/garantias.routes')
+  },
+  {
+    path: ApRoutes.catalogos.value,
+    loadChildren: () => import('./catalogos/catalogos.routes')
+  } ,
+  {
     path: ApRoutes.garantias.path.consultas.path.personas.full(),
     canActivate: [authGuard],
     loadComponent: () => import('./consultas/personas/personas.component').then(m => m.PersonasComponent)

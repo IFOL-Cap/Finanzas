@@ -6,7 +6,7 @@ export interface RequiredInfo {
 
 export interface LabelHelp {
     idTool?: string;
-    isRquired: boolean;
+    isRequired: boolean;
     isWithHelp: boolean;
     isWithSubtitle: boolean;
     title: string;
@@ -27,9 +27,9 @@ export interface FormElement {
     type: 'text'| 'number' | 'mail' |'' | 'password';
     pattern?: string;
     isCheck?: boolean
-    isrequied: boolean;
+    isRequired: boolean;
     placeHolder: string;
-    isDisable: boolean;
+    isDisabled: boolean;
     isHidden: boolean;
     isRead?: boolean;
     data?: any;
@@ -51,9 +51,9 @@ export interface FormElement {
 export interface FormTextAreaElement {
     type: 'text'| 'number' | 'mail' |'';
     pattern?: string;
-    isrequied: boolean;
+    isRequired: boolean;
     placeHolder: string;
-    isDisable: boolean;
+    isDisabled: boolean;
     isHidden: boolean;
     isRead?: boolean;
     data?: any;
@@ -126,7 +126,7 @@ export interface ButtonI{
     icon?: IconType;
     isOnlyIcon?: boolean;
     from?: FromButton;
-    isDisable?: boolean;
+    isDisabled?: boolean;
 }
 
 export enum FromButton {
@@ -379,7 +379,7 @@ export interface RequiredInfo {
 }
 export interface LabelHelp {
     idTool?: string;
-    isRquired: boolean;
+    isRequired: boolean;
     isWithHelp: boolean;
     isWithSubtitle: boolean;
     title: string;
@@ -425,9 +425,9 @@ export interface FormElement {
     type: 'text'| 'number' | 'mail' |'' | 'password';
     pattern?: string;
     isCheck?: boolean
-    isrequied: boolean;
+    isRequired: boolean;
     placeHolder: string;
-    isDisable: boolean;
+    isDisabled: boolean;
     isHidden: boolean;
     isRead?: boolean;
     data?: any;
@@ -449,9 +449,9 @@ export interface FormElement {
 export interface FormTextAreaElement {
     type: 'text'| 'number' | 'mail' |'';
     pattern?: string;
-    isrequied: boolean;
+    isRequired: boolean;
     placeHolder: string;
-    isDisable: boolean;
+    isDisabled: boolean;
     isHidden: boolean;
     isRead?: boolean;
     data?: any;
@@ -475,7 +475,7 @@ export interface ButtonI{
     icon?: IconType;
     isOnlyIcon?: boolean;
     from?: FromButton;
-    isDisable?: boolean;
+    isDisabled?: boolean;
 }
 export enum FromButton {
     general,
@@ -676,6 +676,8 @@ export enum FlowFrom {
     fz,
     im,
     rn,
+    gestion,
+    catalogos
 }
 
 export interface LabelInputI {
@@ -826,4 +828,10 @@ export interface TreeNode {
   expanded?: boolean;
   checked?: boolean;
   children?: TreeNode[];
+}
+
+export interface Message 
+{
+    title: string,
+    message: string,
 }

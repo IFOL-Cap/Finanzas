@@ -6,9 +6,9 @@
         <div class="w-1/3 md:w-1/6">
             <app-toggle [toggleConfig]="{
                 type: '',
-                isrequied: false,
+                isRequired: false,
                 placeHolder: '',
-                isDisable: false,
+                isDisabled: false,
                 isHidden: false,
                 isChecked: labelToglleConfig.isChecked,
                 data: labelToglleConfig.display
@@ -17,7 +17,7 @@
 
     </div>
     @if (labelToglleConfig.isWithSubtitle) {
-        <div class="w-full text-gray-subtitle-acdn text-xs font-rbt-rglr mt-2 md:w-2/3 md:mt-0 ">
+        <div class="w-full text-gray-subtitle-acdn text-xs font-mpf-rglr mt-2 md:w-2/3 md:mt-0 ">
             <span>{{ labelToglleConfig.subtitle}}</span>
         </div>
     }

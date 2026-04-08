@@ -10,12 +10,12 @@ import { FormElement } from '../../../interfaces';
   styleUrl: './dynamicbuttons-group.component.css'
 })
 export class DynamicbuttonsGroupComponent {
-  @Input() buttonsConig: FormElement = {
+  @Input() buttonsConfig: FormElement = {
      type: '',
      pattern: '',
-     isrequied: false,
+     isRequired: false,
      placeHolder: '',
-     isDisable: false,
+     isDisabled: false,
      isHidden: false,
      data: []
   }

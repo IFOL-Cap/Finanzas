@@ -12,9 +12,9 @@ import { CommonModule } from '@angular/common';
 export class ToggleComponent {
   @Input() toggleConfig: FormElement = {
     type: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     itemsEnd : true,
   }

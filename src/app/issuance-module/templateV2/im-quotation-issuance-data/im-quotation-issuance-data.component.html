@@ -1,0 +1,229 @@
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+                    <app-label-select 
+                        class="w-full" 
+                        [labelHelp]="{
+                            isRequired: true,
+                            isWithHelp: true,
+                            isWithSubtitle: false,
+                            title: 'Ramo:',
+                            subtitle: '',
+                            position: 'right',
+                            helpMsg: 'ayuda'
+                        }" 
+                        [selectConfig]="{
+                            type: 'text',
+                            pattern: '',
+                            isRequired: true,
+                            placeHolder: 'Selecciona una opción',
+                            isDisabled: false,
+                            isHidden: false,
+                            data: [
+                                { value: '1', display: 'Seleccione' }
+                            ],
+                            id: 2
+                        }" 
+                    />
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+                    <app-label-select 
+                        class="w-full" 
+                        [labelHelp]="{
+                            isRequired: true,
+                            isWithHelp: true,
+                            isWithSubtitle: false,
+                            title: 'Subramo:',
+                            subtitle: '',
+                            position: 'right',
+                            helpMsg: 'ayuda'
+                        }" 
+                        [selectConfig]="{
+                            type: 'text',
+                            pattern: '',
+                            isRequired: true,
+                            placeHolder: 'Selecciona una opción',
+                            isDisabled: false,
+                            isHidden: false,
+                            data: [
+                                { value: '1', display: 'Seleccione' }
+                            ],
+                            id: 2
+                        }" 
+                    />
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+                    <app-label-select 
+                        class="w-full" 
+                        [labelHelp]="{
+                            isRequired: true,
+                            isWithHelp: true,
+                            isWithSubtitle: false,
+                            title: 'Tipo:',
+                            subtitle: '',
+                            position: 'right',
+                            helpMsg: 'ayuda'
+                        }" 
+                        [selectConfig]="{
+                            type: 'text',
+                            pattern: '',
+                            isRequired: true,
+                            placeHolder: 'Selecciona una opción',
+                            isDisabled: false,
+                            isHidden: false,
+                            data: [
+                                { value: '1', display: 'Seleccione' }
+                            ],
+                            id: 2
+                        }" 
+                    />
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+    <app-label-input class="w-full" [labelHelp]="{
+				isRequired: true,
+				isWithHelp: true,
+				isWithSubtitle: false,
+				title: 'Monto de responsabilidad:',
+				subtitle: '',
+				position: 'right',
+				helpMsg: 'ayuda'
+			}" [inputConfig]="{
+				type: 'text',
+				pattern: '',
+				isRequired: false,
+				placeHolder: 'Ingrese monto',
+				isDisabled: false,
+				isHidden: false,
+				isRead: false,
+			}" />
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+                    <app-label-select 
+                        class="w-full" 
+                        [labelHelp]="{
+                            isRequired: true,
+                            isWithHelp: true,
+                            isWithSubtitle: false,
+                            title: 'Moneda:',
+                            subtitle: '',
+                            position: 'right',
+                            helpMsg: 'ayuda'
+                        }" 
+                        [selectConfig]="{
+                            type: 'text',
+                            pattern: '',
+                            isRequired: true,
+                            placeHolder: 'Selecciona una opción',
+                            isDisabled: false,
+                            isHidden: false,
+                            data: [
+                                { value: '1', display: 'Seleccione' }
+                            ],
+                            id: 2
+                        }" 
+                    />
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+    <app-label-input class="w-full" [labelHelp]="{
+				isRequired: true,
+				isWithHelp: true,
+				isWithSubtitle: false,
+				title: 'Fiado:',
+				subtitle: '',
+				position: 'right',
+				helpMsg: 'ayuda'
+			}" [inputConfig]="{
+				type: 'text',
+				pattern: '',
+				isRequired: false,
+				placeHolder: 'Ingrese monto',
+				isDisabled: false,
+				isHidden: false,
+				isRead: false,
+			}" />
+</div>
+
+
+<!--
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+    <app-label-input class="w-full" [labelHelp]="{
+				isRequired: true,
+				isWithHelp: true,
+				isWithSubtitle: false,
+				title: 'Ramo:',
+				subtitle: '',
+				position: 'right',
+				helpMsg: 'ayuda'
+			}" [inputConfig]="{
+				type: 'text',
+				pattern: '',
+				isRequired: false,
+				placeHolder: 'AUTOS',
+				isDisabled: true,
+				isHidden: false,
+				isRead: true,
+			}" />
+</div>
+<div class="flex w-full items-start py-5 ">
+    <div class="w-full">
+        <label class="block text-base font-medium text-black mb-5">
+            Relato:
+        </label>
+        <textarea
+            class="w-full min-h-[120px] rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"
+            placeholder="Describe tu solicitud..."></textarea>
+    </div>
+</div>
+
+<div class="flex w-full items-start py-5 ">
+    <div class="w-full">
+        <label class="block text-base font-medium text-black mb-5">
+            Necesidad:
+        </label>
+        <textarea
+            class="w-full min-h-[120px] rounded-md border border-gray-300 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400 resize-none"
+            placeholder="Describe tu solicitud..."></textarea>
+    </div>
+</div>
+
+<div class="mb-4">
+    <p class="text-base">
+        <span class="font-bold">
+            ¿Tienes un archivo? Súbelo aquí.
+        </span>
+        Formatos permitidos: .xls, .xlsx, .doc, .docx, .pdf, .jpg.
+    </p>
+</div>
+
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+
+    <app-label-upload class="w-full md:w-[70%]" [labelHelp]="{
+			isRequired: false,
+			isWithHelp: true,
+			isWithSubtitle: false,
+			title: 'Adjuntar archivo',
+			subtitle: '',
+			position: 'right',
+			helpMsg: 'ayuda'
+		}" />
+
+</div>
+
+-->
+
+
+<div class="flex flex-row  w-full justify-center mt-3">
+    <div class="w-full max-w-[300px] mx-auto">
+
+        <app-button (click)="continue()" [buttonConfig]="{
+                type: 0,
+                label: '',
+            }">
+            Cotizar
+        </app-button>
+    </div>
+</div>

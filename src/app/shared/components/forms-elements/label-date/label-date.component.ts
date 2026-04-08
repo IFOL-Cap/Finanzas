@@ -16,7 +16,7 @@ export class LabelDateComponent {
 
   @Input() labelHelp: LabelHelp = {
     idTool:'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',
@@ -28,9 +28,9 @@ export class LabelDateComponent {
   @Input() dateConfig: FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     isEdad: false,
     idDate:'',
@@ -41,9 +41,9 @@ export class LabelDateComponent {
   @Input() inputConfig:FormElement = {
     type: 'text',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     isRead: false,
   }

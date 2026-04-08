@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class LabelHelpComponent {
   @Input() labelHelp: LabelHelp = {
     idTool:'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',

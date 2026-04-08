@@ -15,7 +15,7 @@ export class LabelButtonsGroupComponent {
   @Output() selected = new EventEmitter<any>();
   @Input() labelHelp: LabelHelp = {
     idTool:'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',
@@ -28,9 +28,9 @@ export class LabelButtonsGroupComponent {
   @Input() buttonsConfig: FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     titleLeft: '',
     titleRight: '',
@@ -42,9 +42,9 @@ export class LabelButtonsGroupComponent {
   @Input() inputConfig: FormElement = {
 			type: 'text',
 			pattern: '',
-			isrequied: false,
+			isRequired: false,
 			placeHolder: '',
-			isDisable: false,
+			isDisabled: false,
 			isHidden: false,
 			isRead: false,
 		  }

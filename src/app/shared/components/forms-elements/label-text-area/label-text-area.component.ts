@@ -20,9 +20,9 @@ export class LabelTextAreaComponent
   @Input() inputConfig: FormElement = {
     type: 'text',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     isRead: false,
     isInfo: false,
@@ -31,7 +31,7 @@ export class LabelTextAreaComponent
 
   @Input() labelHelp: LabelHelp = {
     idTool: 'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',
@@ -58,7 +58,7 @@ export class LabelTextAreaComponent
   }
 
   ngAfterContentInit() {
-    if (this.inputConfig.isrequied) 
+    if (this.inputConfig.isRequired) 
     {
       this.inputElementFrm.get('inputElement')?.setValidators([Validators.required]);
       this.inputElementFrm.get('inputElement')?.updateValueAndValidity();

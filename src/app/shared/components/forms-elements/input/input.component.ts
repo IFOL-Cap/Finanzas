@@ -15,9 +15,9 @@ export class InputComponent {
   @Input() inputConfig:FormElement = {
     type: 'text',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     isRead: false,
     maxLength: 0,
@@ -48,7 +48,7 @@ export class InputComponent {
   }
 
   configureValidators() {
-    if(this.inputConfig.isrequied)
+    if(this.inputConfig.isRequired)
     {
       this.inputElementFrm.get('inputElement')?.setValidators([Validators.required]);
       this.inputElementFrm.get('inputElement')?.updateValueAndValidity();
@@ -82,9 +82,9 @@ export class InputComponent {
 @Input() inputConfig:FormElement = {
   type: 'text',
   pattern: '',
-  isrequied: false,
+  isRequired: false,
   placeHolder: '',
-  isDisable: false,
+  isDisabled: false,
   isHidden: false,
   isRead: false,
 }
@@ -105,7 +105,7 @@ ngOnInit(){
 }
 
 ngAfterContentInit() {
-  if(this.inputConfig.isrequied){
+  if(this.inputConfig.isRequired){
     this.inputElementFrm.get('inputElement')?.setValidators([Validators.required]);
     this.inputElementFrm.get('inputElement')?.updateValueAndValidity();
   }
@@ -113,12 +113,12 @@ ngAfterContentInit() {
     this.inputElementFrm.get('inputElement')?.setValidators([Validators.pattern("/[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]);
     this.inputElementFrm.get('inputElement')?.updateValueAndValidity();
   }
-  if(this.inputConfig.isDisable)this.inputElementFrm.controls.inputElement.disable();
+  if(this.inputConfig.isDisabled)this.inputElementFrm.controls.inputElement.disable();
   else this.inputElementFrm.controls.inputElement.enable();
 }
 
 ngOnChanges() {
-  if(this.inputConfig.isDisable) this.inputElementFrm.controls.inputElement.disable();
+  if(this.inputConfig.isDisabled) this.inputElementFrm.controls.inputElement.disable();
     else this.inputElementFrm.controls.inputElement.enable();
 }
 }

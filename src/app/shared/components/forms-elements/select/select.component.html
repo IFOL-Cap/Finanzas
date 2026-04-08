@@ -2,7 +2,7 @@
     <form [formGroup]="selectElementFrm">
         <select (change)="changeSelect()" id="countries" formControlName="selectEl"
                 class="text-black-text-input text-base border bg-gray-50 border-gray-border-input rounded-lg transition duration-300 ease  focus:border-slate-400 w-full"
-                [attr.disabled]="selectConfig.isDisable ? 'true' : null"
+                [attr.disabled]="selectConfig.isDisabled ? 'true' : null"
                 [value]="actualValue">
                 <option value="" selected hidden>{{selectConfig.placeHolder}}</option>
                 <option  *ngFor="let option of selectConfig.data, index as i "                

@@ -15,9 +15,9 @@ export class TextareaComponent
   @Input() textAreaConfig:FormTextAreaElement = {
       type: 'text',
       pattern: '',
-      isrequied: false,
+      isRequired: false,
       placeHolder: '',
-      isDisable: false,
+      isDisabled: false,
       isHidden: false,
       isRead: false,
   }
@@ -49,7 +49,7 @@ export class TextareaComponent
   
   configureValidators() 
   {
-    if(this.textAreaConfig.isrequied){
+    if(this.textAreaConfig.isRequired){
       this.textAreaElementFrm.get('textAreaElement')?.setValidators([Validators.required]);
       this.textAreaElementFrm.get('textAreaElement')?.updateValueAndValidity();
     }

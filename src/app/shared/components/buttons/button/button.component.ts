@@ -42,7 +42,7 @@ export class ButtonComponent {
      @Input() buttonConfig: ButtonI = {
     type: ButtonType.basic,
     label: '',
-    isDisable: false,
+    isDisabled: false,
   }
   @Output() onClickB = new EventEmitter();
 
@@ -74,7 +74,7 @@ export class ButtonComponent {
   }
 
   btnClass() : string {
-    if(this.buttonConfig.type == 1 || this.buttonConfig.isDisable) {
+    if(this.buttonConfig.type == 1 || this.buttonConfig.isDisabled) {
       return 'bg-gray-btn-disable text-white !cursor-not-allowed !transition-none !transform-none'
     } else if(this.buttonConfig.type == 0) {
       return '!bg-red-mafe !text-white-buttons'

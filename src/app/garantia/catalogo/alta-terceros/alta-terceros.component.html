@@ -10,7 +10,7 @@
     <!-- Tipo de Persona -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Tipo de Persona:',
@@ -20,9 +20,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'fisica', display: 'Física' },
@@ -34,7 +34,7 @@
     <!-- Nombre(s) -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Nombre(s):',
@@ -44,9 +44,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ingrese nombre(s)',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -55,7 +55,7 @@
     <!-- 1er Apellido -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: '1er Apellido:',
@@ -65,9 +65,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ingrese primer apellido',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -76,7 +76,7 @@
     <!-- 2do Apellido -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: '2do Apellido:',
@@ -86,9 +86,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese segundo apellido',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -97,7 +97,7 @@
     <!-- Fecha de Nacimiento -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Fecha de Nacimiento:',
@@ -107,9 +107,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: '',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -118,7 +118,7 @@
     <!-- RFC -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'RFC:',
@@ -128,9 +128,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ej. ABC123456XYZ',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -139,7 +139,7 @@
     <!-- CURP -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'CURP:',
@@ -149,9 +149,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ej. ABCD123456HDFXYZ00',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -160,7 +160,7 @@
     <!-- Sexo -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Sexo:',
@@ -170,9 +170,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'hombre', display: 'Hombre' },
@@ -184,7 +184,7 @@
     <!-- Nacionalidad -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Nacionalidad:',
@@ -194,9 +194,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'mexicana', display: 'Mexicana' },
@@ -208,7 +208,7 @@
     <!-- Estado Civil -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Estado Civil:',
@@ -218,9 +218,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'soltero', display: 'Soltero' },
@@ -234,7 +234,7 @@
     <!-- Profesión / Ocupación -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Profesión / Ocupación:',
@@ -244,9 +244,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese profesión u ocupación',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -260,7 +260,7 @@
     <!-- Tel. Celular -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Tel. Celular:',
@@ -270,9 +270,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ej. 5512345678',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -286,7 +286,7 @@
     <!-- País de Nacimiento -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'País de Nacimiento:',
@@ -296,9 +296,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'mexico', display: 'México' },
@@ -310,7 +310,7 @@
     <!-- Tipo de Identificación -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Tipo de Identificación:',
@@ -320,9 +320,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'pasaporte', display: 'Pasaporte' },
@@ -335,7 +335,7 @@
     <!-- No. Identificación -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'No. Identificación:',
@@ -345,9 +345,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese número de identificación',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -356,7 +356,7 @@
     <!-- Firma Electrónica A -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-upload class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Firma Electrónica A:',
@@ -374,7 +374,7 @@
     <!-- Domicilio -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Domicilio:',
@@ -384,9 +384,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ingrese dirección',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -395,7 +395,7 @@
     <!-- Número Exterior -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Num. Exterior:',
@@ -405,9 +405,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese número exterior',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -416,7 +416,7 @@
     <!-- Número Interior -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Num. Interior:',
@@ -426,9 +426,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese número interior',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -437,7 +437,7 @@
     <!-- Colonia -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Colonia:',
@@ -447,9 +447,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ingrese colonia',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -458,7 +458,7 @@
     <!-- País -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'País:',
@@ -468,9 +468,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'mexico', display: 'México' },
@@ -482,7 +482,7 @@
     <!-- Lada -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Lada:',
@@ -492,9 +492,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ej. 55',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -503,7 +503,7 @@
     <!-- Teléfono -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Teléfono:',
@@ -513,9 +513,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Ej. 12345678',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -524,7 +524,7 @@
     <!-- Código Postal -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'CP:',
@@ -534,9 +534,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ej. 06500',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -545,7 +545,7 @@
     <!-- Estado -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Estado:',
@@ -555,9 +555,9 @@
         }" [selectConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: 'cdmx', display: 'CDMX' },
@@ -570,7 +570,7 @@
     <!-- Delegación / Municipio -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Delegación / Municipio:',
@@ -580,9 +580,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ingrese delegación o municipio',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -596,7 +596,7 @@
     <!-- Correo Electrónico -->
     <div class="flex w-full items-center py-5 border-b border-gray-division-section">
         <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Correo Electrónico:',
@@ -606,9 +606,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Ej. ejemplo@correo.com',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />

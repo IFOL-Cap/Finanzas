@@ -2,24 +2,24 @@
 
 <div class=" w-full inline-flex rounded-md shadow-sm" >
     <button (click)="optionSend(1)" type="button" 
-            [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConig.optionSelected == 1}"
+            [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConfig.optionSelected == 1}"
              class="w-1/2 inline-flex items-center justify-center py-2 px-2 text-black-text-input text-sm font-rbt-bold border border-gray-border-input rounded-s-lg  ">
-        <img *ngIf="buttonsConig.optionSelected == 1 && isWithIcon" class="mr-2 hidden sm:block" [src]= "isWithIcon ? 'assets/icons/checkWhite.svg' : ''" alt="check">
+        <img *ngIf="buttonsConfig.optionSelected == 1 && isWithIcon" class="mr-2 hidden sm:block" [src]= "isWithIcon ? 'assets/icons/checkWhite.svg' : ''" alt="check">
         <span
-              [ngClass]="{'pr-2': buttonsConig.optionSelected == 1}">
+              [ngClass]="{'pr-2': buttonsConfig.optionSelected == 1}">
             <ng-content select="[left]"></ng-content>
         </span>
       
     </button>
     
-    @if (buttonsConig.isMultipleButton) {
+    @if (buttonsConfig.isMultipleButton) {
         
         <button (click)="optionSend(3)" type="button" 
-                [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConig.optionSelected == 3}"
+                [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConfig.optionSelected == 3}"
                 class=" w-1/2 inline-flex items-center justify-center py-2 px-2 text-black-text-input text-sm font-rbt-bold border border-gray-border-input ">
-            <img *ngIf="buttonsConig.optionSelected == 3" class="mr-2 hidden sm:block" src=" assets/icons/checkWhite.svg" alt="check">
+            <img *ngIf="buttonsConfig.optionSelected == 3" class="mr-2 hidden sm:block" src=" assets/icons/checkWhite.svg" alt="check">
             <span
-              [ngClass]="{'pr-2': buttonsConig.optionSelected == 3}">
+              [ngClass]="{'pr-2': buttonsConfig.optionSelected == 3}">
               <ng-content select="[middle]"></ng-content>
             </span>
             
@@ -28,11 +28,11 @@
     }
 
     <button (click)="optionSend(2)" type="button" 
-            [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConig.optionSelected == 2}"
+            [ngClass]="{'text-white-buttons bg-red-mafe': buttonsConfig.optionSelected == 2}"
             class=" w-1/2 inline-flex items-center justify-center py-2 px-2 text-black-text-input text-sm font-rbt-bold border border-gray-border-input rounded-e-lg">
-        <img *ngIf="buttonsConig.optionSelected == 2 && isWithIcon" class="mr-2 hidden sm:block" [src]= " isWithIcon ? 'assets/icons/checkWhite.svg' : ''" alt="check">
+        <img *ngIf="buttonsConfig.optionSelected == 2 && isWithIcon" class="mr-2 hidden sm:block" [src]= " isWithIcon ? 'assets/icons/checkWhite.svg' : ''" alt="check">
         <span
-              [ngClass]="{'pr-2': buttonsConig.optionSelected == 2}">
+              [ngClass]="{'pr-2': buttonsConfig.optionSelected == 2}">
               <ng-content #right></ng-content>
         </span>
         

@@ -19,7 +19,7 @@ export class RadioComponent {
   }
   @Input() labelHelp: LabelHelp = {
       idTool:'idToolExa',
-      isRquired: false,
+      isRequired: false,
       isWithHelp: false,
       isWithSubtitle: false,
       title: '',

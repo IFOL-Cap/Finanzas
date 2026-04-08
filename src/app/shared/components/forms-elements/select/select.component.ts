@@ -17,9 +17,9 @@ export class SelectComponent {
  @Input() selectConfig:FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     id: DifferetType.none
   }
@@ -29,7 +29,7 @@ export class SelectComponent {
   constructor(){}
 
   ngAfterContentInit() {
-    if(this.selectConfig.isrequied){
+    if(this.selectConfig.isRequired){
       this.selectElementFrm.get('selectEl')?.setValidators([Validators.required]);
       this.selectElementFrm.get('selectEl')?.updateValueAndValidity();
     }

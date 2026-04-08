@@ -17,9 +17,9 @@ export class DateComponent {
  @Input() dateConfig: FormElement = {
    type: '',
    pattern: '',
-   isrequied: false,
+   isRequired: false,
    placeHolder: '',
-   isDisable: false,
+   isDisabled: false,
    isHidden: false
  }
 
@@ -54,7 +54,7 @@ export class DateComponent {
       onDestroy: () => console.log("onDestroy")
       
     });
-    if(this.dateConfig.isrequied){
+    if(this.dateConfig.isRequired){
       this.dateElementFrm.get('datetEl')?.setValidators([Validators.required]);
       this.dateElementFrm.get('datetEl')?.updateValueAndValidity();
     }  

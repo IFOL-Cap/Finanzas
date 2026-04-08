@@ -14,7 +14,7 @@ export class LabelUploadComponent {
   nameFile: string = '';
   @Input() labelHelp: LabelHelp = {
     idTool:'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',

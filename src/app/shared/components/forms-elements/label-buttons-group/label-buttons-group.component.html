@@ -6,15 +6,15 @@
     </div>
     <div class="col-span-3 md:col-span-1">
         @if (isButtons) {
-            <app-buttons-group class="w-full" [buttonsConig]="buttonsConfig" (optionSelect)="optionSelected($event)"><span left>{{buttonsConfig.titleLeft}}</span><span right>{{buttonsConfig.titleRight}}</span></app-buttons-group>
+            <app-buttons-group class="w-full" [buttonsConfig]="buttonsConfig" (optionSelect)="optionSelected($event)"><span left>{{buttonsConfig.titleLeft}}</span><span right>{{buttonsConfig.titleRight}}</span></app-buttons-group>
 
         }@else {
             <app-input class="w-full" [inputConfig]="{
                 type: 'text',
                 pattern: '',
-                isrequied: true,
+                isRequired: true,
                 placeHolder: 'No residentes',
-                isDisable: true,
+                isDisabled: true,
                 isHidden: false,
                 isRead: true
         }"></app-input>

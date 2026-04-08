@@ -9,9 +9,9 @@
                 class="w-full h-28 rounded-md border-gray-300 focus:ring focus:ring-blue-200 focus:outline-none resize-none"
                 [ngClass]="[inputElementFrm.get('inputElement')?.errors?.['required'] && inputElementFrm.dirty ?
                                         'text-red-700 border-red-200 focus:outline-none focus:border-red-500 hover:border-red-500' : ''
-                                        , (inputConfig.isDisable ) ? 'border border-transparent focus:border-transparent focus:ring-0 text-[#75848D] bg-[#F4F6F7]' : '']"
+                                        , (inputConfig.isDisabled ) ? 'border border-transparent focus:border-transparent focus:ring-0 text-[#75848D] bg-[#F4F6F7]' : '']"
                 [placeholder]="inputConfig.placeHolder"
-                [disabled]="inputConfig.isDisable"
+                [disabled]="inputConfig.isDisabled"
                 [readonly]="inputConfig.isRead "
                 id="disabled-input">
             </textarea>

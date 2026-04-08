@@ -1,6 +1,6 @@
 <div class=" w-full items-center py-5">
     <app-label-buttons-group class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: '¿Son los mismos datos del contratante?',
@@ -10,9 +10,9 @@
         }" [buttonsConfig]="{
             type: '',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: '',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             optionSelected: 1,
             titleLeft: 'Si', 
@@ -23,7 +23,7 @@
 </div>
 <div class="flex w-full items-center py-5 border-t border-gray-division-section">
     <app-label-buttons-group class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: false,
             isWithSubtitle: false,
             title: 'Tipo de persona',
@@ -33,9 +33,9 @@
         }" [buttonsConfig]="{
             type: '',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: '',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             optionSelected: 1,
             titleLeft: 'Física', 
@@ -47,7 +47,7 @@
 
         <div class="flex w-full items-center py-5 border-t border-gray-division-section">
             <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Nombres(s)',
@@ -57,9 +57,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Nombre',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -67,7 +67,7 @@
 
         <div class="flex w-full items-center pb-5">
             <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Primer apellido',
@@ -77,9 +77,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Primer apellido',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -87,7 +87,7 @@
 
         <div class="flex w-full items-center pb-5">
             <app-label-input class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Segundo apellido',
@@ -97,9 +97,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Segundo apellido',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -110,7 +110,7 @@
     <div *ngIf="!personType">
         <div class="flex w-full items-center py-5 border-t border-gray-division-section">
             <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Denominación o Razón Social',
@@ -120,9 +120,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Denominación o Razón Social',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -130,7 +130,7 @@
 
         <div class="flex w-full items-center pb-5">
             <app-label-input class="w-full" [labelHelp]="{
-            isRquired: true,
+            isRequired: true,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Fecha de Constitución',
@@ -140,9 +140,9 @@
         }" [inputConfig]="{
             type: 'text',
             pattern: '',
-            isrequied: false,
+            isRequired: false,
             placeHolder: 'Fecha de Constitución',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             isRead: false,
         }" />
@@ -153,7 +153,7 @@
         <div class="grid grid-cols-3 w-full items-center gap-y-2">
             <div class="col-span-3 md:col-span-1">
                 <app-label-help [labelHelp]="{
-                    isRquired: true,
+                    isRequired: true,
                     isWithHelp: true,
                     isWithSubtitle: false,
                     title: 'RFC',
@@ -166,18 +166,18 @@
                 <app-input [inputConfig]="{
                     type: 'text',
                     pattern: '',
-                    isrequied: false,
+                    isRequired: false,
                     placeHolder: 'RFC',
-                    isDisable: false,
+                    isDisabled: false,
                     isHidden: false,
                     isRead: false,
                 }"></app-input>
                 <app-input [inputConfig]="{
                     type: 'text',
                     pattern: '',
-                    isrequied: false,
+                    isRequired: false,
                     placeHolder: 'Homoclave',
-                    isDisable: false,
+                    isDisabled: false,
                     isHidden: false,
                     isRead: false,
                 }"></app-input>
@@ -188,7 +188,7 @@
 
     <div class="flex w-full items-center py-5 border-t border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Código postal',
@@ -199,9 +199,9 @@
         {
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: '1', display: '1' },
@@ -215,7 +215,7 @@
 
     <div class="flex w-full items-center py-5 border-t border-gray-division-section">
         <app-label-select class="w-full" [labelHelp]="{
-            isRquired: false,
+            isRequired: false,
             isWithHelp: true,
             isWithSubtitle: false,
             title: 'Régimen fiscal',
@@ -226,9 +226,9 @@
         {
             type: 'text',
             pattern: '',
-            isrequied: true,
+            isRequired: true,
             placeHolder: 'Selecciona una opción',
-            isDisable: false,
+            isDisabled: false,
             isHidden: false,
             data: [
                 { value: '1', display: '1' },

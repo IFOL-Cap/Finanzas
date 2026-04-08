@@ -1,0 +1,190 @@
+<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+    <app-label-buttons-group class="w-full" 
+        [labelHelp]="{
+            isRequired: false,
+            isWithHelp: true,
+            isWithSubtitle: false,
+            title: 'Tipo de persona',
+            subtitle: '',
+            position: 'right',
+            helpMsg: 'ayuda'
+        }" [buttonsConfig]="{
+            type: '',
+            pattern: '',
+            isRequired: false,
+            placeHolder: '',
+            isDisabled: false,
+            isHidden: false,
+            optionSelected: 1,
+            titleLeft: 'Fisica',
+            titleRight: 'Moral',
+            titleMiddle: '',
+            isMultipleButton: false
+        }"
+        (selected)="tipoPersonaSelection($event)"/>
+</div>
+
+@if(tipoPersona === true)
+{
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Nombre(s)',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Apellido paterno',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Apellido materno',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Teléfono',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+}
+@else if(tipoPersona === false)
+{
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Razón social',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+    <div class="flex w-full items-center py-5 border-b border-gray-division-section">
+        <app-label-input
+            class="w-full"
+            [labelHelp]="{
+                isRequired: false,
+                isWithHelp: false,
+                isWithSubtitle: false,
+                title: 'Teléfono',
+                subtitle: '',
+                position: 'right',
+                helpMsg: 'ayuda'
+            }"
+            [inputConfig]="{
+                type: 'number',
+                pattern: '',
+                isRequired: false,
+                placeHolder: 'Ingresa el campo',
+                isDisabled: false,
+                isHidden: false,
+                isRead: false,
+            }"
+        />
+    </div>
+}
+
+<div class="w-full mt-5 inline-block md:flex md:justify-center">
+    <app-button class="mr-4"
+        [buttonConfig]="{
+            type: 2,
+            label: '',
+        }"
+    >
+        Limpiar
+    </app-button>
+    
+    <app-button class="mr-4"
+        [buttonConfig]="{
+            type: 2,
+            label: '',
+        }"
+    >
+        Buscar
+    </app-button>
+</div>

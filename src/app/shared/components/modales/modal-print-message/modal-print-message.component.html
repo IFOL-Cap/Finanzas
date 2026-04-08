@@ -16,17 +16,22 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="md:px-4 space-y-4 py-4 flex items-center justify-center">
-  <p class="text-base text-center">
-    “Confirmar la baja de la causa[1]”.
-  </p>
-</div>
+            <div class="md:px-5 space-y-4">
+               <ng-content select="[bodyModal]">
+                <app-modal-print-send-mail [showReceiptSection]="false"></app-modal-print-send-mail>
+                <div class="text-center m-4">
+                    <br>
+                    {{showWarningMesage}}
+                </div>
+                <br>
+               </ng-content>
+            </div>
             <!-- Modal footer -->
             <div class=" p-4 md:px-5 border-t border-gray-200 rounded-b dark:border-gray-600">
               <ng-content #footerModal>
                 <div class="flex flex-row justify-center">
                     <div class="mx-4">
-                        <app-button (click)="ok(downloadPolicy)">Ok</app-button>
+                        <app-button (click)="ok(downloadPolicy)">Enviar correo</app-button>
                     </div>
                     <div class="mx-4" *ngIf="showCancelBtn">
                         <app-button (click)="cancel()">Cancelar</app-button>

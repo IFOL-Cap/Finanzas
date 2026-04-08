@@ -22,12 +22,12 @@ export class ButtonsGroupComponent implements ControlValueAccessor {
   @Input() isWithIcon?: boolean = true;
   @Output() buttonSelected = new EventEmitter<number>();
   @Output() optionSelect = new EventEmitter<any>();
-  @Input() buttonsConig: FormElement = {
+  @Input() buttonsConfig: FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     optionSelected: 1
   }
@@ -35,7 +35,7 @@ export class ButtonsGroupComponent implements ControlValueAccessor {
  optionSelected = 1;
  
  optionSend(value: any) {
-  this.buttonsConig.optionSelected = value;  
+  this.buttonsConfig.optionSelected = value;  
   this.optionSelected = value;
   this.onChange(value); // notifica a ngModel
   this.optionSelect.emit(value === 1 ? true : false);
@@ -58,7 +58,7 @@ onTouched = () => {};
 
 writeValue(value: number): void {
   this.optionSelected = value;
-  this.buttonsConig.optionSelected = value;
+  this.buttonsConfig.optionSelected = value;
 }
 
 registerOnChange(fn: any): void {
@@ -70,18 +70,18 @@ registerOnTouched(fn: any): void {
 }
 
 setDisabledState?(isDisabled: boolean): void {
-  this.buttonsConig.isDisable = isDisabled;
+  this.buttonsConfig.isDisabled = isDisabled;
 }
 
 
 /*
   @Output() optionSelect = new EventEmitter<any>();
-  @Input() buttonsConig: FormElement = {
+  @Input() buttonsConfig: FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     optionSelected: 1
   }
@@ -89,7 +89,7 @@ setDisabledState?(isDisabled: boolean): void {
  optionSelected = 1;
 
  optionSend(value: number | undefined) {
-  this.buttonsConig.optionSelected = value;
+  this.buttonsConfig.optionSelected = value;
   value == 1 ? this.optionSelect.emit(true) : this.optionSelect.emit(false)
  }
  */

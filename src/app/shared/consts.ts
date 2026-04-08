@@ -7,7 +7,7 @@ export const LabelsTerminos = [
     'Descuento del 15% o menor - Comisión del 15%',
     'Descuento mayor del 15% - Comisión del 10%',
     '(Solo aplica para ramos 410, para pólizas de nueva producción, no renovaciones o clientes en cartera)'
-]
+  ]
 
 export const Icons = {
     0: '/assets/icons/more',
@@ -35,19 +35,19 @@ export const ApRoutes = {
         value: 'login',
         full: () => '/login'
     },
-    im: {
+    im:{
         value: 'im',
         path: {
             step1: {
                 value: 'step1',
-                full: () => '/im/step1'
+                full: ()=> '/im/step1'
             },
             step2: {
                 value: 'step2',
-                full: () => '/im/step2'
+                full: ()=> '/im/step2'
             },
         }
-    },
+    }, 
     rn:{
         value: 'rn',
         path: {
@@ -65,9 +65,22 @@ export const ApRoutes = {
             },
         }
     } ,
+    catalogos:{
+        value: 'catalogos',
+        path: {
+            step1: {
+                value: 'step1',
+                full: ()=> '/catalogos/step1'
+            },
+        }
+    },
     garantias: {
         value: 'garantias',
         path: {
+            step1: {
+                value: 'step1',
+                full: ()=> '/garantias/step1'
+            },
             catalogo: {
                 value: 'catalogo',
                 path: {

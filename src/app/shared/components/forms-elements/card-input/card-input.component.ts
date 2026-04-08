@@ -17,9 +17,9 @@ export class CardInputComponent implements AfterContentInit{
   @Input() inputConfig:FormElement = {
     type: 'text',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     isRead: false,
   }
@@ -47,7 +47,7 @@ export class CardInputComponent implements AfterContentInit{
   }
 
   ngAfterContentInit() {
-    if (this.inputConfig.isrequied) {
+    if (this.inputConfig.isRequired) {
       Object.keys(this.inputElementFrm.controls).forEach((key) => {
         const control = this.inputElementFrm.get(key);
         control?.setValidators([Validators.required]);

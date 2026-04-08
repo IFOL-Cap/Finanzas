@@ -24,9 +24,9 @@ export class LabelSelectComponent {
   @Input() selectConfig:FormElement = {
     type: '',
     pattern: '',
-    isrequied: false,
+    isRequired: false,
     placeHolder: '',
-    isDisable: false,
+    isDisabled: false,
     isHidden: false,
     id: DifferetType.none,
     isCheck: false,
@@ -34,7 +34,7 @@ export class LabelSelectComponent {
 
   @Input() labelHelp: LabelHelp = {
     idTool:'typeVechiculo',
-    isRquired: false,
+    isRequired: false,
     isWithHelp: false,
     isWithSubtitle: false,
     title: '',
