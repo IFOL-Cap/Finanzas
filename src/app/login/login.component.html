@@ -1,6 +1,6 @@
 
 <div class="flex bg-white h-screen overflow-hidden">
-    <div class="w-1/2 h-full hidden md:flex login">       
+    <div class="w-1/2 h-full hidden md:flex login">
     </div>
     <div class="p-4 md:w-1/2 w-full h-full bg-white flex md:items-center md:justify-center">
         <div class=" flex-col w-full md:w-2/3">
@@ -21,11 +21,13 @@
                 <div class="mb-2">
                     <label for="">Usuario</label>
                 </div>
-                <app-input [inputConfig]="{
-                    type: 'mail', 
-                    isRequired: true, 
-                    placeHolder: 'Ingresa tu usuario', 
-                    isDisabled: false, 
+                <app-input
+                    [control]="usuarioCtrl"
+                    [inputConfig]="{
+                    type: 'mail',
+                    isRequired: true,
+                    placeHolder: 'Ingresa tu usuario',
+                    isDisabled: false,
                     isHidden: false
                 }"></app-input>
             </div>
@@ -33,11 +35,13 @@
                 <div class="mb-2">
                     <label for="">Contraseña</label>
                 </div>
-                <app-input [inputConfig]="{
-                    type: 'password', 
-                    isRequired: true, 
-                    placeHolder: '••••••••', 
-                    isDisabled: false, 
+                <app-input
+                    [control]="contraseniaCtrl"
+                    [inputConfig]="{
+                    type: 'password',
+                    isRequired: true,
+                    placeHolder: '••••••••',
+                    isDisabled: false,
                     isHidden: false
                 }"></app-input>
             </div>

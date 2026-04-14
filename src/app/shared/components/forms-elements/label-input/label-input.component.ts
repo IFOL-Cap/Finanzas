@@ -4,6 +4,7 @@ import { LabelHelpComponent } from '../../messages-display/label-help/label-help
 import { InputComponent } from '../input/input.component';
 import { ProtectedToggleComponent } from "../protected-toggle/protected-toggle.component";
 import { QuestionLinkComponent } from '../../question-link/question-link.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-label-input',
@@ -13,9 +14,10 @@ import { QuestionLinkComponent } from '../../question-link/question-link.compone
   styleUrl: './label-input.component.css'
 })
 export class LabelInputComponent {
+  @Input() control!: FormControl<string | null>;
   @Input() labelInputConf: LabelInputI = {
     isCustom: false,
-    from: LabelInputFrom.coverage 
+    from: LabelInputFrom.coverage
   }
   @Input() inputConfig:FormElement = {
     type: 'text',
