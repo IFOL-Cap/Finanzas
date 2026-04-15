@@ -28,7 +28,7 @@
       isDisabled: false,
       isHidden: false,
       isRead: false,
-    }" />
+    }" [control]="fianzaNoCtrl" />
       </div>
 
       <div class="flex w-full items-center py-5 border-b border-gray-division-section">
@@ -48,7 +48,7 @@
       isDisabled: false,
       isHidden: false,
       isRead: false,
-    }" />
+    }" [control]="endosoCtrl" />
       </div>
 
       <div class="flex w-full items-center py-5 border-b border-gray-division-section">
@@ -68,7 +68,7 @@
       isDisabled: false,
       isHidden: false,
       isRead: false,
-    }" />
+    }" [control]="asuntoCtrl" />
       </div>
 
       <div class="flex w-full items-center py-5 border-b border-gray-division-section">
@@ -88,7 +88,7 @@
       isDisabled: false,
       isHidden: false,
       isRead: false,
-    }" />
+    }" [control]="destinatariosCtrl" />
       </div>
 
       <div class="flex w-full items-center py-5 border-b border-gray-division-section">
@@ -100,7 +100,7 @@
       subtitle: '',
       position: 'right',
       helpMsg: 'ayuda',
-    }" (isChecked)="envioForm.omitirVigencia = $event" [itemsChecks]="[
+    }" (isChecked)="onOmitirVigenciaChange($event)" [itemsChecks]="[
       {
         labeltitle: 'Si',
       },
@@ -108,7 +108,8 @@
       </div>
 
       <div class="flex w-full items-center py-5 border-b border-gray-division-section">
-        <app-label-text-area class="w-full" [labelHelp]="{
+        <app-label-text-area class="w-full" [control]="comentarioCtrl"
+        [labelHelp]="{
       isRequired: false,
       isWithHelp: true,
       isWithSubtitle: false,

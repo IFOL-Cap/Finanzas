@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { LabelHelpComponent } from '../../messages-display/label-help/label-help.component';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormElement, LabelHelp } from '../../../interfaces';
 
 @Component({
@@ -15,8 +15,9 @@ import { FormElement, LabelHelp } from '../../../interfaces';
   templateUrl: './label-text-area.component.html',
   styleUrl: './label-text-area.component.css'
 })
-export class LabelTextAreaComponent 
+export class LabelTextAreaComponent
 {
+  @Input() control!: FormControl<string | null>;
   @Input() inputConfig: FormElement = {
     type: 'text',
     pattern: '',
@@ -44,7 +45,7 @@ export class LabelTextAreaComponent
 
   public inputElementFrm!: FormGroup;
 
-  ngOnInit() 
+  ngOnInit()
   {
     this.inputElementFrm = this.fb.group({
       inputElement: [
@@ -58,12 +59,12 @@ export class LabelTextAreaComponent
   }
 
   ngAfterContentInit() {
-    if (this.inputConfig.isRequired) 
+    if (this.inputConfig.isRequired)
     {
       this.inputElementFrm.get('inputElement')?.setValidators([Validators.required]);
       this.inputElementFrm.get('inputElement')?.updateValueAndValidity();
     }
-    if (this.inputConfig.pattern) 
+    if (this.inputConfig.pattern)
     {
       this.inputElementFrm
         .get('inputElement')
