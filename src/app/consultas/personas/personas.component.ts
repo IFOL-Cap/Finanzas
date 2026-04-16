@@ -1,7 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { LabelSelectComponent } from '../../shared/components/forms-elements/label-select/label-select.component';
+import { LabelInputComponent } from '../../shared/components/forms-elements/label-input/label-input.component';
+import { LabelCheckboxComponent } from '../../shared/components/forms-elements/label-checkbox/label-checkbox.component';
+import { ButtonComponent } from '../../shared/components/buttons/button/button.component';
+import { AccordionReusableComponent } from '../../shared/components/accordion-reusable/accordion-reusable.component';
+import { AccordionReusableItemComponent } from '../../shared/components/accordion-reusable/accordion-reusable-item/accordion-reusable-item.component';
+import { LabelHelpComponent } from '../../shared/components/messages-display/label-help/label-help.component';
+import { DateComponent } from '../../shared/components/forms-elements/date/date.component';
 
 type ModalKey = 'fianzas' | 'garantias' | 'obligadoSolidario' | 'relacionObligado';
 
@@ -188,16 +201,38 @@ interface PolizaFianza {
 @Component({
   selector: 'app-personas',
   standalone: true,
-  imports: [CommonModule, FormsModule, LabelSelectComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LabelSelectComponent,
+    LabelInputComponent,
+    LabelCheckboxComponent,
+    ButtonComponent,
+    AccordionReusableComponent,
+    AccordionReusableItemComponent,
+    LabelHelpComponent,
+    DateComponent,
+  ],
   templateUrl: './personas.component.html',
   styleUrl: './personas.component.css'
 })
 export class PersonasComponent {
+  public personasForm: FormGroup;
+  public altaGarantiaForm: FormGroup;
+  public obligadoSolidarioForm: FormGroup;
+  public nuevaInvestigacionForm: FormGroup;
+  public comentariosGarantiaForm: FormGroup;
+
   asesores = [
     { value: 'asesor1', display: 'Ivette García' },
     { value: 'asesor2', display: 'Carlos Mendoza' },
     { value: 'asesor3', display: 'Laura Torres' },
     { value: 'asesor4', display: 'Roberto Sánchez' },
+  ];
+
+  siNoOptions = [
+    { value: 'Sí', display: 'Sí' },
+    { value: 'No', display: 'No' },
   ];
 
   accesos: { key: ModalKey; label: string; icon: string; descripcion: string }[] = [
@@ -571,13 +606,6 @@ export class PersonasComponent {
   garantiaSeleccionada: GarantiaDetalle | null = null;
   altaGarantiaModalAbierto = false;
   garantiaPendienteAlta: GarantiaItem | null = null;
-  altaGarantiaForm: AltaGarantiaForm = {
-    garantia: '',
-    persona: '',
-    noContrato: '',
-    deudorPrendario: '',
-    entidad: ''
-  };
   historicoEdoFinModalAbierto = false;
   comentariosGarantia = '';
 
@@ -594,6 +622,280 @@ export class PersonasComponent {
   detalleMovimientoModalAbierto = false;
   movimientoSeleccionado: MovimientoAsociado | null = null;
 
+  constructor(private fb: FormBuilder) {
+    this.personasForm = this.fb.group({
+      asesor: new FormControl<string | null>('', {
+        validators: [Validators.required],
+      }),
+      criterio: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      soloActivos: new FormControl<boolean>(false),
+    });
+
+    this.altaGarantiaForm = this.fb.group({
+      garantia: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(80)],
+        updateOn: 'blur',
+      }),
+      persona: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      noContrato: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(60)],
+        updateOn: 'blur',
+      }),
+      deudorPrendario: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      entidad: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+    });
+
+    this.obligadoSolidarioForm = this.fb.group({
+      garantia: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(80)],
+        updateOn: 'blur',
+      }),
+      persona: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      tipoInmueble: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      calle: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      numeroExterior: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(20)],
+        updateOn: 'blur',
+      }),
+      numeroInterior: new FormControl<string | null>('', {
+        validators: [Validators.maxLength(20)],
+        updateOn: 'blur',
+      }),
+      colonia: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      codigoPostal: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(10)],
+        updateOn: 'blur',
+      }),
+      pais: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(100)],
+        updateOn: 'blur',
+      }),
+      estado: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(100)],
+        updateOn: 'blur',
+      }),
+      delegacionMunicipio: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      numeroEscritura: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(60)],
+        updateOn: 'blur',
+      }),
+      noRpp: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(60)],
+        updateOn: 'blur',
+      }),
+      folioRealFlag: new FormControl<string | null>(''),
+      folioReal: new FormControl<string | null>('', {
+        validators: [Validators.maxLength(60)],
+        updateOn: 'blur',
+      }),
+      investigacionRpp: new FormControl<string | null>(''),
+      vistaOcular: new FormControl<string | null>(''),
+      fechaAvaluo: new FormControl<string | null>(''),
+      valorInmueble: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(60)],
+        updateOn: 'blur',
+      }),
+      posicionMapfreGravar: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(80)],
+        updateOn: 'blur',
+      }),
+      afectacionMarginal: new FormControl<string | null>(''),
+      observacionesComentarios: new FormControl<string | null>('', {
+        validators: [Validators.maxLength(400)],
+        updateOn: 'blur',
+      }),
+    });
+
+    this.nuevaInvestigacionForm = this.fb.group({
+      fechaInvestigacion: new FormControl<string | null>(''),
+      inmuebleGravado: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(120)],
+        updateOn: 'blur',
+      }),
+      usuario: new FormControl<string | null>('', {
+        validators: [Validators.required, Validators.maxLength(80)],
+        updateOn: 'blur',
+      }),
+    });
+
+    this.comentariosGarantiaForm = this.fb.group({
+      comentarios: new FormControl<string | null>('', {
+        validators: [Validators.maxLength(400)],
+        updateOn: 'blur',
+      }),
+    });
+  }
+
+  get criterioCtrl(): FormControl<string | null> {
+    return this.personasForm.get('criterio') as FormControl<string | null>;
+  }
+
+  get garantiaCtrl(): FormControl<string | null> {
+    return this.altaGarantiaForm.get('garantia') as FormControl<string | null>;
+  }
+
+  get personaCtrl(): FormControl<string | null> {
+    return this.altaGarantiaForm.get('persona') as FormControl<string | null>;
+  }
+
+  get noContratoCtrl(): FormControl<string | null> {
+    return this.altaGarantiaForm.get('noContrato') as FormControl<string | null>;
+  }
+
+  get deudorPrendarioCtrl(): FormControl<string | null> {
+    return this.altaGarantiaForm.get('deudorPrendario') as FormControl<string | null>;
+  }
+
+  get entidadCtrl(): FormControl<string | null> {
+    return this.altaGarantiaForm.get('entidad') as FormControl<string | null>;
+  }
+
+  get osGarantiaCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('garantia') as FormControl<string | null>;
+  }
+
+  get osPersonaCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('persona') as FormControl<string | null>;
+  }
+
+  get osTipoInmuebleCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('tipoInmueble') as FormControl<string | null>;
+  }
+
+  get osCalleCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('calle') as FormControl<string | null>;
+  }
+
+  get osNumeroExteriorCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('numeroExterior') as FormControl<string | null>;
+  }
+
+  get osNumeroInteriorCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('numeroInterior') as FormControl<string | null>;
+  }
+
+  get osColoniaCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('colonia') as FormControl<string | null>;
+  }
+
+  get osCodigoPostalCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('codigoPostal') as FormControl<string | null>;
+  }
+
+  get osPaisCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('pais') as FormControl<string | null>;
+  }
+
+  get osEstadoCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('estado') as FormControl<string | null>;
+  }
+
+  get osDelegacionMunicipioCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('delegacionMunicipio') as FormControl<string | null>;
+  }
+
+  get osNumeroEscrituraCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('numeroEscritura') as FormControl<string | null>;
+  }
+
+  get osNoRppCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('noRpp') as FormControl<string | null>;
+  }
+
+  get osFolioRealCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('folioReal') as FormControl<string | null>;
+  }
+
+  get osValorInmuebleCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('valorInmueble') as FormControl<string | null>;
+  }
+
+  get osPosicionMapfreCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('posicionMapfreGravar') as FormControl<string | null>;
+  }
+
+  get osObservacionesCtrl(): FormControl<string | null> {
+    return this.obligadoSolidarioForm.get('observacionesComentarios') as FormControl<string | null>;
+  }
+
+  get invInmuebleGravadoCtrl(): FormControl<string | null> {
+    return this.nuevaInvestigacionForm.get('inmuebleGravado') as FormControl<string | null>;
+  }
+
+  get invUsuarioCtrl(): FormControl<string | null> {
+    return this.nuevaInvestigacionForm.get('usuario') as FormControl<string | null>;
+  }
+
+  get comentariosGarantiaCtrl(): FormControl<string | null> {
+    return this.comentariosGarantiaForm.get('comentarios') as FormControl<string | null>;
+  }
+
+  onAsesorChange(value: string): void {
+    this.personasForm.get('asesor')?.setValue(value);
+  }
+
+  onSoloActivosChange(value: boolean): void {
+    this.personasForm.get('soloActivos')?.setValue(value);
+  }
+
+  aplicarFiltros(): void {
+    if (this.personasForm.invalid) {
+      this.personasForm.markAllAsTouched();
+      this.personasForm.updateValueAndValidity();
+      return;
+    }
+  }
+
+  limpiarFiltros(): void {
+    this.personasForm.reset({
+      asesor: '',
+      criterio: '',
+      soloActivos: false,
+    });
+  }
+
+  onObligadoSelectChange(
+    field: 'folioRealFlag' | 'investigacionRpp' | 'vistaOcular' | 'afectacionMarginal',
+    value: string,
+  ): void {
+    this.obligadoSolidarioForm.get(field)?.setValue(value);
+  }
+
+  onFechaAvaluoChange(value: string): void {
+    this.obligadoSolidarioForm.get('fechaAvaluo')?.setValue(value);
+  }
+
+  onFechaInvestigacionNuevaChange(value: string): void {
+    this.nuevaInvestigacionForm.get('fechaInvestigacion')?.setValue(value);
+  }
+
   abrirModal(key: ModalKey) {
     this.modalAbierto[key] = true;
   }
@@ -606,31 +908,32 @@ export class PersonasComponent {
     if (garantia.detalle) {
       this.garantiaSeleccionada = garantia.detalle;
       this.comentariosGarantia = '';
+      this.comentariosGarantiaForm.reset({ comentarios: '' });
       this.detalleGarantiaModalAbierto = true;
       return;
     }
 
     this.garantiaPendienteAlta = garantia;
-    this.altaGarantiaForm = {
+    this.altaGarantiaForm.reset({
       garantia: '',
       persona: this.garantiasInfo.persona,
       noContrato: '',
       deudorPrendario: '',
-      entidad: ''
-    };
+      entidad: '',
+    });
     this.altaGarantiaModalAbierto = true;
   }
 
   cancelarAltaGarantia() {
     this.altaGarantiaModalAbierto = false;
     this.garantiaPendienteAlta = null;
-    this.altaGarantiaForm = {
+    this.altaGarantiaForm.reset({
       garantia: '',
       persona: '',
       noContrato: '',
       deudorPrendario: '',
-      entidad: ''
-    };
+      entidad: '',
+    });
   }
 
   confirmarAltaGarantia() {
@@ -638,10 +941,13 @@ export class PersonasComponent {
       return;
     }
 
-    const { garantia, persona, noContrato, deudorPrendario, entidad } = this.altaGarantiaForm;
-    if (!garantia || !persona || !noContrato || !deudorPrendario || !entidad) {
+    if (this.altaGarantiaForm.invalid) {
+      this.altaGarantiaForm.markAllAsTouched();
+      this.altaGarantiaForm.updateValueAndValidity();
       return;
     }
+
+    const { garantia, persona, noContrato, deudorPrendario, entidad } = this.altaGarantiaForm.value as AltaGarantiaForm;
 
     const nuevoDetalle: GarantiaDetalle = {
       garantia,
@@ -695,6 +1001,7 @@ export class PersonasComponent {
     this.cancelarAltaGarantia();
     this.garantiaSeleccionada = nuevoDetalle;
     this.comentariosGarantia = '';
+    this.comentariosGarantiaForm.reset({ comentarios: '' });
     this.detalleGarantiaModalAbierto = true;
   }
 
@@ -702,6 +1009,7 @@ export class PersonasComponent {
     this.detalleGarantiaModalAbierto = false;
     this.garantiaSeleccionada = null;
     this.historicoEdoFinModalAbierto = false;
+    this.comentariosGarantiaForm.reset({ comentarios: '' });
   }
 
   abrirHistoricoEdoFin() {
@@ -717,6 +1025,38 @@ export class PersonasComponent {
       ...item.detalle,
       investigacionesGravamen: [...item.detalle.investigacionesGravamen]
     };
+
+    this.obligadoSolidarioForm.reset({
+      garantia: item.detalle.garantia,
+      persona: item.detalle.persona,
+      tipoInmueble: item.detalle.tipoInmueble,
+      calle: item.detalle.calle,
+      numeroExterior: item.detalle.numeroExterior,
+      numeroInterior: item.detalle.numeroInterior,
+      colonia: item.detalle.colonia,
+      codigoPostal: item.detalle.codigoPostal,
+      pais: item.detalle.pais,
+      estado: item.detalle.estado,
+      delegacionMunicipio: item.detalle.delegacionMunicipio,
+      numeroEscritura: item.detalle.numeroEscritura,
+      noRpp: item.detalle.noRpp,
+      folioRealFlag: item.detalle.folioRealFlag,
+      folioReal: item.detalle.folioReal,
+      investigacionRpp: item.detalle.investigacionRpp,
+      vistaOcular: item.detalle.vistaOcular,
+      fechaAvaluo: item.detalle.fechaAvaluo,
+      valorInmueble: item.detalle.valorInmueble,
+      posicionMapfreGravar: item.detalle.posicionMapfreGravar,
+      afectacionMarginal: item.detalle.afectacionMarginal,
+      observacionesComentarios: item.detalle.observacionesComentarios,
+    });
+
+    this.nuevaInvestigacionForm.reset({
+      fechaInvestigacion: '',
+      inmuebleGravado: '',
+      usuario: '',
+    });
+
     this.nuevaInvestigacionGravamen = {
       fechaInvestigacion: '',
       inmuebleGravado: '',
@@ -728,6 +1068,35 @@ export class PersonasComponent {
   cerrarDetalleObligadoSolidario() {
     this.detalleObligadoSolidarioModalAbierto = false;
     this.obligadoSolidarioSeleccionado = null;
+    this.obligadoSolidarioForm.reset({
+      garantia: '',
+      persona: '',
+      tipoInmueble: '',
+      calle: '',
+      numeroExterior: '',
+      numeroInterior: '',
+      colonia: '',
+      codigoPostal: '',
+      pais: '',
+      estado: '',
+      delegacionMunicipio: '',
+      numeroEscritura: '',
+      noRpp: '',
+      folioRealFlag: '',
+      folioReal: '',
+      investigacionRpp: '',
+      vistaOcular: '',
+      fechaAvaluo: '',
+      valorInmueble: '',
+      posicionMapfreGravar: '',
+      afectacionMarginal: '',
+      observacionesComentarios: '',
+    });
+    this.nuevaInvestigacionForm.reset({
+      fechaInvestigacion: '',
+      inmuebleGravado: '',
+      usuario: '',
+    });
     this.nuevaInvestigacionGravamen = {
       fechaInvestigacion: '',
       inmuebleGravado: '',
@@ -740,7 +1109,15 @@ export class PersonasComponent {
       return;
     }
 
-    const { fechaInvestigacion, inmuebleGravado, usuario } = this.nuevaInvestigacionGravamen;
+    if (this.nuevaInvestigacionForm.invalid) {
+      this.nuevaInvestigacionForm.markAllAsTouched();
+      this.nuevaInvestigacionForm.updateValueAndValidity();
+      return;
+    }
+
+    const { fechaInvestigacion, inmuebleGravado, usuario } =
+      this.nuevaInvestigacionForm.value as InvestigacionGravamenItem;
+
     if (!fechaInvestigacion || !inmuebleGravado || !usuario) {
       return;
     }
@@ -751,14 +1128,32 @@ export class PersonasComponent {
       usuario
     });
 
-    this.nuevaInvestigacionGravamen = {
+    this.nuevaInvestigacionForm.reset({
       fechaInvestigacion: '',
       inmuebleGravado: '',
       usuario: ''
-    };
+    });
   }
 
   confirmarObligadoSolidario() {
+    if (!this.obligadoSolidarioSeleccionado) {
+      return;
+    }
+
+    if (this.obligadoSolidarioForm.invalid) {
+      this.obligadoSolidarioForm.markAllAsTouched();
+      this.obligadoSolidarioForm.updateValueAndValidity();
+      return;
+    }
+
+    const formData = this.obligadoSolidarioForm.value as ObligadoSolidarioDetalle;
+
+    this.obligadoSolidarioSeleccionado = {
+      ...this.obligadoSolidarioSeleccionado,
+      ...formData,
+      investigacionesGravamen: [...this.obligadoSolidarioSeleccionado.investigacionesGravamen],
+    };
+
     this.cerrarDetalleObligadoSolidario();
   }
 
