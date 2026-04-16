@@ -113,7 +113,7 @@ export class SidebarV2Component {
               name: 'Consumo de Garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: '/',
+              path: ApRoutes.catalogos.path.step1.full(),
               isActive: false,
             },
             {
@@ -165,7 +165,7 @@ export class SidebarV2Component {
           name: 'Menú',
           icon: '/assets/icons/menu/route.svg',
           iconActive: '/assets/icons/menu/route.svg',
-          path: '/',
+          path: ApRoutes.administracion.full(),
           isActive: false,
         },
         {
@@ -173,7 +173,7 @@ export class SidebarV2Component {
           name: 'Perfiles',
           icon: '/assets/icons/menu/Cliente.svg',
           iconActive: '/assets/icons/menu/Cliente.svg',
-          path: '/',
+          path: ApRoutes.administracion.full(),
           isActive: false,
         },
       ],
@@ -249,7 +249,7 @@ export class SidebarV2Component {
           name: 'Palabras Excluir',
           icon: '/assets/icons/menu/Root.svg',
           iconActive: '/assets/icons/menu/Root.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.refNeg.path.palabrasExcluir.full(),
           isActive: false,
         },
         {
@@ -257,7 +257,7 @@ export class SidebarV2Component {
           name: 'Causa',
           icon: '/assets/icons/menu/Vector.svg',
           iconActive: '/assets/icons/menu/Vector.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.refNeg.path.causaRefNeg.full(),
           isActive: false,
         },
         {
@@ -265,7 +265,7 @@ export class SidebarV2Component {
           name: 'Subcausa',
           icon: '/assets/icons/menu/Vector.svg',
           iconActive: '/assets/icons/menu/Vector.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.refNeg.path.subCausaRefNeg.full(),
           isActive: false,
         },
         {
@@ -273,7 +273,7 @@ export class SidebarV2Component {
           name: 'Personas',
           icon: '/assets/icons/menu/Cliente.svg',
           iconActive: '/assets/icons/menu/Cliente.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.refNeg.path.personas.full(),
           isActive: false,
         },
       ],

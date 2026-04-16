@@ -47,7 +47,7 @@ export const ApRoutes = {
                 full: ()=> '/im/step2'
             },
         }
-    }, 
+    },
     rn:{
         value: 'rn',
         path: {
@@ -65,12 +65,16 @@ export const ApRoutes = {
             },
         }
     } ,
+    administracion: {
+        value: 'admin',
+        full: () => 'admin'
+    },
     catalogos:{
         value: 'catalogos',
         path: {
             step1: {
                 value: 'step1',
-                full: ()=> '/catalogos/step1'
+                full: ()=> 'catalogos'
             },
         }
     },
@@ -131,7 +135,19 @@ export const ApRoutes = {
                     personas: {
                         value: 'personas',
                         full: () => 'refNeg/personas'
-                    }
+                    },
+                    palabrasExcluir: {
+                        value: 'palabras-excluir',
+                        full: () => 'refNeg/palabras-excluir'
+                    },
+                    causaRefNeg: {
+                        value: 'causa-ref-neg',
+                        full: () => 'refNeg/causa-ref-neg'
+                    },
+                    subCausaRefNeg: {
+                        value: 'subcausa-ref-neg',
+                        full: () => 'refNeg/subcausa-ref-neg'
+                    },
                 }
 
             }

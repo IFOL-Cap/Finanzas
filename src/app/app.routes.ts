@@ -7,77 +7,128 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: ApRoutes.login.value,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: ApRoutes.login.value,
-    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent),
+    loadComponent: () =>
+      import('./login/login.component').then((m) => m.LoginComponent),
     canActivate: [guestGuard],
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: ApRoutes.im.value,
     canActivate: [authGuard],
-    loadChildren: () => import('./issuance-module/im.routes')
+    loadChildren: () => import('./issuance-module/im.routes'),
   },
   {
     path: ApRoutes.rn.value,
-    loadChildren: () => import('./refNeg-module/rn.routes')
-  },  
+    loadChildren: () => import('./refNeg-module/rn.routes'),
+  },
   {
-    path: 'admin',
-    loadComponent: () => import('./admin/admin.component').then(a => a.AdminComponent),
+    path: ApRoutes.administracion.full(),
+    loadComponent: () =>
+      import('./admin/admin.component').then((a) => a.AdminComponent),
   },
   {
     path: ApRoutes.garantias.path.catalogo.path.altaTerceros.path.fisica.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./garantia/catalogo/alta-terceros/alta-terceros.component').then(m => m.AltaTercerosComponent)
+    loadComponent: () =>
+      import('./garantia/catalogo/alta-terceros/alta-terceros.component').then(
+        (m) => m.AltaTercerosComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.catalogo.path.altaTerceros.path.moral.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./garantia/catalogo/alta-terceros.moral/alta-terceros.moral.component').then(m => m.AltaTercerosMoralComponent)
+    loadComponent: () =>
+      import('./garantia/catalogo/alta-terceros.moral/alta-terceros.moral.component').then(
+        (m) => m.AltaTercerosMoralComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.consultas.path.garantiaPoliza.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./consultas/garantias-poliza/garantias-poliza.component').then(m => m.GarantiasPolizaComponent)
+    loadComponent: () =>
+      import('./consultas/garantias-poliza/garantias-poliza.component').then(
+        (m) => m.GarantiasPolizaComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.value,
-    loadChildren: () => import('./garantias-alta/garantias.routes')
+    loadChildren: () => import('./garantias-alta/garantias.routes'),
   },
   {
-    path: ApRoutes.catalogos.value,
-    loadChildren: () => import('./catalogos/catalogos.routes')
-  } ,
+    path: ApRoutes.catalogos.path.step1.full(),
+    loadChildren: () => import('./catalogos/catalogos.routes'),
+  },
   {
     path: ApRoutes.garantias.path.consultas.path.personas.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./consultas/personas/personas.component').then(m => m.PersonasComponent)
+    loadComponent: () =>
+      import('./consultas/personas/personas.component').then(
+        (m) => m.PersonasComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.consultas.path.envioPoliza.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./consultas/envio-poliza/envio-poliza.component').then(m => m.EnvioPolizaComponent)
+    loadComponent: () =>
+      import('./consultas/envio-poliza/envio-poliza.component').then(
+        (m) => m.EnvioPolizaComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.consultas.path.solicitudes.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./consultas/solicitudes/solicitudes.component').then(m => m.SolicitudesComponent)
+    loadComponent: () =>
+      import('./consultas/solicitudes/solicitudes.component').then(
+        (m) => m.SolicitudesComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.consultas.path.consultaXml.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./consultas/consulta-xml/consulta-xml.component').then(m => m.ConsultaXmlComponent)
+    loadComponent: () =>
+      import('./consultas/consulta-xml/consulta-xml.component').then(
+        (m) => m.ConsultaXmlComponent,
+      ),
   },
   {
     path: ApRoutes.garantias.path.refNeg.path.personas.full(),
     canActivate: [authGuard],
-    loadComponent: () => import('./ref-neg/personas/personas.component').then(m => m.PersonasComponent)
+    loadComponent: () =>
+      import('./ref-neg/personas/personas.component').then(
+        (m) => m.PersonasComponent,
+      ),
+  },
+
+  {
+    path: ApRoutes.garantias.path.refNeg.path.palabrasExcluir.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./refNeg-module/pages/rn-accordion-excluded-words-data/rn-accordion-excluded-words-data.component').then(
+        (rn) => rn.RnAccordionExcludedWordsDataComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.refNeg.path.causaRefNeg.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./refNeg-module/pages/rn-accordion-cause-data/rn-accordion-cause-data.component').then(
+        (rn) => rn.RnAccordionCauseDataComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.refNeg.path.subCausaRefNeg.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./refNeg-module/pages/rn-accordion-sub-cause-data/rn-accordion-sub-cause-data.component').then(
+        (rn) => rn.RnAccordionSubCauseDataComponent,
+      ),
   },
   {
     path: '**',
-    redirectTo: ApRoutes.login.value
-  }
+    redirectTo: ApRoutes.login.value,
+  },
 ];

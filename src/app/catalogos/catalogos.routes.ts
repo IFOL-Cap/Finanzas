@@ -18,14 +18,14 @@ export const catalogosRoutes : Routes = [
             pathMatch: 'full'
         },
         {
-            path: ApRoutes.catalogos.path.step1.value,
+            path: ApRoutes.catalogos.path.step1.full(),
             loadComponent: () => import('./page/catalogos-table-step1/catalogos-table-step1.component').then(ct => ct.CatalogosTableStep1Component)
         },
         /*{
             path: ApRoutes.im.path.step2.value,
             loadComponent: () => import('./page/im-accordion-issuance-emission/im-accordion-issuance-emission.component').then(im => im.ImAccordionIssuanceEmissionComponent)
         },
-        
+
         {
             path: ApRoutes.ulj.path.step3.value,
             loadComponent: () => import('./pages/ulj-accordion-supplementary/ulj-accordion-supplementary.component').then(ulj => ulj.UljAccordionSupplementaryComponent)

@@ -182,7 +182,7 @@ export class SidebarComponent {
           name: 'Menú',
           icon: '/assets/icons/menu/route.svg',
           iconActive: '/assets/icons/menu/route.svg',
-          path: '/',
+          path: ApRoutes.administracion.full(),
           isActive: false,
         },
         {
@@ -190,7 +190,7 @@ export class SidebarComponent {
           name: 'Perfiles',
           icon: '/assets/icons/menu/Cliente.svg',
           iconActive: '/assets/icons/menu/Cliente.svg',
-          path: '/',
+          path: ApRoutes.administracion.full(),
           isActive: false,
         },
       ],

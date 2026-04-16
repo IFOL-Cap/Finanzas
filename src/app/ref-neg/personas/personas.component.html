@@ -4,61 +4,85 @@
 		<p class="text-sm text-gray-600">
 			Consulta y administración de información de personas en referencia de negocio.
 		</p>
-		<hr class="mt-4 bg-gray-division-section" />
 	</header>
 
-	<section class="rounded-lg border border-gray-division-section bg-white p-4 mb-6 shadow-sm">
-		<h3 class="text-base font-bold mb-4">Filtros de búsqueda</h3>
+	<div class="grid grid-cols-6 md:flex md:justify-between border-t py-4 border-gray-200 dark:border-gray-700">
+		<div class="col-span-6 flex flex-col md:flex-row md:items-center md:justify-start w-full md:w-auto">
+		</div>
+	</div>
 
-		<div class="grid grid-cols-1 gap-4">
-			<div>
-				<label for="criterioBusqueda" class="block text-sm font-semibold mb-1">Busqueda</label>
-				<input
-					id="criterioBusqueda"
-					type="text"
-					placeholder="Ingresa nombre o RFC"
-					class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-200"
-				/>
+	<app-accordion-reusable class="flex flex-col mb-6">
+		<app-accordion-reusable-item title="Filtros de búsqueda">
+			<div class="py-4">
+				<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+					<app-label-input class="w-full" [labelHelp]="{
+						isRequired: true,
+						isWithHelp: true,
+						isWithSubtitle: false,
+						title: 'Busqueda:',
+						subtitle: '',
+						position: 'right',
+						helpMsg: 'ayuda',
+					}" [inputConfig]="{
+						type: 'text',
+						pattern: '',
+						isRequired: true,
+						placeHolder: 'Ingresa nombre o RFC',
+						isDisabled: false,
+						isHidden: false,
+						isRead: false,
+					}" [control]="criterioBusquedaCtrl" />
+				</div>
+
+				<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+					<app-label-checkbox [labelCheck]="'Si'" class="w-full" [labelHelp]="{
+						isRequired: false,
+						isWithHelp: true,
+						isWithSubtitle: false,
+						title: 'Buscar por RFC (desmarcado: buscar por Nombre):',
+						subtitle: '',
+						position: 'right',
+						helpMsg: 'ayuda',
+					}" (isChecked)="onBuscarPorRfcChange($event)" [itemsChecks]="[
+						{
+							labeltitle: 'Si',
+						},
+					]" />
+				</div>
+
+				<div class="w-full mt-5 pb-5 inline-block md:flex md:justify-center">
+					<app-button class="mr-4" (click)="limpiarFiltros()" [buttonConfig]="{
+						type: 2,
+						label: '',
+					}">
+						Limpiar
+					</app-button>
+
+					<app-button (click)="buscarPersonas()" [buttonConfig]="{
+						type: 0,
+						label: '',
+					}">
+						Buscar
+					</app-button>
+				</div>
 			</div>
+		</app-accordion-reusable-item>
+	</app-accordion-reusable>
 
-			<label class="inline-flex items-center gap-2 text-sm text-gray-700">
-				<input
-					type="checkbox"
-					class="h-4 w-4 rounded border-gray-300 text-red-mafe focus:ring-red-200"
-				/>
-				<span>Buscar por RFC (desmarcado: buscar por Nombre)</span>
-			</label>
-		</div>
+	<app-accordion-reusable class="flex flex-col">
+		<app-accordion-reusable-item title="Resultado de personas">
+			<div class="py-4">
+				<div class="px-4 py-3 border-b border-gray-division-section flex items-center justify-between gap-3">
+					<div></div>
+					<app-button (click)="abrirModalAgregar()" [buttonConfig]="{
+						type: 0,
+						label: '',
+					}">
+						Agregar
+					</app-button>
+				</div>
 
-		<div class="mt-4 flex flex-wrap gap-3">
-			<button
-				type="button"
-				class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-			>
-				Buscar
-			</button>
-			<button
-				type="button"
-				class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-			>
-				Limpiar
-			</button>
-		</div>
-	</section>
-
-	<section class="rounded-lg border border-gray-division-section bg-white shadow-sm overflow-hidden">
-		<div class="px-4 py-3 border-b border-gray-division-section flex items-center justify-between gap-3">
-			<h3 class="text-base font-bold">Resultado de personas</h3>
-			<button
-				type="button"
-				(click)="abrirModalAgregar()"
-				class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-			>
-				Agregar
-			</button>
-		</div>
-
-		<div class="overflow-x-auto">
+				<div class="overflow-x-auto">
 			<table class="min-w-[1100px] w-full text-sm">
 				<thead class="bg-[#F9FAFB] border-b border-gray-division-section">
 					<tr>
@@ -147,44 +171,46 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
+				</div>
 
-		<div class="border-t border-gray-division-section px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-			<p class="text-sm text-gray-600">Mostrando 1 - 3 de 3 registros</p>
+				<div class="border-t border-gray-division-section px-4 py-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+					<p class="text-sm text-gray-600">Mostrando 1 - 3 de 3 registros</p>
 
-			<nav aria-label="Paginacion de resultados" class="flex items-center gap-2">
-				<button
-					type="button"
-					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-400 cursor-not-allowed"
-					disabled
-				>
-					Anterior
-				</button>
+					<nav aria-label="Paginacion de resultados" class="flex items-center gap-2">
+						<button
+							type="button"
+							class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-400 cursor-not-allowed"
+							disabled
+						>
+							Anterior
+						</button>
 
-				<button
-					type="button"
-					aria-current="page"
-					class="rounded-md bg-red-mafe px-3 py-1.5 text-sm font-semibold text-white"
-				>
-					1
-				</button>
+						<button
+							type="button"
+							aria-current="page"
+							class="rounded-md bg-red-mafe px-3 py-1.5 text-sm font-semibold text-white"
+						>
+							1
+						</button>
 
-				<button
-					type="button"
-					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-				>
-					2
-				</button>
+						<button
+							type="button"
+							class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+						>
+							2
+						</button>
 
-				<button
-					type="button"
-					class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
-				>
-					Siguiente
-				</button>
-			</nav>
-		</div>
-	</section>
+						<button
+							type="button"
+							class="rounded-md border border-gray-division-section px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-50"
+						>
+							Siguiente
+						</button>
+					</nav>
+				</div>
+			</div>
+		</app-accordion-reusable-item>
+	</app-accordion-reusable>
 
 	@if (modalAgregarAbierto) {
 		<div class="fixed inset-0 z-[9999] bg-black/40 flex items-center justify-center p-4">
@@ -201,95 +227,367 @@
 					</button>
 				</div>
 
-				<div class="p-5 space-y-6">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-						<div>
-							<label for="ramo" class="block text-sm font-semibold mb-1">Ramo</label>
-							<input id="ramo" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="afianzadora" class="block text-sm font-semibold mb-1">Afianzadora que reporta</label>
-							<input id="afianzadora" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="tipoPersona" class="block text-sm font-semibold mb-1">Tipo de persona</label>
-							<input id="tipoPersona" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="numeroCircular" class="block text-sm font-semibold mb-1">Numero de circular</label>
-							<input id="numeroCircular" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="fechaAlta" class="block text-sm font-semibold mb-1">Fecha de alta</label>
-							<input id="fechaAlta" type="date" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="fechaVencimiento" class="block text-sm font-semibold mb-1">Fecha de vencimiento</label>
-							<input id="fechaVencimiento" type="date" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="numeroFiado" class="block text-sm font-semibold mb-1">Numero del fiado</label>
-							<input id="numeroFiado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-						<div>
-							<label for="rfcFiado" class="block text-sm font-semibold mb-1">RFC del fiado</label>
-							<input id="rfcFiado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-						</div>
-					</div>
+				<div class="p-5">
+					<app-accordion-reusable class="flex flex-col">
+						<app-accordion-reusable-item title="Datos generales">
+							<div class="py-4">
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Ramo:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona un ramo',
+										isDisabled: false,
+										isHidden: false,
+										data: ramas,
+									}" (itemSelected)="onSelectAgregarChange('ramo', $event)" />
+								</div>
 
-					<div class="rounded-lg border border-gray-division-section p-4">
-						<h5 class="text-base font-bold mb-4">Domicilio</h5>
-						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-							<div>
-								<label for="calle" class="block text-sm font-semibold mb-1">Calle</label>
-								<input id="calle" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Afianzadora que reporta:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona afianzadora',
+										isDisabled: false,
+										isHidden: false,
+										data: afianzadoras,
+									}" (itemSelected)="onSelectAgregarChange('afianzadora', $event)" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Tipo de persona:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona tipo de persona',
+										isDisabled: false,
+										isHidden: false,
+										data: tiposPersona,
+									}" (itemSelected)="onSelectAgregarChange('tipoPersona', $event)" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Numero de circular:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa numero de circular',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="numeroCircularCtrl" />
+								</div>
+
+								<div class="grid grid-cols-3 items-center gap-y-2 py-5 border-b border-gray-division-section">
+									<div class="col-span-3 md:col-span-1">
+										<app-label-help [labelHelp]="{
+											isRequired: true,
+											isWithHelp: true,
+											isWithSubtitle: false,
+											title: 'Fecha de alta:',
+											subtitle: '',
+											position: 'right',
+											helpMsg: 'ayuda',
+										}" />
+									</div>
+									<div class="col-span-3 md:col-span-1">
+										<app-date [dateConfig]="{
+											type: 'text',
+											pattern: '',
+											isRequired: true,
+											placeHolder: 'Selecciona fecha de alta',
+											isDisabled: false,
+											isHidden: false,
+											idDate: 'persona-fecha-alta',
+										}" [actualDate]="fechaAltaCtrl.value || ''" (selectedDate)="onFechaAltaChange($event)" />
+									</div>
+								</div>
+
+								<div class="grid grid-cols-3 items-center gap-y-2 py-5 border-b border-gray-division-section">
+									<div class="col-span-3 md:col-span-1">
+										<app-label-help [labelHelp]="{
+											isRequired: true,
+											isWithHelp: true,
+											isWithSubtitle: false,
+											title: 'Fecha de vencimiento:',
+											subtitle: '',
+											position: 'right',
+											helpMsg: 'ayuda',
+										}" />
+									</div>
+									<div class="col-span-3 md:col-span-1">
+										<app-date [dateConfig]="{
+											type: 'text',
+											pattern: '',
+											isRequired: true,
+											placeHolder: 'Selecciona fecha de vencimiento',
+											isDisabled: false,
+											isHidden: false,
+											idDate: 'persona-fecha-vencimiento',
+										}" [actualDate]="fechaVencimientoCtrl.value || ''" (selectedDate)="onFechaVencimientoChange($event)" />
+									</div>
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Numero del fiado:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa numero del fiado',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="numeroFiadoCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'RFC del fiado:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa RFC del fiado',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="rfcFiadoCtrl" />
+								</div>
 							</div>
-							<div>
-								<label for="numExterior" class="block text-sm font-semibold mb-1">Num. Exterior</label>
-								<input id="numExterior" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
+						</app-accordion-reusable-item>
+
+						<app-accordion-reusable-item title="Domicilio">
+							<div class="py-4">
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Calle:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa calle',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="calleCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Num. Exterior:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa numero exterior',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="numExteriorCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: false,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Num. Interior:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: false,
+										placeHolder: 'Ingresa numero interior',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="numInteriorCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Colonia:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa colonia',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="coloniaCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-input class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Codigo postal:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [inputConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Ingresa codigo postal',
+										isDisabled: false,
+										isHidden: false,
+										isRead: false,
+									}" [control]="codigoPostalCtrl" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Pais:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona pais',
+										isDisabled: false,
+										isHidden: false,
+										data: paises,
+									}" (itemSelected)="onSelectAgregarChange('pais', $event)" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Estado:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona estado',
+										isDisabled: false,
+										isHidden: false,
+										data: estados,
+									}" (itemSelected)="onSelectAgregarChange('estado', $event)" />
+								</div>
+
+								<div class="flex w-full items-center py-5 border-b border-gray-division-section">
+									<app-label-select class="w-full" [labelHelp]="{
+										isRequired: true,
+										isWithHelp: true,
+										isWithSubtitle: false,
+										title: 'Delegacion o Municipio:',
+										subtitle: '',
+										position: 'right',
+										helpMsg: 'ayuda',
+									}" [selectConfig]="{
+										type: 'text',
+										pattern: '',
+										isRequired: true,
+										placeHolder: 'Selecciona delegacion o municipio',
+										isDisabled: false,
+										isHidden: false,
+										data: municipios,
+									}" (itemSelected)="onSelectAgregarChange('municipio', $event)" />
+								</div>
 							</div>
-							<div>
-								<label for="numInterior" class="block text-sm font-semibold mb-1">Num. Interior</label>
-								<input id="numInterior" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-							<div>
-								<label for="colonia" class="block text-sm font-semibold mb-1">Colonia</label>
-								<input id="colonia" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-							<div>
-								<label for="codigoPostal" class="block text-sm font-semibold mb-1">Codigo postal</label>
-								<input id="codigoPostal" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-							<div>
-								<label for="pais" class="block text-sm font-semibold mb-1">Pais</label>
-								<input id="pais" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-							<div>
-								<label for="estado" class="block text-sm font-semibold mb-1">Estado</label>
-								<input id="estado" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-							<div>
-								<label for="municipio" class="block text-sm font-semibold mb-1">Delegacion o Municipio</label>
-								<input id="municipio" type="text" class="w-full rounded-md border border-gray-division-section px-3 py-2 text-sm" />
-							</div>
-						</div>
-					</div>
+						</app-accordion-reusable-item>
+					</app-accordion-reusable>
 				</div>
 
 				<div class="px-5 py-4 border-t border-gray-division-section flex items-center justify-end gap-3">
-					<button
-						type="button"
-						(click)="cerrarModalAgregar()"
-						class="rounded-md border border-gray-division-section px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
-					>
-						Cancelar
-					</button>
-					<button
-						type="button"
-						class="rounded-md bg-red-mafe px-4 py-2 text-sm font-semibold text-white hover:opacity-90"
-					>
+					<app-button class="w-auto" (click)="limpiarAgregarForm()" [buttonConfig]="{
+						type: 2,
+						label: '',
+					}">
+						Limpiar
+					</app-button>
+					<app-button class="w-auto" (click)="guardarPersona()" [buttonConfig]="{
+						type: 0,
+						label: '',
+					}">
 						Guardar
-					</button>
+					</app-button>
+					<app-button class="w-auto" (click)="cerrarModalAgregar()" [buttonConfig]="{
+						type: 2,
+						label: '',
+					}">
+						Cancelar
+					</app-button>
 				</div>
 			</div>
 		</div>
