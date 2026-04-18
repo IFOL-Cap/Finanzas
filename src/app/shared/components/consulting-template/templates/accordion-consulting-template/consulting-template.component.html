@@ -1,0 +1,156 @@
+<div *ngIf="!(estructura$ | async)">Cargando...</div>
+<div *ngIf="estructura$ | async as e">
+  <!-- ===== DOCUMENTO ===== -->
+  <section class="mb-6 p-4 border-b border-gray-division-section">
+    <app-label-input
+      [labelHelp]="{
+        isRequired: false,
+        isWithHelp: false,
+        isWithSubtitle: false,
+        title: 'Nombre del documento',
+        subtitle: '',
+        position: 'top',
+        helpMsg: ''
+      }"
+      [inputConfig]="{
+        type: 'text',
+        placeHolder: '',
+        isDisabled: true,
+        isHidden: false,
+        isRequired: false,
+        isRead: true,
+        data: e.xml.Documento?.Nombre
+      }"
+    ></app-label-input>
+  </section>
+
+  <!-- ===== AGENTES ===== -->
+  <section class="mb-6 p-4 border-b border-gray-division-section">
+    <app-label-input
+      [labelHelp]="{
+        isRequired: false,
+        isWithHelp: false,
+        isWithSubtitle: false,
+        title: 'Agentes',
+        subtitle: '',
+        position: 'top',
+        helpMsg: ''
+      }"
+      [inputConfig]="{
+        type: 'text',
+        placeHolder: '',
+        isDisabled: true,
+        isHidden: false,
+        isRequired: false,
+        isRead: true,
+        data: e.xml.Agentes
+      }"
+    ></app-label-input>
+  </section>
+
+  <!-- ===== POLIZA / CONTRATO ===== -->
+  <section class="mb-6 p-4 grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-gray-division-section">
+    <!-- Póliza Grupo -->
+    <app-label-input
+      [labelHelp]="{
+        isRequired: false,
+        isWithHelp: false,
+        isWithSubtitle: false,
+        title: 'Póliza Grupo',
+        subtitle: '',
+        position: 'top',
+        helpMsg: ''
+      }"
+      [inputConfig]="{
+        type: 'text',
+        placeHolder: '',
+        isDisabled: true,
+        isHidden: false,
+        isRequired: false,
+        isRead: true,
+        data: e.xml.PolizasGrupo
+      }"
+    ></app-label-input>
+    <!-- Contrato -->
+    <app-label-input
+      [labelHelp]="{
+        isRequired: false,
+        isWithHelp: false,
+        isWithSubtitle: false,
+        title: 'Contrato',
+        subtitle: '',
+        position: 'top',
+        helpMsg: ''
+      }"
+      [inputConfig]="{
+        type: 'text',
+        placeHolder: '',
+        isDisabled: true,
+        isHidden: false,
+        isRequired: false,
+        isRead: true,
+        data: e.xml.Contratos
+      }"
+    ></app-label-input>
+  </section>
+
+  <!-- ===== COLUMNAS ===== -->
+  <section class="mb-6 p-4 border-b border-gray-division-section">
+    <div *ngFor="let col of columnas" class="mb-4">
+      <!-- Toggle -->
+      <app-label-ptoggle
+        *ngIf="col.value === 'False'"
+        [labelHelp]="{
+          isRequired: false,
+          isWithHelp: false,
+          isWithSubtitle: false,
+          title: col.name,
+          subtitle: '',
+          position: 'right',
+          helpMsg: ''
+        }"
+      ></app-label-ptoggle>
+      <!-- Textbox -->
+      <app-label-input
+        *ngIf="col.value === ''"
+        [labelHelp]="{
+          isRequired: false,
+          isWithHelp: false,
+          isWithSubtitle: false,
+          title: col.name,
+          subtitle: '',
+          position: 'top',
+          helpMsg: ''
+        }"
+        [inputConfig]="{
+          type: 'text',
+          placeHolder: 'Ingrese valor',
+          isDisabled: false,
+          isHidden: false,
+          isRequired: false,
+          isRead: false,
+          data: col.value
+        }"
+      ></app-label-input>
+
+    </div>
+  </section>
+
+  <!-- ===== DETALLE ===== -->
+  <section class="mb-6 p-4 border-b border-gray-division-section">
+    <div *ngFor="let det of detalle" class="mb-4">
+      <app-label-ptoggle
+        *ngIf="det.value === 'False'"
+        [labelHelp]="{
+          isRequired: false,
+          isWithHelp: false,
+          isWithSubtitle: false,
+          title: det.name,
+          subtitle: '',
+          position: 'right',
+          helpMsg: ''
+        }"
+      ></app-label-ptoggle>
+    </div>
+  </section>
+</div>

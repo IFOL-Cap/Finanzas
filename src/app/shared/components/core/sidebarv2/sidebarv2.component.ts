@@ -113,7 +113,7 @@ export class SidebarV2Component {
               name: 'Consumo de Garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: ApRoutes.catalogos.path.step1.full(),
+              path: ApRoutes.garantias.path.step1.full(),
               isActive: false,
             },
             {
@@ -121,7 +121,7 @@ export class SidebarV2Component {
               name: 'Tipos de garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: '/',
+              path: ApRoutes.catalogos.path.step1.full(),
               isActive: false,
             },
             {

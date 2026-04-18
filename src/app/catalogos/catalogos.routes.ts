@@ -5,11 +5,6 @@ import { CatalogosTableLayoutComponent } from "./page/catalogos-table-layout/cat
 export const catalogosRoutes : Routes = [
     {
         path: '',
-        redirectTo: ApRoutes.catalogos.value,
-        pathMatch: 'full'
-    },
-    {
-        path: '',
         component: CatalogosTableLayoutComponent,
         children: [
         {
@@ -18,7 +13,7 @@ export const catalogosRoutes : Routes = [
             pathMatch: 'full'
         },
         {
-            path: ApRoutes.catalogos.path.step1.full(),
+            path: ApRoutes.catalogos.path.step1.value,
             loadComponent: () => import('./page/catalogos-table-step1/catalogos-table-step1.component').then(ct => ct.CatalogosTableStep1Component)
         },
         /*{

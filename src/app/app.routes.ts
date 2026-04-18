@@ -54,8 +54,13 @@ export const routes: Routes = [
         (m) => m.GarantiasPolizaComponent,
       ),
   },
+ /* {
+    path: ApRoutes.catalogos.value,
+    loadChildren: () =>
+      import('./shared/components/consulting-template/pages/consulting.routes'),
+  },*/
   {
-    path: ApRoutes.garantias.value,
+    path: ApRoutes.garantias.path.step1.full(),
     loadChildren: () => import('./garantias-alta/garantias.routes'),
   },
   {
@@ -127,6 +132,13 @@ export const routes: Routes = [
         (rn) => rn.RnAccordionSubCauseDataComponent,
       ),
   },
+/*{
+    path: ApRoutes.catalogos.path.step1.full(),
+    loadComponent: () =>
+      import('./shared/components/consulting-template/pages/consulting.routes.ts').then(
+        (ct) => ct.CatalogosTableLayoutComponent,
+      ),
+  },*/
   {
     path: '**',
     redirectTo: ApRoutes.login.value,

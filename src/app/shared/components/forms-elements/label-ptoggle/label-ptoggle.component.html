@@ -1,0 +1,16 @@
+<div class="grid grid-cols-3 items-center gap-y-2">
+    <div class="col-span-3 md:col-span-1">
+        <app-label-help [labelHelp]="labelHelp" />
+        @if (labelPToggleConf.isWithLinks) {
+            @for (questionLink of labelPToggleConf.links; track $index) {
+                 <app-question-link [questionLConf]="questionLink"></app-question-link>
+            }
+        }
+    
+    </div>
+    <div class="col-span-3 md:col-span-1">
+    </div>
+    <div class="col-span-3 md:col-span-1">
+        <app-protected-toggle (isCheckedtoogle)="onCheckedToggle($event)"  [protectedToglleConfig]="pToggleConfg" />
+    </div>
+</div>

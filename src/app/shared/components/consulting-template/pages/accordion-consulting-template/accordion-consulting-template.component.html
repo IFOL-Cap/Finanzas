@@ -1,0 +1,54 @@
+<div
+	class="grid grid-cols-6 md:flex md:justify-between border-t py-4 border-gray-200 dark:border-gray-700"
+>
+	<div
+		class="col-span-6 flex flex-col md:flex-row md:items-center md:justify-start w-full md:w-auto"
+	>
+		<div class="w-full md:w-auto md:mr-2 mb-2 md:mb-0">
+			<app-label-help
+				[labelHelp]="{
+					isRequired: false,
+					idTool: 'idManager',
+					isWithHelp: false,
+					isWithSubtitle: false,
+					title: 'Agente',
+					subtitle: '',
+					position: 'right',
+					helpMsg: ''
+				}"
+			/>
+		</div>
+		<div class="w-full md:w-auto">
+			<app-select
+				class="w-full md:w-64"
+				[selectConfig]="{
+					type: 'text',
+					pattern: '',
+					isRequired: false,
+					placeHolder: 'HERNANDEZ FLORES, GLORIA MONTSERRAT  (59510)',
+					isDisabled: false,
+					isHidden: false,
+					data: [
+						{ value: 'uno', display: 'Colonia 1' },
+						{ value: 'dos', display: 'Colonia 2' },
+						{ value: 'tres', display: 'Colonia 3' }
+					]
+				}"
+			/>
+		</div>
+	</div>
+
+</div>
+ <app-accordion-reusable class="flex flex-col">
+    <app-accordion-reusable-item title="Datos del asegurado"
+     >
+     <!--[isCompleted]="isInsuredInformationCompleted()"-->
+      <div class="py-3">
+        <app-required-info [requiredInfo]="requiredInfo" />
+        <!--<uli-insured-details (btnNext)="onClickNextBtnInsuredInformation()"></uli-insured-details>-->
+        <app-consulting-template></app-consulting-template>
+      </div>
+    </app-accordion-reusable-item  >
+
+</app-accordion-reusable>
+

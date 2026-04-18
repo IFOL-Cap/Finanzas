@@ -677,7 +677,8 @@ export enum FlowFrom {
     im,
     rn,
     gestion,
-    catalogos
+    catalogos,
+    consulting,
 }
 
 export interface LabelInputI {
@@ -830,7 +831,7 @@ export interface TreeNode {
   children?: TreeNode[];
 }
 
-export interface Message 
+export interface Message
 {
     title: string,
     message: string,

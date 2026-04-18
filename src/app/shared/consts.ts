@@ -35,6 +35,15 @@ export const ApRoutes = {
         value: 'login',
         full: () => '/login'
     },
+    consul: {
+        value: 'consul',
+        path: {
+            step1: {
+                    value: 'step1',
+                    full: ()=> 'consul/step1'
+                },
+        }
+    },
     im:{
         value: 'im',
         path: {
@@ -83,7 +92,7 @@ export const ApRoutes = {
         path: {
             step1: {
                 value: 'step1',
-                full: ()=> '/garantias/step1'
+                full: ()=> 'garantias/step1'
             },
             catalogo: {
                 value: 'catalogo',

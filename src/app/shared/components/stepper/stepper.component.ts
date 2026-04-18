@@ -159,6 +159,8 @@ export class StepperComponent {
         return this.titlesGarantia;
       case FlowFrom.catalogos:
         return this.titlesCatalogos;
+        case FlowFrom.consulting:
+          return ['Consultas'];
     }
   }
 }
