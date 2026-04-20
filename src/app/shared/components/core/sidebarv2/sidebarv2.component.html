@@ -8,12 +8,12 @@
     </div>
   </div>
 
-  <div class="pb-4 menu overflow-y-auto altura-personalizada">
+  <div class="pb-4 menu overflow-visible altura-personalizada" #navElement>
     <div class="flex flex-col space-y-2 font-medium">
-      <nav class="overflow-y-auto altura-personalizada px-2 pb-4">
+      <nav class="overflow-visible altura-personalizada px-2 pb-4">
         <ul class="space-y-1">
           @for (item of sideBarItems; track item.id) {
-          <app-sidebar-menu-item [item]="item" [depth]="0" />
+          <app-sidebar-menu-item [item]="item" [depth]="0" (menuItemClicked)="onMenuItemClicked()" (closeAllMenus)="onMenuItemClicked()" />
           }
         </ul>
       </nav>

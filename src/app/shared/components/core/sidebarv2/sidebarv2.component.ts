@@ -7,7 +7,6 @@ import { CarouselI, DataMenu, LocationSite } from '../../../interfaces';
 import { StateService } from '../../../services/state.service';
 import { NavbarComponent } from '../nav/navbar.component';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from '../menu/work-area/menu.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { LoginService } from '../../../services/login.service';
 import { ApRoutes } from '../../../consts';
@@ -33,7 +32,6 @@ export interface SideBarItem {
     CommonModule,
 		NavbarComponent,
 		RouterOutlet,
-		MenuComponent,
 		OverlayModule,
 		SidebarMenuItemComponent,
 	], //  , BreadcrumbComponent, CarouselComponent, ResumeComponent],
@@ -42,11 +40,26 @@ export interface SideBarItem {
 })
 export class SidebarV2Component {
 
+  @ViewChild('navElement') navElement?: ElementRef<HTMLElement>;
   isOpenSideBar = signal(false);
   sideNav: any;
 
   barra(isOpen: boolean): void {
     this.isOpenSideBar.set(isOpen);
+  }
+
+  onMenuItemClicked(): void {
+    // Agregar clase para cerrar los menús
+    if (this.navElement?.nativeElement) {
+      this.navElement.nativeElement.classList.add('menu-closed');
+
+      // Remover la clase después de 300ms para permitir que el cierre sea suave
+      setTimeout(() => {
+        if (this.navElement?.nativeElement) {
+          this.navElement.nativeElement.classList.remove('menu-closed');
+        }
+      }, 300);
+    }
   }
 
   public sideBarItems: SideBarItem[] = [

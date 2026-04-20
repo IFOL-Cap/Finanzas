@@ -1,0 +1,73 @@
+.sidebar-flyout-container {
+  position: relative;
+}
+
+/* Contenedor para scroll en los items, pero permite que paneles anidados se salgan */
+.sidebar-flyout-panel {
+  position: absolute;
+  left: calc(100% + 8px);
+  top: -8px;
+  min-width: 280px;
+  max-height: 500px;
+  overflow: visible;
+  display: none;
+  z-index: 9999;
+  background: #000;
+  border: 1px solid #333;
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  list-style: none;
+}
+
+/* Mostrar panel flotante al hacer clic (clase .is-open) */
+.sidebar-flyout-container.is-open > .sidebar-flyout-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Los paneles flotantes recursivos también heredan el comportamiento */
+.sidebar-flyout-panel .sidebar-flyout-container.is-open > .sidebar-flyout-panel {
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+}
+
+/* Tercer nivel de profundidad */
+.sidebar-flyout-panel .sidebar-flyout-panel .sidebar-flyout-container.is-open > .sidebar-flyout-panel {
+  display: flex;
+  flex-direction: column;
+  z-index: 10001;
+}
+
+/* Cuarto nivel de profundidad */
+.sidebar-flyout-panel .sidebar-flyout-panel .sidebar-flyout-panel .sidebar-flyout-container.is-open > .sidebar-flyout-panel {
+  display: flex;
+  flex-direction: column;
+  z-index: 10002;
+}
+
+/* Scrollbar personalizado */
+.sidebar-flyout-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-flyout-panel::-webkit-scrollbar-track {
+  background: rgb(44, 43, 43);
+  border-radius: 30px;
+}
+
+.sidebar-flyout-panel::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 50px;
+}
+
+.sidebar-flyout-panel::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* Clase para cerrar los menús después de hacer clic */
+:host(.menu-closed) .sidebar-flyout-container:hover > .sidebar-flyout-panel,
+:host(.menu-closed) .sidebar-flyout-container:focus-within > .sidebar-flyout-panel {
+  display: none !important;
+}
