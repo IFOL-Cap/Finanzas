@@ -1,17 +1,9 @@
-import { ChangeDetectionStrategy, Component, ElementRef, signal, ViewChild } from '@angular/core';
-//import { BreadcrumbComponent } from '../../../../drives/shared/components/core/breadcrumb/breadcrumb.component';
-import { Router, RouterOutlet } from '@angular/router';
-//import { CarouselComponent } from '../../../../drives/shared/components/core/carousel/carousel.component';
-//import { ResumeComponent } from '../../../../drives/shared/components/core/resume/resume.component';
-import { CarouselI, DataMenu, LocationSite } from '../../../interfaces';
-import { StateService } from '../../../services/state.service';
+import { ChangeDetectionStrategy, Component, ElementRef, OnInit, signal, ViewChild } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../nav/navbar.component';
 import { CommonModule } from '@angular/common';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { LoginService } from '../../../services/login.service';
 import { ApRoutes } from '../../../consts';
-import { BreakpointObserver } from '@angular/cdk/layout';
-import { Subject, takeUntil } from 'rxjs';
 import { SidebarMenuItemComponent } from './sidebar-menu-item/sidebar-menu-item.component';
 import { SmMenuItemComponent } from './sm-menu-item/sm-menu-item.component';
 
@@ -40,7 +32,7 @@ export interface SideBarItem {
   templateUrl: './sidebarv2.component.html',
   styleUrl: './sidebarv2.component.css',
 })
-export class SidebarV2Component {
+export class SidebarV2Component implements OnInit {
 
   @ViewChild('navElement') navElement?: ElementRef<HTMLElement>;
   @ViewChild('smNavElement') smNavElement?: ElementRef<HTMLElement>;
@@ -50,9 +42,23 @@ export class SidebarV2Component {
   smMenuResetToken = 0;
   sideNav = false;
 
+  ngOnInit(): void {
+    const isDesktop = window.innerWidth >= 768;
+    this.isOpenSideBar.set(isDesktop);
+    this.isOpenSmSideBar.set(false);
+    this.sideNav = isDesktop;
+  }
+
   barra(isOpen: boolean): void {
-    this.isOpenSideBar.set(isOpen);
-    this.isOpenSmSideBar.set(isOpen);
+    const isDesktop = window.innerWidth >= 768;
+
+    if (isDesktop) {
+      this.isOpenSideBar.set(isOpen);
+      this.isOpenSmSideBar.set(false);
+    } else {
+      this.isOpenSmSideBar.set(isOpen);
+    }
+
     this.sideNav = isOpen;
   }
 
