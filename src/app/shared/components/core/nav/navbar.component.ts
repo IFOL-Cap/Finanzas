@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, OnDestroy, Output, SimpleChanges } from '@angular/core';
 import { SearchComponent } from '../../forms-elements/search/search.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { ApRoutes } from '../../../consts';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnDestroy {
+export class NavbarComponent implements OnDestroy, OnChanges {
 
   constructor(
       private loginService: LoginService,
@@ -25,7 +25,7 @@ export class NavbarComponent implements OnDestroy {
   rutaActual: string = ''
   route = inject(Router);
   @Output() isOpenSideBar = new EventEmitter<boolean>();
-  @Input() sideNav: any;
+  @Input() sideNav: boolean = false;
   dataUser: string = "52307000 / jbastida@mapfre.com.mx"
   path!: '';
   isOpen = false;
@@ -60,7 +60,6 @@ export class NavbarComponent implements OnDestroy {
 
 
   barra() {
-    this.sideNav.classList.toggle("barraLateral")
     this.isOpen = !this.isOpen
     this.isOpenSideBar.emit(this.isOpen)
   }
@@ -68,14 +67,17 @@ export class NavbarComponent implements OnDestroy {
   barraResp() {
     this.isOpen = !this.isOpen
     this.isOpenSideBar.emit(this.isOpen)
-    this.sideNav.classList.toggle("menuResponsive")
-
   }
 
   closeInput(value: any){
     this.isSearch = value;
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['sideNav'] && typeof this.sideNav === 'boolean') {
+      this.isOpen = this.sideNav;
+    }
+  }
 
   ngOnDestroy(): void {
     this.miSuscripcion.unsubscribe();
@@ -85,5 +87,5 @@ export class NavbarComponent implements OnDestroy {
 		this.loginService.logout();
 		this.router.navigate([ApRoutes.login.value]);
 	}
- 
+
 }

@@ -13,6 +13,7 @@ import { ApRoutes } from '../../../consts';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
 import { SidebarMenuItemComponent } from './sidebar-menu-item/sidebar-menu-item.component';
+import { SmMenuItemComponent } from './sm-menu-item/sm-menu-item.component';
 
 export interface SideBarItem {
   id: string;
@@ -34,6 +35,7 @@ export interface SideBarItem {
 		RouterOutlet,
 		OverlayModule,
 		SidebarMenuItemComponent,
+		SmMenuItemComponent,
 	], //  , BreadcrumbComponent, CarouselComponent, ResumeComponent],
   templateUrl: './sidebarv2.component.html',
   styleUrl: './sidebarv2.component.css',
@@ -41,11 +43,35 @@ export interface SideBarItem {
 export class SidebarV2Component {
 
   @ViewChild('navElement') navElement?: ElementRef<HTMLElement>;
+  @ViewChild('smNavElement') smNavElement?: ElementRef<HTMLElement>;
   isOpenSideBar = signal(false);
-  sideNav: any;
+  isOpenSmSideBar = signal(false);
+  openExpandersSmMenu = new Set<string>();
+  smMenuResetToken = 0;
+  sideNav = false;
 
   barra(isOpen: boolean): void {
     this.isOpenSideBar.set(isOpen);
+    this.isOpenSmSideBar.set(isOpen);
+    this.sideNav = isOpen;
+  }
+
+  toggleSmExpander(itemId: string): void {
+    if (this.openExpandersSmMenu.has(itemId)) {
+      this.openExpandersSmMenu.delete(itemId);
+    } else {
+      this.openExpandersSmMenu.add(itemId);
+    }
+  }
+
+  isSmExpanderOpen(itemId: string): boolean {
+    return this.openExpandersSmMenu.has(itemId);
+  }
+
+  onSmMenuItemClicked(): void {
+    this.openExpandersSmMenu.clear();
+    this.smMenuResetToken++;
+    this.barra(false);
   }
 
   onMenuItemClicked(): void {

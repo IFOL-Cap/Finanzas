@@ -1,0 +1,59 @@
+<li class="list-none border-b border-gray-700 last:border-b-0">
+  @if (hasChildren) {
+    <!-- Expander con hijos -->
+    <button
+      type="button"
+      class="flex w-full items-center justify-between px-3 py-3 rounded-md transition-colors hover:bg-gray-800 text-gray-200 focus:outline-none"
+      (click)="onToggle()"
+      [attr.aria-expanded]="isOpen"
+    >
+      <div class="flex items-center gap-3 min-w-0">
+        <img
+          [src]="item.iconActive ?? item.icon"
+          [alt]="item.name"
+          class="w-5 h-5 shrink-0"
+        />
+        <span class="text-sm truncate">{{ item.name }}</span>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4 shrink-0 transition-transform duration-300"
+        [class.rotate-90]="isOpen"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6" />
+      </svg>
+    </button>
+
+    <!-- Contenido expandible -->
+    @if (isOpen) {
+      <ul class="space-y-1 bg-gray-900 px-2 py-2 ml-4 border-l-2 border-gray-700">
+        @for (child of item.opciones; track child.id) {
+          <app-sm-menu-item
+            [item]="child"
+            [depth]="depth + 1"
+            [isOpen]="isChildExpanderOpen(child.id)"
+            [resetSignal]="resetSignal"
+            (toggleExpander)="toggleChildExpander(child.id)"
+            (itemClicked)="itemClicked.emit()"
+          />
+        }
+      </ul>
+    }
+  } @else {
+    <!-- Hoja: enlace de navegación -->
+    <a
+      [routerLink]="item.path"
+      routerLinkActive="itemActived"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="flex w-full items-center gap-3 px-3 py-3 rounded-md transition-colors hover:bg-gray-800 text-gray-300 text-sm"
+      (click)="onItemClick()"
+    >
+      <img [src]="item.icon" [alt]="item.name" class="w-5 h-5 shrink-0" />
+      <span class="truncate">{{ item.name }}</span>
+    </a>
+  }
+</li>

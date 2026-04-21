@@ -1,5 +1,6 @@
 <app-navbar [sideNav]="sideNav" (isOpenSideBar)="barra($event)"></app-navbar>
 
+<!-- Menú lateral para md y superiores -->
 <aside id="logo-sidebar"
   class="fixed barraLateral left-0 z-40 h-full top-[80px] transition-transform -translate-x-full bg-black border-r border-gray-200 sm:translate-x-0 md:block hidden text-white">
   <div class="flex px-4 mb-3 h-16 items-center">
@@ -21,6 +22,50 @@
   </div>
 
 </aside>
-<div class="order-2 col-span-5 md:col-span-7 md:pr-5 mt-20 sm:ml-72">
+
+<!-- Overlay backdrop para cerrar menú móvil al hacer clic fuera -->
+<div
+  class="fixed inset-0 top-[80px] bg-black/50 transition-opacity duration-300 md:hidden z-30"
+  [class.opacity-100]="isOpenSmSideBar()"
+  [class.opacity-0]="!isOpenSmSideBar()"
+  [class.pointer-events-none]="!isOpenSmSideBar()"
+  (click)="barra(false)"
+  aria-hidden="true">
+</div>
+
+<!-- Menú lateral para sm (solo en móviles) -->
+<aside id="logo-sidebar-sm"
+  class="fixed barraLateral left-0 z-40 h-full top-[80px] transition-all duration-300 bg-black border-r border-gray-200 text-white md:hidden"
+  [class.translate-x-0]="isOpenSmSideBar()"
+  [class.-translate-x-full]="!isOpenSmSideBar()">
+
+  <div class="flex px-4 mb-3 h-16 items-center">
+    <div>
+      <img class="min-w-8" width="40" src="/assets/imgs/user.png" alt="user photo" />
+    </div>
+  </div>
+
+  <div class="pb-4 menu overflow-auto altura-personalizada" #smNavElement>
+    <div class="flex flex-col space-y-2 font-medium">
+      <nav class="overflow-visible altura-personalizada px-2 pb-4">
+        <ul class="space-y-1">
+          @for (item of sideBarItems; track item.id) {
+          <app-sm-menu-item
+            [item]="item"
+            [depth]="0"
+            [isOpen]="isSmExpanderOpen(item.id)"
+            [resetSignal]="smMenuResetToken"
+            (toggleExpander)="toggleSmExpander(item.id)"
+            (itemClicked)="onSmMenuItemClicked()">
+          </app-sm-menu-item>
+          }
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</aside>
+
+<div class="order-2 col-span-5 md:col-span-7 md:pr-5 mt-20 p-2 md:ml-72">
   <router-outlet />
 </div>
