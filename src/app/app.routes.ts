@@ -26,6 +26,16 @@ export const routes: Routes = [
     loadChildren: () => import('./refNeg-module/rn.routes'),
   },
   {
+    path: ApRoutes.emision.path.cotizacion.full(),
+    loadComponent: () =>
+      import('./emision/pages/cotizacion-page/cotizacion-page.component').then((a) => a.CotizacionPageComponent),
+  },
+  {
+    path: ApRoutes.emision.path.emision.full(),
+    loadComponent: () =>
+      import('./emision/pages/emision-page/emision-page.component').then((a) => a.EmisionPageComponent),
+  },
+  {
     path: ApRoutes.administracion.path.perfiles.full(),
     loadComponent: () =>
       import('./admin/pages/admin-profile-page/admin-profile-page.component').then((a) => a.AdminProfilePageComponent),

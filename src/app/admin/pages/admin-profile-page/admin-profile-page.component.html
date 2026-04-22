@@ -1,8 +1,18 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+  Administración de perfiles
+</h2>
+
+<div class="grid grid-cols-6 md:flex md:justify-between border-t py-4 border-gray-200 dark:border-gray-700">
+  <div class="col-span-6 flex flex-col md:flex-row md:items-center md:justify-start w-full md:w-auto">
+  </div>
+</div>
+
+
 @if (!showProfileForm) {
 	<app-admin-profile-tree
 		[nodes]="treeDataP"
 		[level]="0"
-		title="Administración de perfiles"
+		title="Perfiles"
 		[menuActions]="profileTreeMenuActions"
 		(menuAction)="onProfileTreeMenuAction($event)"
 	></app-admin-profile-tree>

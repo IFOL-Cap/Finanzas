@@ -108,7 +108,7 @@ export class SidebarV2Component implements OnInit {
           name: 'Cotización',
           icon: '/assets/icons/menu/car.svg',
           iconActive: '/assets/icons/menu/car.svg',
-          path: '/',
+          path: ApRoutes.emision.path.cotizacion.full(),
           isActive: false,
         },
         {
@@ -116,7 +116,7 @@ export class SidebarV2Component implements OnInit {
           name: 'Emisión',
           icon: '/assets/icons/menu/Shape.svg',
           iconActive: '/assets/icons/menu/Shape.svg',
-          path: '/',
+          path: ApRoutes.emision.path.emision.full(),
           isActive: false,
         },
         {
