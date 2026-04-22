@@ -76,7 +76,16 @@ export const ApRoutes = {
     } ,
     administracion: {
         value: 'admin',
-        full: () => 'admin'
+        path: {
+            menu: {
+                value: 'menu',
+                full: ()=> 'admin/menu'
+            },
+            perfiles: {
+                value: 'perfiles',
+                full: ()=> 'admin/perfiles'
+            },
+        }
     },
     catalogos:{
         value: 'catalogos',
@@ -99,17 +108,7 @@ export const ApRoutes = {
                 path: {
                     altaTerceros: {
                         value: 'altaTerceros',
-                        path: {
-                            fisica:
-                            {
-                                value: 'fisica',
-                                full: () => 'garantias/catalogo/altaTerceros/fisica'
-                            },
-                            moral: {
-                                value: 'moral',
-                                full: () => 'garantias/catalogo/altaTerceros/moral'
-                            }
-                        }
+                        full: () => 'garantias/catalogo/altaTerceros'
                     },
                 }
             },

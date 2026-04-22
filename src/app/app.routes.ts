@@ -26,24 +26,21 @@ export const routes: Routes = [
     loadChildren: () => import('./refNeg-module/rn.routes'),
   },
   {
-    path: ApRoutes.administracion.full(),
+    path: ApRoutes.administracion.path.perfiles.full(),
     loadComponent: () =>
-      import('./admin/admin.component').then((a) => a.AdminComponent),
+      import('./admin/pages/admin-profile-page/admin-profile-page.component').then((a) => a.AdminProfilePageComponent),
   },
   {
-    path: ApRoutes.garantias.path.catalogo.path.altaTerceros.path.fisica.full(),
+    path: ApRoutes.administracion.path.menu.full(),
+    loadComponent: () =>
+      import('./admin/pages/admin-menu-page/admin-menu-page.component').then((a) => a.AdminMenuPageComponent),
+  },
+  {
+    path: ApRoutes.garantias.path.catalogo.path.altaTerceros.full(),
     canActivate: [authGuard],
     loadComponent: () =>
       import('./garantia/catalogo/alta-terceros/alta-terceros.component').then(
         (m) => m.AltaTercerosComponent,
-      ),
-  },
-  {
-    path: ApRoutes.garantias.path.catalogo.path.altaTerceros.path.moral.full(),
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./garantia/catalogo/alta-terceros.moral/alta-terceros.moral.component').then(
-        (m) => m.AltaTercerosMoralComponent,
       ),
   },
   {

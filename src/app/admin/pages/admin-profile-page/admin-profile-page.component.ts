@@ -1,153 +1,28 @@
 import { Component } from '@angular/core';
-import { TreeNode } from '../shared/interfaces';
-import { AccordionReusableComponent } from "../shared/components/accordion-reusable/accordion-reusable.component";
-import { AccordionReusableItemComponent } from "../shared/components/accordion-reusable/accordion-reusable-item/accordion-reusable-item.component";
-import { TreeViewComponent } from "../shared/components/tree-view/tree-view.component";
-import { TreeViewProfileComponent } from "../shared/components/tree-view-profile/tree-view-profile.component";
-import { A11yModule } from "@angular/cdk/a11y";
-import { LabelInputComponent } from "../shared/components/forms-elements/label-input/label-input.component";
-import { TextareaComponent } from "../shared/components/forms-elements/textarea/textarea.component";
-import { LabelHelpComponent } from "../shared/components/messages-display/label-help/label-help.component";
-import { ButtonComponent } from "../shared/components/buttons/button/button.component";
+import { FormGroup } from '@angular/forms';
+import { TreeNode } from '../../../shared/interfaces';
+import { AdminProfileTreeComponent } from "../../components/admin-profile-tree/admin-profile-tree.component";
+import { AdminProfileFormComponent } from "../../components/admin-profile-form/admin-profile-form.component";
+import {
+  TreeViewProfileMenuActionPayload,
+  TreeViewProfileMenuActions,
+} from '../../../shared/components/tree-view-profile/tree-view-profile.component';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'app-admin-profile-page',
   standalone: true,
-  imports: [AccordionReusableComponent, AccordionReusableItemComponent, TreeViewComponent, TreeViewProfileComponent, A11yModule, LabelInputComponent, TextareaComponent, LabelHelpComponent, ButtonComponent],
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  imports: [AdminProfileTreeComponent, AdminProfileFormComponent],
+  templateUrl: './admin-profile-page.component.html',
+  styleUrl: './admin-profile-page.component.css'
 })
-export class AdminComponent {
-  
-  treeData: TreeNode[] = [
-    {
-      id: 1,
-      label: 'Aplicaciones',
-      expanded: true,
-      children: [
-        { 
-          id: 2, 
-          label: 'Emisión', 
-          children: [
-            { 
-              id: 20, 
-              label: 'Cotización',
-            },
-            {
-              id: 21,
-              label: 'Emisión',
-            },
-            {
-              id: 22,
-              label: 'Inicio',
-            },
-          ]
-        },
-        { 
-          id: 3, 
-          label: 'Garantías',
-          children: [
-            {
-              id: 30,
-              label: 'Alta'
-            },
-            {
-              id: 31,
-              label: 'Catálogos',
-              children: [
-                {
-                  id: 310,
-                  label: 'Consumo de Garantías'
-                },
-                {
-                  id: 311,
-                  label: 'Tipos de garantías'
-                },
-                {
-                  id: 312,
-                  label: 'Subtipos de garantías'
-                },
-                {
-                  id: 313,
-                  label: 'Tipos bien mueble'
-                },
-                {
-                  id: 314,
-                  label: 'Alta Terceros'
-                }
-              ]
-            }
-          ]
-        },
-        { 
-          id: 4, 
-          label: 'Administración', 
-          children: [
-            { 
-              id: 40, 
-              label: 'Menú',
-            },
-            {
-              id: 41,
-              label: 'Perfiles',
-            },
-          ]
-        },
-        { 
-          id: 5, 
-          label: 'Consultas',
-          children: [
-            {
-              id: 50,
-              label: 'Garantías por Poliza'
-            },
-            {
-              id: 51,
-              label: 'Personas'
-            },
-            {
-              id: 52,
-              label: 'Envio de Póliza'
-            },
-            {
-              id: 53,
-              label: 'Solicitudes'
-            },
-            {
-              id: 54,
-              label: 'Consulta de Póliza'
-            },
-            {
-              id: 55,
-              label: 'Consulta de XML'
-            }
-          ]
-        },
-        { 
-          id: 6, 
-          label: 'Ref. Neg.',
-          children: [
-            { 
-              id: 60, 
-              label: 'Palabras Excluir',
-            },
-            {
-              id: 61,
-              label: 'Causa',
-            },
-            {
-              id: 62,
-              label: 'Subcausa',
-            },
-            {
-              id: 63,
-              label: 'Personas',
-            }
-          ]
-        },
-      ],
-    },
-  ];
+export class AdminProfilePageComponent {
+  showProfileForm = false;
+
+  profileTreeMenuActions: TreeViewProfileMenuActions = {
+    onAdd: (payload) => this.handleAdd(payload),
+    onModify: (payload) => this.handleModify(payload),
+    onDelete: (payload) => this.handleDelete(payload),
+  };
 
   treeDataP: TreeNode[] = [
     {
@@ -160,12 +35,12 @@ export class AdminComponent {
           label: 'Administrador',
           expanded: true,
           children: [
-        { 
-          id: 11, 
-          label: 'Emisión', 
+        {
+          id: 11,
+          label: 'Emisión',
           children: [
-            { 
-              id: 20, 
+            {
+              id: 20,
               label: 'Cotización',
             },
             {
@@ -178,8 +53,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 3, 
+        {
+          id: 3,
           label: 'Garantías',
           children: [
             {
@@ -214,12 +89,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 4, 
-          label: 'Administración', 
+        {
+          id: 4,
+          label: 'Administración',
           children: [
-            { 
-              id: 40, 
+            {
+              id: 40,
               label: 'Menú',
             },
             {
@@ -228,8 +103,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 5, 
+        {
+          id: 5,
           label: 'Consultas',
           children: [
             {
@@ -258,12 +133,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 6, 
+        {
+          id: 6,
           label: 'Ref. Neg.',
           children: [
-            { 
-              id: 60, 
+            {
+              id: 60,
               label: 'Palabras Excluir',
             },
             {
@@ -287,12 +162,12 @@ export class AdminComponent {
           label: 'Agente',
           expanded: true,
           children: [
-        { 
-          id: 2, 
-          label: 'Emisión', 
+        {
+          id: 2,
+          label: 'Emisión',
           children: [
-            { 
-              id: 20, 
+            {
+              id: 20,
               label: 'Cotización',
             },
             {
@@ -305,8 +180,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 3, 
+        {
+          id: 3,
           label: 'Garantías',
           children: [
             {
@@ -341,12 +216,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 4, 
-          label: 'Administración', 
+        {
+          id: 4,
+          label: 'Administración',
           children: [
-            { 
-              id: 40, 
+            {
+              id: 40,
               label: 'Menú',
             },
             {
@@ -355,8 +230,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 5, 
+        {
+          id: 5,
           label: 'Consultas',
           children: [
             {
@@ -385,12 +260,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 6, 
+        {
+          id: 6,
           label: 'Ref. Neg.',
           children: [
-            { 
-              id: 60, 
+            {
+              id: 60,
               label: 'Palabras Excluir',
             },
             {
@@ -414,12 +289,12 @@ export class AdminComponent {
           label: 'TT',
           expanded: true,
           children: [
-        { 
-          id: 2, 
-          label: 'Emisión', 
+        {
+          id: 2,
+          label: 'Emisión',
           children: [
-            { 
-              id: 20, 
+            {
+              id: 20,
               label: 'Cotización',
             },
             {
@@ -432,8 +307,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 3, 
+        {
+          id: 3,
           label: 'Garantías',
           children: [
             {
@@ -468,12 +343,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 4, 
-          label: 'Administración', 
+        {
+          id: 4,
+          label: 'Administración',
           children: [
-            { 
-              id: 40, 
+            {
+              id: 40,
               label: 'Menú',
             },
             {
@@ -482,8 +357,8 @@ export class AdminComponent {
             },
           ]
         },
-        { 
-          id: 5, 
+        {
+          id: 5,
           label: 'Consultas',
           children: [
             {
@@ -512,12 +387,12 @@ export class AdminComponent {
             }
           ]
         },
-        { 
-          id: 6, 
+        {
+          id: 6,
           label: 'Ref. Neg.',
           children: [
-            { 
-              id: 60, 
+            {
+              id: 60,
               label: 'Palabras Excluir',
             },
             {
@@ -537,7 +412,34 @@ export class AdminComponent {
           ],
         }
       ],
-      
+
     },
   ];
+
+  onProfileTreeMenuAction(payload: TreeViewProfileMenuActionPayload): void {
+    console.log('AdminProfilePage - menuAction:', payload);
+  }
+
+  private handleAdd(payload: TreeViewProfileMenuActionPayload): void {
+    console.log('AdminProfilePage - add:', payload);
+    this.showProfileForm = true;
+  }
+
+  private handleModify(payload: TreeViewProfileMenuActionPayload): void {
+    console.log('AdminProfilePage - modify:', payload);
+  }
+
+  private handleDelete(payload: TreeViewProfileMenuActionPayload): void {
+    console.log('AdminProfilePage - delete:', payload);
+  }
+
+  onAdminProfileFormSubmit(form: FormGroup): void {
+    console.log('AdminProfilePage - form submit override:', form.value);
+    this.showProfileForm = false;
+  }
+
+  onAdminProfileFormReset(): void {
+    console.log('AdminProfilePage - form reset override');
+    this.showProfileForm = false;
+  }
 }

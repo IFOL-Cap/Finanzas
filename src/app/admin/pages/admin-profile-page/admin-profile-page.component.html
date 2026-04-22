@@ -1,0 +1,14 @@
+@if (!showProfileForm) {
+	<app-admin-profile-tree
+		[nodes]="treeDataP"
+		[level]="0"
+		title="Administración de perfiles"
+		[menuActions]="profileTreeMenuActions"
+		(menuAction)="onProfileTreeMenuAction($event)"
+	></app-admin-profile-tree>
+} @else {
+	<app-admin-profile-form
+		(enviarFormularioEvent)="onAdminProfileFormSubmit($event)"
+		(limpiarFormularioEvent)="onAdminProfileFormReset()"
+	></app-admin-profile-form>
+}
