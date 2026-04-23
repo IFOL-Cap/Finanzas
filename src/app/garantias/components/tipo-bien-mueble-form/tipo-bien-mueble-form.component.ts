@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { DynamicTableComponent } from '../../../shared/components/core/dynamic-table/dynamic-table.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/buttons/button/button.component';
-import { ModalAddElementComponent } from '../../../catalogos/modals/modal-add-element/modal-add-element.component';
-import { ModalEditElementComponent } from '../../../catalogos/modals/modal-edit-element/modal-edit-element.component';
+import { ModalAddElementComponent } from '../../modals/modal-add-element/modal-add-element.component';
+import { ModalEditElementComponent } from '../../modals/modal-edit-element/modal-edit-element.component';
 import { ModalMessageComponent } from '../../../shared/components/modales/modal-message/modal-message.component';
 import { Message } from '../../../shared/interfaces';
 

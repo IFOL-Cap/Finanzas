@@ -101,15 +101,6 @@ export const routes: Routes = [
         (m) => m.GarantiasPolizaComponent,
       ),
   },
- /* {
-    path: ApRoutes.catalogos.value,
-    loadChildren: () =>
-      import('./shared/components/consulting-template/pages/consulting.routes'),
-  },*/
-  {
-    path: ApRoutes.catalogos.path.step1.full(),
-    loadChildren: () => import('./catalogos/catalogos.routes'),
-  },
   {
     path: ApRoutes.garantias.path.consultas.path.personas.full(),
     canActivate: [authGuard],

@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { DynamicTableComponent } from '../../../shared/components/core/dynamic-table/dynamic-table.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../../shared/components/buttons/button/button.component';
-import { ModalAddElementComponent } from '../../../catalogos/modals/modal-add-element/modal-add-element.component';
-import { ModalEditElementComponent } from '../../../catalogos/modals/modal-edit-element/modal-edit-element.component';
+import { ModalAddElementComponent } from '../../modals/modal-add-element/modal-add-element.component';
+import { ModalEditElementComponent } from '../../modals/modal-edit-element/modal-edit-element.component';
 import { ModalMessageComponent } from '../../../shared/components/modales/modal-message/modal-message.component';
 import { Message } from '../../../shared/interfaces';
 
@@ -21,7 +21,7 @@ import { Message } from '../../../shared/interfaces';
   templateUrl: './garantias-form-component.component.html',
   styleUrl: './garantias-form-component.component.css'
 })
-export class GarantiasFormComponentComponent 
+export class GarantiasFormComponentComponent
 {
   @ViewChild(ModalAddElementComponent) modalAddElement!: ModalAddElementComponent;
   @ViewChild(ModalEditElementComponent) modalEditElement!: ModalEditElementComponent;
@@ -41,7 +41,7 @@ export class GarantiasFormComponentComponent
     },
   ];
 
-  
+
   public actions = [
     {
       label: 'Editar',
@@ -59,11 +59,11 @@ export class GarantiasFormComponentComponent
 
   openModalMessage()
   {
-    this.modalMessageBody = 
+    this.modalMessageBody =
     {
-      title: 'Mensaje', 
+      title: 'Mensaje',
       message: 'Confirmar la baja del elemento',
-    }; 
+    };
     this.modalMessage.openModal();
   }
 
@@ -71,15 +71,15 @@ export class GarantiasFormComponentComponent
   {
     this.modalAddElement.openModal();
   }
-  
-  editar(row: any) 
+
+  editar(row: any)
   {
-    console.log("row: " + JSON.stringify(row)); 
-    this.modalEditElement.openModal();   
+    console.log("row: " + JSON.stringify(row));
+    this.modalEditElement.openModal();
     //this.route.navigate(["pending/step2"]);
   }
 
-  delete(row: any) 
+  delete(row: any)
   {
     console.log("row: " + JSON.stringify(row));
     this.openModalMessage();
