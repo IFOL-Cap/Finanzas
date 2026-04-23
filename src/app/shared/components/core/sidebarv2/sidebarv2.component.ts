@@ -142,7 +142,7 @@ export class SidebarV2Component implements OnInit {
           name: 'Alta',
           icon: '/assets/icons/menu/car.svg',
           iconActive: '/assets/icons/menu/car.svg',
-          path: '/',
+          path: ApRoutes.garantias.path.busquedaGeneral.full(),
           isActive: false,
         },
         {
@@ -158,7 +158,7 @@ export class SidebarV2Component implements OnInit {
               name: 'Consumo de Garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: ApRoutes.garantias.path.step1.full(),
+              path: ApRoutes.garantias.path.catalogo.path.consumoGarantias.full(),
               isActive: false,
             },
             {
@@ -166,7 +166,7 @@ export class SidebarV2Component implements OnInit {
               name: 'Tipos de garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: ApRoutes.catalogos.path.step1.full(),
+              path: ApRoutes.garantias.path.catalogo.path.tiposGarantias.full(),
               isActive: false,
             },
             {
@@ -174,7 +174,7 @@ export class SidebarV2Component implements OnInit {
               name: 'Subtipos de garantías',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: '/',
+              path: ApRoutes.garantias.path.catalogo.path.subtiposGarantias.full(),
               isActive: false,
             },
             {
@@ -182,7 +182,7 @@ export class SidebarV2Component implements OnInit {
               name: 'Tipos bien mueble',
               icon: '/assets/icons/menu/Tablas.svg',
               iconActive: '/assets/icons/menu/Tablas.svg',
-              path: '/',
+              path: ApRoutes.garantias.path.catalogo.path.tiposBienMueble.full(),
               isActive: false,
             },
             {

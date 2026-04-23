@@ -46,6 +46,46 @@ export const routes: Routes = [
       import('./admin/pages/admin-menu-page/admin-menu-page.component').then((a) => a.AdminMenuPageComponent),
   },
   {
+    path: ApRoutes.garantias.path.busquedaGeneral.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./garantias/pages/busqueda-general-page/busqueda-general-page.component').then(
+        (m) => m.BusquedaGeneralPageComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.catalogo.path.consumoGarantias.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./garantias/pages/catalogos/consumo-garantias-page/consumo-garantias-page.component').then(
+        (m) => m.ConsumoGarantiasPageComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.catalogo.path.tiposGarantias.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./garantias/pages/catalogos/tipos-garantias-page/tipos-garantias-page.component').then(
+        (m) => m.TiposGarantiasPageComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.catalogo.path.subtiposGarantias.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./garantias/pages/catalogos/subtipo-garantias-page/subtipo-garantias-page.component').then(
+        (m) => m.SubtipoGarantiasPageComponent,
+      ),
+  },
+  {
+    path: ApRoutes.garantias.path.catalogo.path.tiposBienMueble.full(),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./garantias/pages/catalogos/tipo-bien-mueble-page/tipo-bien-mueble-page.component').then(
+        (m) => m.TipoBienMueblePageComponent,
+      ),
+  },
+  {
     path: ApRoutes.garantias.path.catalogo.path.altaTerceros.full(),
     canActivate: [authGuard],
     loadComponent: () =>

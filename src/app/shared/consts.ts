@@ -119,12 +119,32 @@ export const ApRoutes = {
         value: 'step1',
         full: () => 'garantias/step1',
       },
+      busquedaGeneral: {
+        value: 'busquedaGeneral',
+        full: () => 'garantias/busqueda-general',
+      },
       catalogo: {
         value: 'catalogo',
         path: {
+          consumoGarantias: {
+            value: 'consumoGarantias',
+            full: () => 'garantias/catalogo/consumo-garantias',
+          },
+          tiposGarantias: {
+            value: 'tiposGarantias',
+            full: () => 'garantias/catalogo/tipos-garantias',
+          },
+          subtiposGarantias: {
+            value: 'subtiposGarantias',
+            full: () => 'garantias/catalogo/subtipos-garantias',
+          },
+          tiposBienMueble: {
+            value: 'tiposBienMueble',
+            full: () => 'garantias/catalogo/tipos-bien-mueble',
+          },
           altaTerceros: {
             value: 'altaTerceros',
-            full: () => 'garantias/catalogo/altaTerceros',
+            full: () => 'garantias/catalogo/alta-terceros',
           },
         },
       },

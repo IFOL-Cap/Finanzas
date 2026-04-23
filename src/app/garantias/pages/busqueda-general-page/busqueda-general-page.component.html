@@ -1,0 +1,22 @@
+<h2 class="font-rbt-rglr text-xl font-bold mb-4">
+  Busqueda General
+</h2>
+
+<div class="grid grid-cols-6 md:flex md:justify-between border-t py-4 border-gray-200 dark:border-gray-700">
+  <div class="col-span-6 flex flex-col md:flex-row md:items-center md:justify-start w-full md:w-auto">
+  </div>
+</div>
+
+<app-accordion-reusable class="flex flex-col">
+    <app-accordion-reusable-item title="Busqueda general">
+        <div class="py-2">
+            <app-busqueda-form />
+        </div>
+    </app-accordion-reusable-item>
+
+    <app-accordion-reusable-item title="Resultados">
+        <div class="py-2">
+            <app-busqueda-result></app-busqueda-result>
+        </div>
+    </app-accordion-reusable-item>
+</app-accordion-reusable>

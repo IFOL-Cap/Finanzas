@@ -1,0 +1,18 @@
+<app-modal-add-element></app-modal-add-element>
+<app-modal-edit-element></app-modal-edit-element>
+<app-modal-message
+	[modalMessage]="modalMessageBody" status="success"> <!--status: error | success -->
+</app-modal-message>
+
+<app-dynamic-table [columns]="columns" [datasource]="datasource" [actions]="actions">
+</app-dynamic-table>
+
+<div class="w-full mt-5 inline-block md:flex md:justify-center">
+    <app-button class="mr-4" (click)="agregarNuevo()"
+        [buttonConfig]="{
+            type: 2,
+            label: '',
+        }">
+        Agregar
+    </app-button>
+</div>
