@@ -89,8 +89,8 @@ export const routes: Routes = [
     path: ApRoutes.garantias.path.catalogo.path.altaTerceros.full(),
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./garantia/catalogo/alta-terceros/alta-terceros.component').then(
-        (m) => m.AltaTercerosComponent,
+      import('./garantias/pages/catalogos/alta-tercero-page/alta-tercero-page.component').then(
+        (m) => m.AltaTerceroPageComponent,
       ),
   },
   {
@@ -106,10 +106,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./shared/components/consulting-template/pages/consulting.routes'),
   },*/
-  {
-    path: ApRoutes.garantias.path.step1.full(),
-    loadChildren: () => import('./garantias-alta/garantias.routes'),
-  },
   {
     path: ApRoutes.catalogos.path.step1.full(),
     loadChildren: () => import('./catalogos/catalogos.routes'),

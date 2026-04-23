@@ -7,7 +7,7 @@ import { LabelSelectComponent } from '../../../shared/components/forms-elements/
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-alta-terceros',
+  selector: 'app-alta-terceros-form',
   standalone: true,
   imports: [
     CommonModule,
@@ -18,10 +18,10 @@ import { CommonModule } from '@angular/common';
     ButtonComponent,
     LabelSelectComponent,
   ],
-  templateUrl: './alta-terceros.component.html',
-  styleUrl: './alta-terceros.component.css',
+  templateUrl: './alta-terceros-form.component.html',
+  styleUrl: './alta-terceros-form.component.css',
 })
-export class AltaTercerosComponent {
+export class AltaTercerosFormComponent {
   tipoPersona = signal<'fisica' | 'moral'>('fisica');
 
   public altaTercerosForm: FormGroup;
